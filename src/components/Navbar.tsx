@@ -120,8 +120,8 @@ export default function Navbar() {
   }, [menuOpen]);
 
   /* Move focus into the menu on open, and back to the toggle on close.
-     Deferred to the next frame: the overlay's `visibility` is still `hidden`
-     on the commit that opens it, and hidden elements cannot take focus. */
+     Deferred a frame so the overlay is laid out and painted (and therefore
+     focusable) before we ask for focus. */
   useEffect(() => {
     let raf = 0;
     if (menuOpen) {

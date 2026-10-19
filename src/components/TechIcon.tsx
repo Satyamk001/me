@@ -74,6 +74,7 @@ export default function TechIcon({
   const iconPath = getTechIconPath(name);
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element
     <img
       src={iconPath}
       alt={`${name} icon`}

@@ -89,6 +89,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${sansFont.variable} ${serifFont.variable} ${monoFont.variable}`}
+      data-scroll-behavior="smooth"
     >
       <body className="antialiased">{children}</body>
     </html>
