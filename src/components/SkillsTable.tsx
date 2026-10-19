@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   SKILLS_LIST,
   SKILL_FAMILIES,
@@ -8,9 +8,58 @@ import {
 } from "../data/portfolioData";
 import TechIcon from "./TechIcon";
 
+/** Mirrors the reference grid: 4 / 6 / 8 columns with the same breakpoints. */
+function useGridColumns() {
+  const [columns, setColumns] = useState(8);
+
+  useEffect(() => {
+    const update = () => {
+      const width = window.innerWidth;
+      setColumns(width <= 640 ? 4 : width <= 1100 ? 6 : 8);
+    };
+
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  return columns;
+}
+
 export default function SkillsTable() {
   const [selectedFamily, setSelectedFamily] = useState<string>("All");
   const [activeSkill, setActiveSkill] = useState<SkillElement>(SKILLS_LIST[0]);
+  const columns = useGridColumns();
+  const gridRef = useRef<HTMLUListElement | null>(null);
+  const [gridInView, setGridInView] = useState(false);
+
+  // Reveal the grid once, with the same diagonal stagger as the reference.
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const reducedMotion = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (reducedMotion || typeof IntersectionObserver === "undefined") {
+      requestAnimationFrame(() => setGridInView(true));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setGridInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -15% 0px" },
+    );
+
+    observer.observe(grid);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="skills" className="sec" aria-labelledby="skills-title">
@@ -28,7 +77,7 @@ export default function SkillsTable() {
             </h2>
           </div>
           <p className="lede max-w-[420px] text-[#6f6b64]">
-            {SKILLS_LIST.length} elements from the résumé across {SKILL_FAMILIES.length - 1} domains. Hover or tap any tile to inspect its properties and project applications.
+            {SKILLS_LIST.length} elements from the résumé across {SKILL_FAMILIES.length - 1} domains. Hover, focus or tap any tile to inspect its properties and project applications.
           </p>
         </div>
 
@@ -67,34 +116,53 @@ export default function SkillsTable() {
         </div>
 
         {/* Interactive Periodic Grid + Sticky Inspector */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 items-start">
+        <div className="grid grid-cols-1 min-[901px]:grid-cols-[minmax(0,1fr)_320px] gap-8 items-start">
           {/* Periodic Elements Grid */}
           <ul
-            className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2 list-none p-0 m-0"
+            ref={gridRef}
+            className={`skills-grid grid grid-cols-4 min-[640px]:grid-cols-6 min-[1100px]:grid-cols-8 gap-2 list-none p-0 m-0 ${
+              gridInView ? "skills-grid-in" : ""
+            }`}
             aria-label="Skills Grid"
           >
-            {SKILLS_LIST.map((skill) => {
+            {SKILLS_LIST.map((skill, index) => {
               const isDimmed =
                 selectedFamily !== "All" && skill.family !== selectedFamily;
               const isSelected = activeSkill.num === skill.num;
+              const delay =
+                (Math.floor(index / columns) + (index % columns)) * 40;
 
               return (
-                <li key={skill.num}>
+                <li
+                  key={skill.num}
+                  className="skill-cell"
+                  style={{ "--d": `${delay}ms` } as React.CSSProperties}
+                >
                   <button
                     type="button"
                     onClick={() => setActiveSkill(skill)}
                     onMouseEnter={() => setActiveSkill(skill)}
                     onFocus={() => setActiveSkill(skill)}
-                    aria-label={`${skill.name} — ${skill.family}`}
+                    aria-label={`${skill.name} — ${skill.family}${
+                      skill.isRecent ? ", recently used" : ""
+                    }`}
                     aria-pressed={isSelected}
+                    aria-controls="skill-inspector"
                     className={`relative w-full aspect-[1/1.08] rounded-xl p-2.5 text-left flex flex-col justify-between transition-all duration-300 cursor-pointer select-none ${
                       isSelected
                         ? "bg-[#0d0d0d] text-white shadow-lg -translate-y-1 z-10"
                         : "bg-white text-[#0d0d0d] shadow-[0_0_0_1px_rgba(13,13,13,0.08)] hover:-translate-y-0.5 hover:shadow-md"
-                    } ${isDimmed ? "opacity-25" : "opacity-100"}`}
+                    } ${
+                      isDimmed
+                        ? "opacity-[0.22] grayscale"
+                        : "opacity-100"
+                    }`}
                   >
                     {/* Top Row: Index and recent dot */}
-                    <div className="flex justify-between items-center w-full font-mono text-[9px] text-[#6f6b64]">
+                    <div
+                      className="flex justify-between items-center w-full font-mono text-[9px] text-[#6f6b64]"
+                      aria-hidden="true"
+                    >
                       <span className={isSelected ? "text-white/60" : ""}>
                         {skill.num}
                       </span>
@@ -109,7 +177,10 @@ export default function SkillsTable() {
                     </div>
 
                     {/* Chemical Symbol & Tech Icon */}
-                    <div className="flex items-center justify-between w-full my-auto">
+                    <div
+                      className="flex items-center justify-between w-full my-auto"
+                      aria-hidden="true"
+                    >
                       <div
                         className={`font-bold text-[clamp(17px,1.8vw,23px)] tracking-tight leading-none ${
                           isSelected ? "text-white" : "text-[#0d0d0d]"
@@ -134,15 +205,19 @@ export default function SkillsTable() {
                     </div>
 
                     {/* Element Name */}
-                    <div className="text-[10px] font-semibold leading-tight line-clamp-1">
+                    <div
+                      className="text-[10px] font-semibold leading-tight line-clamp-2 min-h-[2.2em]"
+                      aria-hidden="true"
+                    >
                       {skill.name}
                     </div>
 
                     {/* Category Acronym */}
                     <div
-                      className={`font-mono text-[8px] uppercase tracking-wider truncate ${
+                      className={`hidden min-[640px]:block font-mono text-[8px] uppercase tracking-wider truncate ${
                         isSelected ? "text-white/50" : "text-[#6f6b64]"
                       }`}
+                      aria-hidden="true"
                     >
                       {skill.family.split(" ")[0]}
                     </div>
@@ -154,8 +229,10 @@ export default function SkillsTable() {
 
           {/* Sticky Inspector Panel */}
           <aside
-            className="lg:sticky lg:top-24 rounded-3xl bg-white p-6 shadow-[0_0_0_1px_rgba(13,13,13,0.08),0_24px_60px_-20px_rgba(13,13,13,0.14)] flex flex-col justify-between min-h-[440px]"
+            id="skill-inspector"
+            className="min-[901px]:sticky min-[901px]:top-24 rounded-3xl bg-white p-6 shadow-[0_0_0_1px_rgba(13,13,13,0.08),0_24px_60px_-20px_rgba(13,13,13,0.14)] flex flex-col justify-between min-h-[460px]"
             aria-label="Skill inspector"
+            aria-live="polite"
           >
             <div>
               {/* Header: Element Number & Symbol */}
@@ -167,14 +244,17 @@ export default function SkillsTable() {
               {/* Glowing Aura Emblem with Tech Icon */}
               <div className="relative h-44 my-4 grid place-items-center">
                 <div
-                  className="absolute w-36 h-36 rounded-full blur-xl transition-all duration-500 bg-accent-soft"
+                  className="absolute w-40 h-40 rounded-full blur-xl transition-all duration-500 bg-accent-soft"
                   aria-hidden="true"
                 />
-                <div className="relative z-10 flex flex-col items-center justify-center w-28 h-28 rounded-2xl bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)] p-3">
+                <div
+                  key={activeSkill.name}
+                  className="skill-pop relative z-10 flex flex-col items-center justify-center w-32 h-32 rounded-2xl bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)] p-3"
+                >
                   <TechIcon
                     name={activeSkill.name}
-                    size={40}
-                    className="w-10 h-10 mb-2 drop-shadow-sm"
+                    size={52}
+                    className="w-[52px] h-[52px] mb-2 drop-shadow-sm"
                   />
                   <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[#6f6b64]">
                     <span className="font-bold text-[#0d0d0d]">{activeSkill.sym}</span>
@@ -190,6 +270,9 @@ export default function SkillsTable() {
               </h3>
               <p className="text-xs font-mono uppercase tracking-wider text-[#6f6b64] mt-1">
                 {activeSkill.family}
+                {activeSkill.isRecent && (
+                  <span className="text-accent"> · recently used</span>
+                )}
               </p>
 
               {/* Detailed Description / Sub-Features */}
@@ -203,16 +286,22 @@ export default function SkillsTable() {
               <p className="font-mono text-[11px] uppercase tracking-wider text-[#6f6b64] mb-2">
                 Applied in projects
               </p>
-              <ul className="list-none p-0 m-0 flex flex-wrap gap-1.5">
-                {activeSkill.usedIn.map((item) => (
-                  <li
-                    key={item}
-                    className="chip text-[11.5px] px-2.5 py-1 bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)]"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              {activeSkill.usedIn.length > 0 ? (
+                <ul className="list-none p-0 m-0 flex flex-wrap gap-1.5">
+                  {activeSkill.usedIn.map((item) => (
+                    <li
+                      key={item}
+                      className="chip text-[11.5px] px-2.5 py-1 bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)]"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <span className="text-xs text-[#6f6b64]">
+                  Not tied to a featured project
+                </span>
+              )}
             </div>
           </aside>
         </div>

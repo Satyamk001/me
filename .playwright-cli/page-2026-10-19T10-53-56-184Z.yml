@@ -1,0 +1,900 @@
+- generic [active] [ref=f3e1]:
+  - link "Skip to content" [ref=f3e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary":
+    - generic:
+      - link "Satyam Kumar — back to top" [ref=f3e3] [cursor=pointer]:
+        - /url: "#hero"
+        - generic [ref=f3e4]: SK
+        - generic [ref=f3e5]: Satyam Kumar
+      - button "Menu" [ref=f3e6]
+  - dialog "Site menu":
+    - list:
+      - listitem:
+        - link "01 About":
+          - /url: "#about"
+          - generic: "01"
+          - text: About
+      - listitem:
+        - link "02 Skills":
+          - /url: "#skills"
+          - generic: "02"
+          - text: Skills
+      - listitem:
+        - link "03 Work":
+          - /url: "#work"
+          - generic: "03"
+          - text: Work
+      - listitem:
+        - link "04 Experience":
+          - /url: "#experience"
+          - generic: "04"
+          - text: Experience
+      - listitem:
+        - link "05 Achievements":
+          - /url: "#achievements"
+          - generic: "05"
+          - text: Achievements
+      - listitem:
+        - link "06 Contact":
+          - /url: "#contact"
+          - generic: "06"
+          - text: Contact
+    - generic:
+      - link "satyamkmr37@gmail.com":
+        - /url: mailto:satyamkmr37@gmail.com
+      - generic: ·
+      - link "GitHub ↗":
+        - /url: https://github.com/satyamk001
+      - generic: ·
+      - link "LinkedIn ↗":
+        - /url: https://linkedin.com/in/satyamk001
+  - main [ref=f3e11]:
+    - region [ref=f3e12]:
+      - paragraph [aria-hidden]: SATYAM
+      - generic [ref=f3e13]:
+        - generic [ref=f3e14]:
+          - paragraph [ref=f3e15]:
+            - generic [ref=f3e17]: Satyam Kumar · Delhi
+          - heading "Software Engineer & AI Engineer." [level=1] [ref=f3e18]: Software Engineer &AI Engineer.
+        - generic [ref=f3e19]:
+          - img "Portrait of Satyam Kumar — Software Engineer & AI Engineer" [ref=f3e20]
+          - button "Play the intro audio with sound" [ref=f3e21] [cursor=pointer]
+        - generic [ref=f3e24]:
+          - paragraph [ref=f3e25]:
+            - text: Software Engineer with ~1 year of experience building event-driven real-time systems in Node.js & TypeScript, now focused on Agentic AI and GenAI engineering. Currently at
+            - strong [ref=f3e26]: MapmyIndia
+            - text: .
+          - generic [ref=f3e27]:
+            - link "Explore work" [ref=f3e28] [cursor=pointer]:
+              - /url: "#work"
+            - link "Let’s talk" [ref=f3e32] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Résumé" [ref=f3e33] [cursor=pointer]:
+              - /url: /Satyam_Kumar_Resume.txt
+          - link "Scroll" [ref=f3e37] [cursor=pointer]:
+            - /url: "#about"
+    - region [ref=f3e42]:
+      - generic [ref=f3e44]:
+        - generic [ref=f3e45]:
+          - generic [ref=f3e46]:
+            - paragraph [ref=f3e47]: 01 — About
+            - heading "Hi, I’m Satyam." [level=2] [ref=f3e48]
+            - paragraph [ref=f3e49]: Software Engineer (Backend / Full-Stack) at MapmyIndia with ~1 year of hands-on experience building event-driven, high-concurrency real-time systems. Currently focused on Agentic AI and GenAI engineering — architecting autonomous supervisor-specialist multi-agent workflows using LangGraph and high-precision RAG pipelines with hybrid search, contextual compression, and vector embeddings in Pinecone and ChromaDB. Strong data structures and algorithms foundation with 600+ problems solved across competitive platforms.
+            - generic [ref=f3e50]: "Specialized in production GenAI engineering: supervisor-worker multi-agent graphs, hybrid dense/sparse vector retrieval, contextual document compression, and high-throughput event architectures with Kafka and RabbitMQ."
+            - generic [ref=f3e51]:
+              - generic [ref=f3e52]:
+                - img "LangGraph icon" [ref=f3e53]
+                - generic [ref=f3e54]: LangGraph
+              - generic [ref=f3e55]:
+                - img "LangChain icon" [ref=f3e56]
+                - generic [ref=f3e57]: LangChain
+              - generic [ref=f3e58]:
+                - img "Node.js icon" [ref=f3e59]
+                - generic [ref=f3e60]: Node.js
+              - generic [ref=f3e61]:
+                - img "TypeScript icon" [ref=f3e62]
+                - generic [ref=f3e63]: TypeScript
+              - generic [ref=f3e64]:
+                - img "Python icon" [ref=f3e65]
+                - generic [ref=f3e66]: Python
+              - generic [ref=f3e67]:
+                - img "Apache Kafka icon" [ref=f3e68]
+                - generic [ref=f3e69]: Apache Kafka
+              - generic [ref=f3e70]:
+                - img "Redis icon" [ref=f3e71]
+                - generic [ref=f3e72]: Redis
+              - generic [ref=f3e73]:
+                - img "Docker icon" [ref=f3e74]
+                - generic [ref=f3e75]: Docker
+          - generic [ref=f3e76]:
+            - link "GitHub" [ref=f3e77] [cursor=pointer]:
+              - /url: https://github.com/satyamk001
+            - link "LinkedIn" [ref=f3e81] [cursor=pointer]:
+              - /url: https://linkedin.com/in/satyamk001
+            - link "Get in touch" [ref=f3e85] [cursor=pointer]:
+              - /url: "#contact"
+        - generic [ref=f3e87]:
+          - generic [ref=f3e89]:
+            - generic [ref=f3e90]: SATYAM KUMAR · SOFTWARE & AI ENGINEER ·
+            - generic [ref=f3e91]: SATYAM KUMAR · SOFTWARE & AI ENGINEER ·
+            - generic [ref=f3e92]: SATYAM KUMAR · SOFTWARE & AI ENGINEER ·
+            - generic [ref=f3e93]: SATYAM KUMAR · SOFTWARE & AI ENGINEER ·
+          - button "ID card for Satyam Kumar. Press to flip to the back." [ref=f3e98] [cursor=pointer]:
+            - generic [ref=f3e100]:
+              - generic [ref=f3e101]:
+                - generic [ref=f3e102]: DEVELOPER ID
+                - generic [ref=f3e103]: SK-2025
+              - generic [ref=f3e104]:
+                - img "Satyam Kumar — Developer ID Photo" [ref=f3e107]
+                - paragraph [ref=f3e108]: Satyam Kumar
+                - paragraph [ref=f3e109]: Software Engineer & AI Engineer
+                - generic [ref=f3e110]:
+                  - generic [ref=f3e111]:
+                    - term [ref=f3e112]: ID No.
+                    - definition [ref=f3e113]: satyamk001
+                  - generic [ref=f3e114]:
+                    - term [ref=f3e115]: Dept.
+                    - definition [ref=f3e116]: Agentic AI & Systems
+                  - generic [ref=f3e117]:
+                    - term [ref=f3e118]: Valid till
+                    - definition [ref=f3e119]: 2025+
+          - paragraph [ref=f3e123]: Tap card to flip ↺
+        - generic [ref=f3e124]:
+          - generic [ref=f3e125]:
+            - heading "Quick facts" [level=3] [ref=f3e126]
+            - generic [ref=f3e127]:
+              - generic [ref=f3e128]:
+                - term [ref=f3e129]: Based in
+                - definition [ref=f3e130]: Delhi, India
+              - generic [ref=f3e131]:
+                - term [ref=f3e132]: Role
+                - definition [ref=f3e133]: Associate Software Developer · MapmyIndia
+              - generic [ref=f3e134]:
+                - term [ref=f3e135]: Education
+                - definition [ref=f3e136]: B.Tech ECE · MSIT Delhi
+              - generic [ref=f3e137]:
+                - term [ref=f3e138]: DSA
+                - definition [ref=f3e139]: 600+ Problems Solved
+              - generic [ref=f3e140]:
+                - term [ref=f3e141]: Email
+                - definition [ref=f3e142]:
+                  - link "satyamkmr37@gmail.com" [ref=f3e143] [cursor=pointer]:
+                    - /url: mailto:satyamkmr37@gmail.com
+          - blockquote [ref=f3e144]:
+            - paragraph [ref=f3e145]: “Architecting resilient distributed backends and autonomous multi-agent intelligence.”
+            - generic [ref=f3e146]: — Satyam Kumar, Software Engineer & AI Engineer
+    - region [ref=f3e147]:
+      - generic [ref=f3e148]:
+        - generic [ref=f3e149]:
+          - generic [ref=f3e150]:
+            - paragraph [ref=f3e151]: 02 — Skills
+            - heading "The periodic table of my stack." [level=2] [ref=f3e152]: The periodic tableof my stack.
+          - paragraph [ref=f3e153]: 32 elements from the résumé across 5 domains. Hover or tap any tile to inspect its properties and project applications.
+        - group "Filter skills by family" [ref=f3e154]:
+          - button "All 32" [pressed] [ref=f3e155] [cursor=pointer]:
+            - generic [ref=f3e156]: All
+            - generic [ref=f3e157]: "32"
+          - button "Agentic AI & GenAI 9" [ref=f3e158] [cursor=pointer]:
+            - generic [ref=f3e159]: Agentic AI & GenAI
+            - generic [ref=f3e160]: "9"
+          - button "Languages 5" [ref=f3e161] [cursor=pointer]:
+            - generic [ref=f3e162]: Languages
+            - generic [ref=f3e163]: "5"
+          - button "Backend Systems 7" [ref=f3e164] [cursor=pointer]:
+            - generic [ref=f3e165]: Backend Systems
+            - generic [ref=f3e166]: "7"
+          - button "Frontend 3" [ref=f3e167] [cursor=pointer]:
+            - generic [ref=f3e168]: Frontend
+            - generic [ref=f3e169]: "3"
+          - button "Databases & Cloud 8" [ref=f3e170] [cursor=pointer]:
+            - generic [ref=f3e171]: Databases & Cloud
+            - generic [ref=f3e172]: "8"
+        - generic [ref=f3e173]:
+          - list "Skills Grid" [ref=f3e174]:
+            - listitem [ref=f3e175]:
+              - button "LangGraph — Agentic AI & GenAI" [pressed] [ref=f3e176] [cursor=pointer]:
+                - generic [ref=f3e177]:
+                  - generic [ref=f3e178]: "01"
+                  - generic "Recently used in production" [ref=f3e179]
+                - generic [ref=f3e180]:
+                  - generic [ref=f3e181]: Lg
+                  - generic "LangGraph icon" [ref=f3e182]:
+                    - img "LangGraph icon" [ref=f3e183]
+                - generic [ref=f3e184]: LangGraph
+                - generic [ref=f3e185]: Agentic
+            - listitem [ref=f3e186]:
+              - button "LangChain — Agentic AI & GenAI" [ref=f3e187] [cursor=pointer]:
+                - generic [ref=f3e188]:
+                  - generic [ref=f3e189]: "02"
+                  - generic "Recently used in production" [ref=f3e190]
+                - generic [ref=f3e191]:
+                  - generic [ref=f3e192]: Lc
+                  - generic "LangChain icon" [ref=f3e193]:
+                    - img "LangChain icon" [ref=f3e194]
+                - generic [ref=f3e195]: LangChain
+                - generic [ref=f3e196]: Agentic
+            - listitem [ref=f3e197]:
+              - button "RAG Pipelines — Agentic AI & GenAI" [ref=f3e198] [cursor=pointer]:
+                - generic [ref=f3e199]:
+                  - generic [ref=f3e200]: "03"
+                  - generic "Recently used in production" [ref=f3e201]
+                - generic [ref=f3e202]:
+                  - generic [ref=f3e203]: Rg
+                  - generic "RAG Pipelines icon" [ref=f3e204]:
+                    - img "RAG Pipelines icon" [ref=f3e205]
+                - generic [ref=f3e206]: RAG Pipelines
+                - generic [ref=f3e207]: Agentic
+            - listitem [ref=f3e208]:
+              - button "Multi-Agent Systems — Agentic AI & GenAI" [ref=f3e209] [cursor=pointer]:
+                - generic [ref=f3e210]:
+                  - generic [ref=f3e211]: "04"
+                  - generic "Recently used in production" [ref=f3e212]
+                - generic [ref=f3e213]:
+                  - generic [ref=f3e214]: Ma
+                  - generic "Multi-Agent Systems icon" [ref=f3e215]:
+                    - img "Multi-Agent Systems icon" [ref=f3e216]
+                - generic [ref=f3e217]: Multi-Agent Systems
+                - generic [ref=f3e218]: Agentic
+            - listitem [ref=f3e219]:
+              - button "Tool Calling (ReAct) — Agentic AI & GenAI" [ref=f3e220] [cursor=pointer]:
+                - generic [ref=f3e221]:
+                  - generic [ref=f3e222]: "05"
+                  - generic "Recently used in production" [ref=f3e223]
+                - generic [ref=f3e224]:
+                  - generic [ref=f3e225]: Tc
+                  - generic "Tool Calling (ReAct) icon" [ref=f3e226]:
+                    - img "Tool Calling (ReAct) icon" [ref=f3e227]
+                - generic [ref=f3e228]: Tool Calling (ReAct)
+                - generic [ref=f3e229]: Agentic
+            - listitem [ref=f3e230]:
+              - button "Pinecone — Agentic AI & GenAI" [ref=f3e231] [cursor=pointer]:
+                - generic [ref=f3e232]: "06"
+                - generic [ref=f3e234]:
+                  - generic [ref=f3e235]: Pc
+                  - generic "Pinecone icon" [ref=f3e236]:
+                    - img "Pinecone icon" [ref=f3e237]
+                - generic [ref=f3e238]: Pinecone
+                - generic [ref=f3e239]: Agentic
+            - listitem [ref=f3e240]:
+              - button "ChromaDB — Agentic AI & GenAI" [ref=f3e241] [cursor=pointer]:
+                - generic [ref=f3e242]: "07"
+                - generic [ref=f3e244]:
+                  - generic [ref=f3e245]: Cr
+                  - generic "ChromaDB icon" [ref=f3e246]:
+                    - img "ChromaDB icon" [ref=f3e247]
+                - generic [ref=f3e248]: ChromaDB
+                - generic [ref=f3e249]: Agentic
+            - listitem [ref=f3e250]:
+              - button "LangSmith — Agentic AI & GenAI" [ref=f3e251] [cursor=pointer]:
+                - generic [ref=f3e252]:
+                  - generic [ref=f3e253]: "08"
+                  - generic "Recently used in production" [ref=f3e254]
+                - generic [ref=f3e255]:
+                  - generic [ref=f3e256]: Ls
+                  - generic "LangSmith icon" [ref=f3e257]:
+                    - img "LangSmith icon" [ref=f3e258]
+                - generic [ref=f3e259]: LangSmith
+                - generic [ref=f3e260]: Agentic
+            - listitem [ref=f3e261]:
+              - button "LLM Evals — Agentic AI & GenAI" [ref=f3e262] [cursor=pointer]:
+                - generic [ref=f3e263]: "09"
+                - generic [ref=f3e265]:
+                  - generic [ref=f3e266]: Ev
+                  - generic "LLM Evals icon" [ref=f3e267]:
+                    - img "LLM Evals icon" [ref=f3e268]
+                - generic [ref=f3e269]: LLM Evals
+                - generic [ref=f3e270]: Agentic
+            - listitem [ref=f3e271]:
+              - button "TypeScript — Languages" [ref=f3e272] [cursor=pointer]:
+                - generic [ref=f3e273]:
+                  - generic [ref=f3e274]: "10"
+                  - generic "Recently used in production" [ref=f3e275]
+                - generic [ref=f3e276]:
+                  - generic [ref=f3e277]: Ts
+                  - generic "TypeScript icon" [ref=f3e278]:
+                    - img "TypeScript icon" [ref=f3e279]
+                - generic [ref=f3e280]: TypeScript
+                - generic [ref=f3e281]: Languages
+            - listitem [ref=f3e282]:
+              - button "JavaScript — Languages" [ref=f3e283] [cursor=pointer]:
+                - generic [ref=f3e284]: "11"
+                - generic [ref=f3e286]:
+                  - generic [ref=f3e287]: Js
+                  - generic "JavaScript icon" [ref=f3e288]:
+                    - img "JavaScript icon" [ref=f3e289]
+                - generic [ref=f3e290]: JavaScript
+                - generic [ref=f3e291]: Languages
+            - listitem [ref=f3e292]:
+              - button "Python — Languages" [ref=f3e293] [cursor=pointer]:
+                - generic [ref=f3e294]:
+                  - generic [ref=f3e295]: "12"
+                  - generic "Recently used in production" [ref=f3e296]
+                - generic [ref=f3e297]:
+                  - generic [ref=f3e298]: Py
+                  - generic "Python icon" [ref=f3e299]:
+                    - img "Python icon" [ref=f3e300]
+                - generic [ref=f3e301]: Python
+                - generic [ref=f3e302]: Languages
+            - listitem [ref=f3e303]:
+              - button "C++ — Languages" [ref=f3e304] [cursor=pointer]:
+                - generic [ref=f3e305]: "13"
+                - generic [ref=f3e307]:
+                  - generic [ref=f3e308]: Cp
+                  - generic "C++ icon" [ref=f3e309]:
+                    - img "C++ icon" [ref=f3e310]
+                - generic [ref=f3e311]: C++
+                - generic [ref=f3e312]: Languages
+            - listitem [ref=f3e313]:
+              - button "SQL — Languages" [ref=f3e314] [cursor=pointer]:
+                - generic [ref=f3e315]: "14"
+                - generic [ref=f3e317]:
+                  - generic [ref=f3e318]: Sq
+                  - generic "SQL icon" [ref=f3e319]:
+                    - img "SQL icon" [ref=f3e320]
+                - generic [ref=f3e321]: SQL
+                - generic [ref=f3e322]: Languages
+            - listitem [ref=f3e323]:
+              - button "Node.js — Backend Systems" [ref=f3e324] [cursor=pointer]:
+                - generic [ref=f3e325]:
+                  - generic [ref=f3e326]: "15"
+                  - generic "Recently used in production" [ref=f3e327]
+                - generic [ref=f3e328]:
+                  - generic [ref=f3e329]: "No"
+                  - generic "Node.js icon" [ref=f3e330]:
+                    - img "Node.js icon" [ref=f3e331]
+                - generic [ref=f3e332]: Node.js
+                - generic [ref=f3e333]: Backend
+            - listitem [ref=f3e334]:
+              - button "Express.js — Backend Systems" [ref=f3e335] [cursor=pointer]:
+                - generic [ref=f3e336]: "16"
+                - generic [ref=f3e338]:
+                  - generic [ref=f3e339]: Ex
+                  - generic "Express.js icon" [ref=f3e340]:
+                    - img "Express.js icon" [ref=f3e341]
+                - generic [ref=f3e342]: Express.js
+                - generic [ref=f3e343]: Backend
+            - listitem [ref=f3e344]:
+              - button "NestJS — Backend Systems" [ref=f3e345] [cursor=pointer]:
+                - generic [ref=f3e346]: "17"
+                - generic [ref=f3e348]:
+                  - generic [ref=f3e349]: Ns
+                  - generic "NestJS icon" [ref=f3e350]:
+                    - img "NestJS icon" [ref=f3e351]
+                - generic [ref=f3e352]: NestJS
+                - generic [ref=f3e353]: Backend
+            - listitem [ref=f3e354]:
+              - button "FastAPI — Backend Systems" [ref=f3e355] [cursor=pointer]:
+                - generic [ref=f3e356]: "18"
+                - generic [ref=f3e358]:
+                  - generic [ref=f3e359]: Fa
+                  - generic "FastAPI icon" [ref=f3e360]:
+                    - img "FastAPI icon" [ref=f3e361]
+                - generic [ref=f3e362]: FastAPI
+                - generic [ref=f3e363]: Backend
+            - listitem [ref=f3e364]:
+              - button "Event-Driven — Backend Systems" [ref=f3e365] [cursor=pointer]:
+                - generic [ref=f3e366]: "19"
+                - generic [ref=f3e368]:
+                  - generic [ref=f3e369]: Ed
+                  - generic "Event-Driven icon" [ref=f3e370]:
+                    - img "Event-Driven icon" [ref=f3e371]
+                - generic [ref=f3e372]: Event-Driven
+                - generic [ref=f3e373]: Backend
+            - listitem [ref=f3e374]:
+              - button "Microservices — Backend Systems" [ref=f3e375] [cursor=pointer]:
+                - generic [ref=f3e376]: "20"
+                - generic [ref=f3e378]:
+                  - generic [ref=f3e379]: Ms
+                  - generic "Microservices icon" [ref=f3e380]:
+                    - img "Microservices icon" [ref=f3e381]
+                - generic [ref=f3e382]: Microservices
+                - generic [ref=f3e383]: Backend
+            - listitem [ref=f3e384]:
+              - button "REST APIs — Backend Systems" [ref=f3e385] [cursor=pointer]:
+                - generic [ref=f3e386]: "21"
+                - generic [ref=f3e388]:
+                  - generic [ref=f3e389]: Ra
+                  - generic "REST APIs icon" [ref=f3e390]:
+                    - img "REST APIs icon" [ref=f3e391]
+                - generic [ref=f3e392]: REST APIs
+                - generic [ref=f3e393]: Backend
+            - listitem [ref=f3e394]:
+              - button "Angular — Frontend" [ref=f3e395] [cursor=pointer]:
+                - generic [ref=f3e396]: "22"
+                - generic [ref=f3e398]:
+                  - generic [ref=f3e399]: Ng
+                  - generic "Angular icon" [ref=f3e400]:
+                    - img "Angular icon" [ref=f3e401]
+                - generic [ref=f3e402]: Angular
+                - generic [ref=f3e403]: Frontend
+            - listitem [ref=f3e404]:
+              - button "React.js — Frontend" [ref=f3e405] [cursor=pointer]:
+                - generic [ref=f3e406]: "23"
+                - generic [ref=f3e408]:
+                  - generic [ref=f3e409]: Re
+                  - generic "React.js icon" [ref=f3e410]:
+                    - img "React.js icon" [ref=f3e411]
+                - generic [ref=f3e412]: React.js
+                - generic [ref=f3e413]: Frontend
+            - listitem [ref=f3e414]:
+              - button "Next.js — Frontend" [ref=f3e415] [cursor=pointer]:
+                - generic [ref=f3e416]:
+                  - generic [ref=f3e417]: "24"
+                  - generic "Recently used in production" [ref=f3e418]
+                - generic [ref=f3e419]:
+                  - generic [ref=f3e420]: Nx
+                  - generic "Next.js icon" [ref=f3e421]:
+                    - img "Next.js icon" [ref=f3e422]
+                - generic [ref=f3e423]: Next.js
+                - generic [ref=f3e424]: Frontend
+            - listitem [ref=f3e425]:
+              - button "Apache Kafka — Databases & Cloud" [ref=f3e426] [cursor=pointer]:
+                - generic [ref=f3e427]:
+                  - generic [ref=f3e428]: "25"
+                  - generic "Recently used in production" [ref=f3e429]
+                - generic [ref=f3e430]:
+                  - generic [ref=f3e431]: Kf
+                  - generic "Apache Kafka icon" [ref=f3e432]:
+                    - img "Apache Kafka icon" [ref=f3e433]
+                - generic [ref=f3e434]: Apache Kafka
+                - generic [ref=f3e435]: Databases
+            - listitem [ref=f3e436]:
+              - button "RabbitMQ — Databases & Cloud" [ref=f3e437] [cursor=pointer]:
+                - generic [ref=f3e438]: "26"
+                - generic [ref=f3e440]:
+                  - generic [ref=f3e441]: Rm
+                  - generic "RabbitMQ icon" [ref=f3e442]:
+                    - img "RabbitMQ icon" [ref=f3e443]
+                - generic [ref=f3e444]: RabbitMQ
+                - generic [ref=f3e445]: Databases
+            - listitem [ref=f3e446]:
+              - button "Redis — Databases & Cloud" [ref=f3e447] [cursor=pointer]:
+                - generic [ref=f3e448]:
+                  - generic [ref=f3e449]: "27"
+                  - generic "Recently used in production" [ref=f3e450]
+                - generic [ref=f3e451]:
+                  - generic [ref=f3e452]: Rd
+                  - generic "Redis icon" [ref=f3e453]:
+                    - img "Redis icon" [ref=f3e454]
+                - generic [ref=f3e455]: Redis
+                - generic [ref=f3e456]: Databases
+            - listitem [ref=f3e457]:
+              - button "PostgreSQL — Databases & Cloud" [ref=f3e458] [cursor=pointer]:
+                - generic [ref=f3e459]: "28"
+                - generic [ref=f3e461]:
+                  - generic [ref=f3e462]: Pg
+                  - generic "PostgreSQL icon" [ref=f3e463]:
+                    - img "PostgreSQL icon" [ref=f3e464]
+                - generic [ref=f3e465]: PostgreSQL
+                - generic [ref=f3e466]: Databases
+            - listitem [ref=f3e467]:
+              - button "MySQL — Databases & Cloud" [ref=f3e468] [cursor=pointer]:
+                - generic [ref=f3e469]: "29"
+                - generic [ref=f3e471]:
+                  - generic [ref=f3e472]: My
+                  - generic "MySQL icon" [ref=f3e473]:
+                    - img "MySQL icon" [ref=f3e474]
+                - generic [ref=f3e475]: MySQL
+                - generic [ref=f3e476]: Databases
+            - listitem [ref=f3e477]:
+              - button "MongoDB — Databases & Cloud" [ref=f3e478] [cursor=pointer]:
+                - generic [ref=f3e479]: "30"
+                - generic [ref=f3e481]:
+                  - generic [ref=f3e482]: Mg
+                  - generic "MongoDB icon" [ref=f3e483]:
+                    - img "MongoDB icon" [ref=f3e484]
+                - generic [ref=f3e485]: MongoDB
+                - generic [ref=f3e486]: Databases
+            - listitem [ref=f3e487]:
+              - button "Docker — Databases & Cloud" [ref=f3e488] [cursor=pointer]:
+                - generic [ref=f3e489]: "31"
+                - generic [ref=f3e491]:
+                  - generic [ref=f3e492]: Dk
+                  - generic "Docker icon" [ref=f3e493]:
+                    - img "Docker icon" [ref=f3e494]
+                - generic [ref=f3e495]: Docker
+                - generic [ref=f3e496]: Databases
+            - listitem [ref=f3e497]:
+              - button "Socket.IO — Databases & Cloud" [ref=f3e498] [cursor=pointer]:
+                - generic [ref=f3e499]: "32"
+                - generic [ref=f3e501]:
+                  - generic [ref=f3e502]: Ws
+                  - generic "Socket.IO icon" [ref=f3e503]:
+                    - img "Socket.IO icon" [ref=f3e504]
+                - generic [ref=f3e505]: Socket.IO
+                - generic [ref=f3e506]: Databases
+          - complementary "Skill inspector" [ref=f3e507]:
+            - generic [ref=f3e508]:
+              - generic [ref=f3e509]:
+                - generic [ref=f3e510]: Element No. 01
+                - generic [ref=f3e511]: Lg
+              - generic [ref=f3e514]:
+                - img "LangGraph icon" [ref=f3e515]
+                - generic [ref=f3e516]:
+                  - generic [ref=f3e517]: Lg
+                  - generic [ref=f3e518]: ·
+                  - generic [ref=f3e519]: No. 01
+              - heading "LangGraph" [level=3] [ref=f3e520]
+              - paragraph [ref=f3e521]: Agentic AI & GenAI
+              - paragraph [ref=f3e522]: Supervisor, Specialists, Map-Reduce & Send API
+            - generic [ref=f3e523]:
+              - paragraph [ref=f3e524]: Applied in projects
+              - list [ref=f3e525]:
+                - listitem [ref=f3e526]: DevAgent
+        - generic [ref=f3e527]: 12 of 32 elements are in active production use today.
+    - region [ref=f3e530]:
+      - generic [ref=f3e531]:
+        - generic [ref=f3e532]:
+          - generic [ref=f3e533]:
+            - paragraph [ref=f3e534]: 03 — Selected work
+            - heading "Things I’ve built." [level=2] [ref=f3e535]
+          - paragraph [ref=f3e536]: Agentic AI systems, enterprise RAG pipelines, and distributed event-driven architectures from the résumé. Hover or click any project rail to expand its architecture and details.
+        - generic [ref=f3e537]:
+          - article [ref=f3e538]:
+            - button "01 DevAgent −" [expanded] [ref=f3e539]:
+              - generic [ref=f3e540]:
+                - generic [ref=f3e541]: "01"
+                - generic [ref=f3e542]: DevAgent
+              - generic [ref=f3e543]: −
+            - generic [ref=f3e545]:
+              - generic [ref=f3e546]:
+                - generic [ref=f3e547]:
+                  - generic [ref=f3e548]:
+                    - generic [ref=f3e549]: "01"
+                    - generic [ref=f3e550]: Autonomous Multi-Agent System
+                  - heading "DevAgent" [level=3] [ref=f3e551]
+                  - paragraph [ref=f3e552]: Supervisor-based multi-agent coding assistant built on LangGraph. A Supervisor agent dynamically triages programming objectives and orchestrates Planner, Coder, and Reviewer/Tester specialists, handling automatic failure recovery loops until all pytest suites pass.
+                  - generic [ref=f3e553]:
+                    - paragraph [ref=f3e554]: Key architectural highlights
+                    - list [ref=f3e555]:
+                      - listitem [ref=f3e556]: Supervisor orchestrator with dynamic delegation and retry loop back to Coder on test failures
+                      - listitem [ref=f3e557]: "Real tool execution via ReAct pattern: file I/O, automated pytest runners, and AST linting"
+                      - listitem [ref=f3e558]: LangGraph Send API for parallel multi-file fan-out with map-reduce state aggregation
+                      - listitem [ref=f3e559]: Persistent state checkpointing for resumable runs and human-in-the-loop review checkpoints
+                      - listitem [ref=f3e560]: Full observability with LangSmith tracing for token usage and latency profiling
+                - generic [ref=f3e561]:
+                  - generic [ref=f3e562]:
+                    - generic [ref=f3e563]:
+                      - img "LangGraph icon" [ref=f3e564]
+                      - generic [ref=f3e565]: LangGraph
+                    - generic [ref=f3e566]:
+                      - img "Python icon" [ref=f3e567]
+                      - generic [ref=f3e568]: Python
+                    - generic [ref=f3e569]:
+                      - img "Tool Calling icon" [ref=f3e570]
+                      - generic [ref=f3e571]: Tool Calling
+                    - generic [ref=f3e572]:
+                      - img "pytest icon" [ref=f3e573]
+                      - generic [ref=f3e574]: pytest
+                    - generic [ref=f3e575]:
+                      - img "LangSmith icon" [ref=f3e576]
+                      - generic [ref=f3e577]: LangSmith
+                    - generic [ref=f3e578]:
+                      - img "FastAPI icon" [ref=f3e579]
+                      - generic [ref=f3e580]: FastAPI
+                  - link "More on GitHub" [ref=f3e582] [cursor=pointer]:
+                    - /url: https://github.com/satyamk001
+              - generic [ref=f3e586]:
+                - generic [ref=f3e587]:
+                  - generic [ref=f3e588]: arch://devagent.graph
+                  - generic [ref=f3e593]: Active architecture
+                - generic [ref=f3e595]:
+                  - generic [ref=f3e596]:
+                    - generic [ref=f3e597]:
+                      - generic [ref=f3e598]: AGENT 1
+                      - strong [ref=f3e599]: Supervisor
+                      - paragraph [ref=f3e600]: Task decomposition & routing
+                    - generic [ref=f3e601]:
+                      - generic [ref=f3e602]: AGENT 2
+                      - strong [ref=f3e603]: Planner
+                      - paragraph [ref=f3e604]: Step breakdown & dependencies
+                    - generic [ref=f3e605]:
+                      - generic [ref=f3e606]: AGENT 3
+                      - strong [ref=f3e607]: Coder (ReAct)
+                      - paragraph [ref=f3e608]: File read/write & code gen
+                    - generic [ref=f3e609]:
+                      - generic [ref=f3e610]: TEST LOOP
+                      - strong [ref=f3e611]: Reviewer / Tester
+                      - paragraph [ref=f3e612]: pytest execution [PASSED]
+                  - generic [ref=f3e613]:
+                    - text: $ pytest tests/test_agent.py
+                    - generic [ref=f3e614]: ✓ test_supervisor_dispatch PASSED [0.12s]
+                    - generic [ref=f3e615]: ✓ test_send_api_fanout PASSED [0.24s]
+                    - generic [ref=f3e616]: Checkpointed to SQLite · LangSmith traced
+                - generic [ref=f3e617]: Illustrative Architecture
+          - article [ref=f3e619] [cursor=pointer]:
+            - button "02 Company Docs Assistant +" [ref=f3e620]:
+              - generic [ref=f3e621]:
+                - generic [ref=f3e622]: "02"
+                - generic [ref=f3e623]: Company Docs Assistant
+              - generic [ref=f3e624]: +
+          - article [ref=f3e625] [cursor=pointer]:
+            - button "03 KuKu Fun +" [ref=f3e626]:
+              - generic [ref=f3e627]:
+                - generic [ref=f3e628]: "03"
+                - generic [ref=f3e629]: KuKu Fun
+              - generic [ref=f3e630]: +
+          - article [ref=f3e631] [cursor=pointer]:
+            - button "04 API Monitoring & Analytics +" [ref=f3e632]:
+              - generic [ref=f3e633]:
+                - generic [ref=f3e634]: "04"
+                - generic [ref=f3e635]: API Monitoring & Analytics
+              - generic [ref=f3e636]: +
+    - region [ref=f3e637]:
+      - generic [ref=f3e638]:
+        - generic [ref=f3e639]:
+          - generic [ref=f3e640]:
+            - paragraph [ref=f3e641]: 04 — Experience & education
+            - heading "One continuous path." [level=2] [ref=f3e642]
+          - paragraph [ref=f3e643]: Education and work in chronological order — from Computer Engineering & DSA foundation at MSIT Delhi to event-driven architectures and Agentic AI at MapmyIndia.
+        - list [ref=f3e646]:
+          - listitem [ref=f3e647]:
+            - generic [ref=f3e649]:
+              - generic [ref=f3e650]: "2021"
+              - generic [ref=f3e651]: Dec 2021 — May 2025
+            - generic [ref=f3e652]:
+              - generic [ref=f3e653]: Education
+              - heading "B.Tech in Electronics & Communication Engineering" [level=3] [ref=f3e654]
+              - paragraph [ref=f3e655]: Maharaja Surajmal Institute of Technology (MSIT) · Delhi, India
+              - list [ref=f3e656]:
+                - listitem [ref=f3e657]: Graduated with 7.9 CGPA, focusing on signal processing, embedded systems, and core computer science fundamentals.
+                - listitem [ref=f3e658]: Solved 600+ problems across LeetCode and GeeksforGeeks, cultivating deep algorithmic problem-solving capabilities in C++ and Python.
+              - generic [ref=f3e659]:
+                - generic [ref=f3e660]:
+                  - img "C++ icon" [ref=f3e661]
+                  - generic [ref=f3e662]: C++
+                - generic [ref=f3e663]:
+                  - img "Python icon" [ref=f3e664]
+                  - generic [ref=f3e665]: Python
+                - generic [ref=f3e666]:
+                  - img "SQL icon" [ref=f3e667]
+                  - generic [ref=f3e668]: SQL
+          - listitem [ref=f3e669]:
+            - generic [ref=f3e671]:
+              - generic [ref=f3e672]: "2025"
+              - generic [ref=f3e673]: Jan 2025 — May 2025
+            - generic [ref=f3e674]:
+              - generic [ref=f3e675]: Experience
+              - heading "Full Stack Developer Intern" [level=3] [ref=f3e676]
+              - paragraph [ref=f3e677]: Comely Enterprises Pvt. Ltd. · Delhi, India
+              - list [ref=f3e678]:
+                - listitem [ref=f3e679]: Built and maintained scalable cross-platform web and mobile applications using Angular, AngularJS, React Native, Express.js, Redis, and MySQL.
+                - listitem [ref=f3e680]: Improved development team delivery efficiency by 25% through modular, reusable component patterns.
+                - listitem [ref=f3e681]: Designed and deployed secure RESTful APIs with Node.js and Express.js, reducing response times by 30% and ensuring high reliability under concurrent load.
+              - generic [ref=f3e682]:
+                - generic [ref=f3e683]:
+                  - img "Angular icon" [ref=f3e684]
+                  - generic [ref=f3e685]: Angular
+                - generic [ref=f3e686]:
+                  - img "React Native icon" [ref=f3e687]
+                  - generic [ref=f3e688]: React Native
+                - generic [ref=f3e689]:
+                  - img "Express.js icon" [ref=f3e690]
+                  - generic [ref=f3e691]: Express.js
+                - generic [ref=f3e692]:
+                  - img "Redis icon" [ref=f3e693]
+                  - generic [ref=f3e694]: Redis
+                - generic [ref=f3e695]:
+                  - img "MySQL icon" [ref=f3e696]
+                  - generic [ref=f3e697]: MySQL
+                - generic [ref=f3e698]:
+                  - img "Node.js icon" [ref=f3e699]
+                  - generic [ref=f3e700]: Node.js
+          - listitem [ref=f3e701]:
+            - generic [ref=f3e703]:
+              - generic [ref=f3e704]: "2025"
+              - generic [ref=f3e705]: July 2025 — Present
+            - generic [ref=f3e706]:
+              - generic [ref=f3e707]: Experience
+              - heading "Associate Software Developer" [level=3] [ref=f3e708]
+              - paragraph [ref=f3e709]: MapmyIndia · Delhi, India
+              - list [ref=f3e710]:
+                - listitem [ref=f3e711]: Applied security best practices including input validation, error handling, and modular architecture to improve system resilience and code maintainability.
+                - listitem [ref=f3e712]: Optimized frontend and backend pipelines, achieving 40% faster page loads and dramatically reducing server error rates.
+                - listitem [ref=f3e713]: Implemented Redis for temporary data caching and asynchronous task queuing, offloading query load from core relational databases.
+              - generic [ref=f3e714]:
+                - generic [ref=f3e715]:
+                  - img "Node.js icon" [ref=f3e716]
+                  - generic [ref=f3e717]: Node.js
+                - generic [ref=f3e718]:
+                  - img "Redis icon" [ref=f3e719]
+                  - generic [ref=f3e720]: Redis
+                - generic [ref=f3e721]:
+                  - img "PostgreSQL icon" [ref=f3e722]
+                  - generic [ref=f3e723]: PostgreSQL
+                - generic [ref=f3e724]:
+                  - img "TypeScript icon" [ref=f3e725]
+                  - generic [ref=f3e726]: TypeScript
+                - generic [ref=f3e727]:
+                  - img "Apache Kafka icon" [ref=f3e728]
+                  - generic [ref=f3e729]: Apache Kafka
+          - listitem [ref=f3e730]:
+            - generic [ref=f3e732]:
+              - generic [ref=f3e733]: Next
+              - generic [ref=f3e734]: Future
+            - link "Next destination — Your engineering team? Let’s talk →" [ref=f3e736] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=f3e737]:
+                - generic [ref=f3e738]: Next destination —
+                - generic [ref=f3e739]: Your engineering team?
+              - generic [ref=f3e740]: Let’s talk →
+    - region [ref=f3e741]:
+      - generic [ref=f3e742]:
+        - generic [ref=f3e743]:
+          - generic [ref=f3e744]:
+            - paragraph [ref=f3e745]: 05 — Key metrics
+            - heading "Numbers worth keeping." [level=2] [ref=f3e746]
+          - generic [ref=f3e748]:
+            - generic [ref=f3e749]: "01"
+            - emphasis [ref=f3e751]: / 06
+        - generic [ref=f3e754]:
+          - article "600+ DSA Problems Solved — Algorithmic Foundation" [ref=f3e755]:
+            - generic [ref=f3e756]:
+              - generic [ref=f3e757]: "01"
+              - generic [ref=f3e758]:
+                - generic "C++" [ref=f3e759]:
+                  - img "C++ icon" [ref=f3e760]
+                - generic "Python" [ref=f3e761]:
+                  - img "Python icon" [ref=f3e762]
+            - generic [ref=f3e763]:
+              - generic [ref=f3e764]:
+                - heading "DSA Problems Solved" [level=3] [ref=f3e765]
+                - paragraph [ref=f3e766]: Algorithmic Foundation
+                - paragraph [ref=f3e767]: "LeetCode & GFG: Graphs, Dynamic Programming, Trees & Systems"
+              - generic [ref=f3e768]: 600+
+          - article "40% Page Load Speedup — MapmyIndia Pipelines" [ref=f3e770]:
+            - generic [ref=f3e771]:
+              - generic [ref=f3e772]: "02"
+              - generic [ref=f3e773]:
+                - generic "Node.js" [ref=f3e774]:
+                  - img "Node.js icon" [ref=f3e775]
+                - generic "Redis" [ref=f3e776]:
+                  - img "Redis icon" [ref=f3e777]
+            - generic [ref=f3e778]:
+              - generic [ref=f3e779]:
+                - heading "Page Load Speedup" [level=3] [ref=f3e780]
+                - paragraph [ref=f3e781]: MapmyIndia Pipelines
+                - paragraph [ref=f3e782]: Optimized frontend & backend pipelines with 40% faster load times
+              - generic [ref=f3e783]: 40%
+          - article "99.9% Message Durability — RabbitMQ Event Architecture" [ref=f3e785]:
+            - generic [ref=f3e786]:
+              - generic [ref=f3e787]: "03"
+              - generic [ref=f3e788]:
+                - generic "RabbitMQ" [ref=f3e789]:
+                  - img "RabbitMQ icon" [ref=f3e790]
+                - generic "Docker" [ref=f3e791]:
+                  - img "Docker icon" [ref=f3e792]
+            - generic [ref=f3e793]:
+              - generic [ref=f3e794]:
+                - heading "Message Durability" [level=3] [ref=f3e795]
+                - paragraph [ref=f3e796]: RabbitMQ Event Architecture
+                - paragraph [ref=f3e797]: Circuit breakers, retry mechanisms and Dead Letter Queues
+              - generic [ref=f3e798]: 99.9%
+          - article "30% Latency Reduction — Comely Enterprises APIs" [ref=f3e800]:
+            - generic [ref=f3e801]:
+              - generic [ref=f3e802]: "04"
+              - generic [ref=f3e803]:
+                - generic "Express.js" [ref=f3e804]:
+                  - img "Express.js icon" [ref=f3e805]
+                - generic "MySQL" [ref=f3e806]:
+                  - img "MySQL icon" [ref=f3e807]
+            - generic [ref=f3e808]:
+              - generic [ref=f3e809]:
+                - heading "Latency Reduction" [level=3] [ref=f3e810]
+                - paragraph [ref=f3e811]: Comely Enterprises APIs
+                - paragraph [ref=f3e812]: Optimized RESTful services, Redis caching and query indexing
+              - generic [ref=f3e813]: 30%
+          - article "4 Autonomous Agents — DevAgent Architecture" [ref=f3e815]:
+            - generic [ref=f3e816]:
+              - generic [ref=f3e817]: "05"
+              - generic [ref=f3e818]:
+                - generic "LangGraph" [ref=f3e819]:
+                  - img "LangGraph icon" [ref=f3e820]
+                - generic "Python" [ref=f3e821]:
+                  - img "Python icon" [ref=f3e822]
+            - generic [ref=f3e823]:
+              - generic [ref=f3e824]:
+                - heading "Autonomous Agents" [level=3] [ref=f3e825]
+                - paragraph [ref=f3e826]: DevAgent Architecture
+                - paragraph [ref=f3e827]: Supervisor, Planner, Coder & Reviewer coordinated via LangGraph
+              - generic [ref=f3e828]: "4"
+          - article "30/10s Sliding-Window Protection — KuKu Fun Messaging Rate Limit" [ref=f3e830]:
+            - generic [ref=f3e831]:
+              - generic [ref=f3e832]: "06"
+              - generic [ref=f3e833]:
+                - generic "Redis" [ref=f3e834]:
+                  - img "Redis icon" [ref=f3e835]
+                - generic "Apache Kafka" [ref=f3e836]:
+                  - img "Apache Kafka icon" [ref=f3e837]
+                - generic "Socket.IO" [ref=f3e838]:
+                  - img "Socket.IO icon" [ref=f3e839]
+            - generic [ref=f3e840]:
+              - generic [ref=f3e841]:
+                - heading "Sliding-Window Protection" [level=3] [ref=f3e842]
+                - paragraph [ref=f3e843]: KuKu Fun Messaging Rate Limit
+                - paragraph [ref=f3e844]: 30 DMs per 10-second window Redis limiter with Kafka streaming
+              - generic [ref=f3e845]: 30/10s
+          - paragraph [ref=f3e847]: and counting →
+    - region [ref=f3e848]:
+      - generic [ref=f3e849]:
+        - paragraph [ref=f3e850]: 06 — Contact
+        - heading "Let’s build something together." [level=2] [ref=f3e851]:
+          - generic [ref=f3e852]:
+            - generic [ref=f3e854]:
+              - generic [ref=f3e855]: L
+              - generic [ref=f3e856]: e
+              - generic [ref=f3e857]: t
+              - generic [ref=f3e858]: ’
+              - generic [ref=f3e859]: s
+            - generic [ref=f3e861]:
+              - generic [ref=f3e862]: b
+              - generic [ref=f3e863]: u
+              - generic [ref=f3e864]: i
+              - generic [ref=f3e865]: l
+              - generic [ref=f3e866]: d
+          - generic [ref=f3e867]:
+            - generic [ref=f3e869]:
+              - generic [ref=f3e870]: s
+              - generic [ref=f3e871]: o
+              - generic [ref=f3e872]: m
+              - generic [ref=f3e873]: e
+              - generic [ref=f3e874]: t
+              - generic [ref=f3e875]: h
+              - generic [ref=f3e876]: i
+              - generic [ref=f3e877]: "n"
+              - generic [ref=f3e878]: g
+            - generic [ref=f3e880]:
+              - generic [ref=f3e881]: t
+              - generic [ref=f3e882]: o
+              - generic [ref=f3e883]: g
+              - generic [ref=f3e884]: e
+              - generic [ref=f3e885]: t
+              - generic [ref=f3e886]: h
+              - generic [ref=f3e887]: e
+              - generic [ref=f3e888]: r
+              - generic [ref=f3e889]: .
+        - generic [ref=f3e890]:
+          - generic [ref=f3e891]:
+            - generic [ref=f3e892]:
+              - link "satyamkmr37@gmail.com" [ref=f3e893] [cursor=pointer]:
+                - /url: mailto:satyamkmr37@gmail.com
+              - button "Copy email address" [ref=f3e894] [cursor=pointer]:
+                - generic [ref=f3e898]: Copy
+              - status [ref=f3e899]
+            - list [ref=f3e900]:
+              - listitem [ref=f3e901]:
+                - link "+91 9582906377" [ref=f3e902] [cursor=pointer]:
+                  - /url: tel:+919582906377
+              - listitem [ref=f3e906]:
+                - link "GitHub ↗" [ref=f3e907] [cursor=pointer]:
+                  - /url: https://github.com/satyamk001
+                  - generic [ref=f3e910]: GitHub
+                  - generic [ref=f3e911]: ↗
+              - listitem [ref=f3e912]:
+                - link "LinkedIn ↗" [ref=f3e913] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/satyamk001
+                  - generic [ref=f3e916]: LinkedIn
+                  - generic [ref=f3e917]: ↗
+            - paragraph [ref=f3e918]: Software Engineer & AI Engineer · MapmyIndia · Delhi, India
+          - generic [ref=f3e919]:
+            - generic [aria-hidden]:
+              - img:
+                - generic: say hello · open to work · say hello ·
+              - generic: ↗
+            - generic [ref=f3e920]:
+              - generic:
+                - generic:
+                  - paragraph: Satyam Kumar
+                  - paragraph: MapmyIndia · Delhi
+                - generic: Available
+        - generic [ref=f3e1002]:
+          - generic [ref=f3e1003]: © 2026 Satyam Kumar. Built with Next.js, Lenis & Tailwind CSS.
+          - generic [ref=f3e1004]:
+            - link "Privacy" [ref=f3e1005] [cursor=pointer]:
+              - /url: /privacy
+            - link "Back to top" [ref=f3e1006] [cursor=pointer]:
+              - /url: "#hero"
+              - generic [aria-hidden] [ref=f3e1008]: ↑
+  - button "Open Next.js Dev Tools" [ref=f3e1014] [cursor=pointer]
+  - alert [ref=f3e1018]

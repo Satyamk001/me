@@ -319,13 +319,13 @@
   .hr-ghost {
     position: absolute;
     left: 50%;
-    top: clamp(110px, 22vh, 220px);
+    top: clamp(100px, 18vh, 200px);
     transform: translateX(-50%);
     margin: 0;
     font-weight: 800;
-    letter-spacing: -0.06em;
-    line-height: 0.8;
-    font-size: clamp(84px, 21vw, 380px);
+    letter-spacing: -0.035em;
+    line-height: 0.82;
+    font-size: clamp(80px, 20vw, 340px);
     color: transparent;
     -webkit-text-stroke: 1.2px rgba(13, 13, 13, 0.16);
     white-space: nowrap;
@@ -337,17 +337,17 @@
   .hr-stage {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    grid-template-columns: minmax(320px, 1.15fr) auto minmax(290px, 1fr);
     align-items: end;
-    gap: clamp(16px, 2vw, 32px);
+    gap: clamp(16px, 2vw, 36px);
   }
 
   .hr-media {
     position: relative;
     mix-blend-mode: multiply;
-    height: min(96svh, 1040px);
+    height: min(88svh, 880px);
     aspect-ratio: 768 / 960;
-    max-width: min(80vw, 832px);
+    max-width: min(44vw, 560px);
     margin-bottom: 0;
     animation: hr-rise 1.4s var(--ease) 0.1s both;
   }
@@ -363,21 +363,23 @@
 
   .hr-left {
     align-self: end;
-    padding-bottom: clamp(32px, 9vh, 96px);
+    padding-bottom: clamp(32px, 8vh, 88px);
     position: relative;
     z-index: 2;
-    margin-right: clamp(-220px, -10vw, 0px);
+    min-width: 0;
+    margin-right: clamp(-140px, -8vw, 0px);
   }
 
   .hr-right {
     align-self: end;
     justify-self: end;
-    padding-bottom: clamp(32px, 9vh, 96px);
+    padding-bottom: clamp(32px, 8vh, 88px);
     position: relative;
     z-index: 2;
-    max-width: 340px;
+    max-width: 380px;
+    min-width: 286px;
     display: grid;
-    gap: 22px;
+    gap: 20px;
   }
 
   .hr-kicker {
@@ -404,9 +406,14 @@
   .hr h1 {
     margin: 0;
     font-weight: 700;
-    letter-spacing: -0.05em;
-    line-height: 0.95;
-    font-size: clamp(44px, 5.6vw, 96px);
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    font-size: clamp(34px, 3.8vw, 68px);
+  }
+
+  .hr-line {
+    display: block;
+    white-space: nowrap;
   }
 
   .hr h1 .it {
@@ -473,6 +480,8 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    width: fit-content;
+    justify-self: start;
     font-family: var(--nf-mono), monospace;
     font-size: 12px;
     color: var(--mute);
@@ -486,15 +495,29 @@
     color: var(--ink);
   }
 
-  .hr-scroll span {
+  .hr-scroll:hover .hr-scroll-icon,
+  .hr-scroll:hover > span:first-child {
+    box-shadow: inset 0 0 0 1px var(--ink);
+    color: var(--ink);
+  }
+
+  .hr-scroll-icon,
+  .hr-scroll > span:first-child {
     display: grid;
     place-items: center;
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    box-shadow: var(--hair);
-    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(13, 13, 13, 0.12);
+    background: transparent;
+    color: inherit;
     animation: hr-bob 2.4s var(--ease) infinite;
+  }
+
+  .hr-scroll-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: inherit;
   }
 
   .hr-fade {
@@ -502,9 +525,17 @@
     animation-delay: calc(0.35s + var(--i, 0) * 0.09s);
   }
 
-  @media (max-width: 1100px) {
-    .hr-left {
-      margin-right: clamp(-160px, -12vw, 0px);
+  @media (max-width: 1240px) {
+    .hr-stage {
+      grid-template-columns: minmax(0, 1.2fr) auto minmax(0, 1fr);
+      gap: 20px;
+    }
+    .hr-media {
+      max-width: min(34vw, 420px);
+      height: min(78svh, 720px);
+    }
+    .hr h1 {
+      font-size: clamp(30px, 3.4vw, 50px);
     }
   }
 
@@ -515,7 +546,7 @@
     }
     .hr-ghost {
       top: 96px;
-      font-size: clamp(64px, 23vw, 200px);
+      font-size: clamp(60px, 20vw, 180px);
     }
     .hr-stage {
       grid-template-columns: minmax(0, 1fr);
@@ -524,7 +555,7 @@
     }
     .hr-media {
       order: -1;
-      height: 62svh;
+      height: 60svh;
       max-width: 100%;
     }
     .hr-left,
@@ -540,9 +571,21 @@
     .hr-right {
       padding: 22px 0 48px;
     }
+    .hr h1 {
+      font-size: clamp(34px, 8.5vw, 64px);
+      line-height: 1.05;
+    }
+    .hr-line {
+      display: inline;
+      white-space: normal;
+    }
+    .hr-line:first-child::after {
+      content: "\A";
+      white-space: pre;
+    }
     .hr-sound {
-      bottom: 18%;
-      right: 2%;
+      bottom: 20px;
+      right: 20px;
     }
   }
 
@@ -555,6 +598,26 @@
 
   .tab-panel {
     animation: fade-in 0.45s var(--ease) both;
+  }
+
+  /* ---------- Periodic skills grid ---------- */
+  .skills-grid .skill-cell {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.8s var(--ease);
+    transition-delay: var(--d, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .skills-grid.skills-grid-in .skill-cell {
+    opacity: 1;
+    transform: none;
+  }
+
+  .skill-pop {
+    animation: skill-pop 0.7s var(--ease) both;
   }
 
   /* ---------- Lanyard & ID card ---------- */
@@ -1112,6 +1175,20 @@
   }
   to {
     opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes skill-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06) rotate(1deg);
+  }
+  100% {
     transform: none;
   }
 }

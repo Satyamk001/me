@@ -1,221 +1,123 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import React, { useRef, useState, useEffect } from "react";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
-/** Optional hero intro video. The server component passes this only when the
- *  files actually exist in `public/hero/`, so the hero falls back to the
- *  portrait instead of rendering a broken <video>. */
-export type HeroVideo = {
+export interface HeroVideo {
   webm: string | null;
   mp4: string | null;
   poster: string | null;
-};
+}
 
-const INTRO =
-  "Hi, I'm Satyam Kumar — Software Engineer and AI Engineer building event-driven real-time systems and LangGraph multi-agent architectures at MapmyIndia. Welcome to my portfolio.";
+interface HeroProps {
+  video?: HeroVideo | null;
+}
 
-export default function Hero({ video = null }: { video?: HeroVideo | null }) {
-  const isVideo = Boolean(video && (video.webm || video.mp4));
-
+export default function Hero({ video }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const btnRef = useRef<HTMLButtonElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
-  /** Audio is actually audible right now (video unmuted / speech started). */
-  const [soundOn, setSoundOn] = useState(false);
-  /** Video only: the browser refused unmuted autoplay, so we are "blocked". */
-  const [blocked, setBlocked] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isBlocked, setIsBlocked] = useState(false);
 
-  /** Video: "the intro should be playing" — starts true like the reference, so
-   *  the first gesture anywhere can unblock the sound. Speech: "the utterance
-   *  should be running" — false until the visitor starts it. */
-  const wantsPlayRef = useRef(isVideo);
+  const wantsSoundRef = useRef(true);
   const inViewRef = useRef(true);
-  const reduceRef = useRef(false);
+  const lowPowerRef = useRef(false);
 
-  /* ---------- reduced motion ------------------------------------------
-   * Mirrors the reference: under `prefers-reduced-motion: reduce` nothing
-   * starts by itself and the pulsing affordance is suppressed (its
-   * animation is disabled globally, so a frozen ring would look broken). */
+  // 1. Initial play attempt on mount: tries unmuted play.
+  // If browser blocks unmuted autoplay, it mutes and sets isBlocked = true (triggers .is-blocked pulse ring)
   useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => {
-      reduceRef.current = mq.matches;
-      setReduceMotion(mq.matches);
-    };
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
+    const video = videoRef.current;
+    if (!video) return;
 
-  /* ---------- video: unmuted autoplay, then muted fallback ------------- */
-  useEffect(() => {
-    if (!isVideo) return;
-    const v = videoRef.current;
-    if (!v) return;
-    if (reduceRef.current) {
-      wantsPlayRef.current = false;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      wantsSoundRef.current = false;
       return;
     }
-    v.muted = false;
-    v.play()
-      .then(() => setSoundOn(true))
+
+    video.muted = false;
+    video
+      .play()
+      .then(() => setIsPlaying(true))
       .catch(() => {
-        // Autoplay with sound was refused: loop silently and flag "blocked".
-        v.muted = true;
-        setBlocked(true);
-        v.play().catch(() => {});
+        video.muted = true;
+        setIsBlocked(true);
+        video.play().catch(() => {});
       });
-  }, [isVideo]);
-
-  /* ---------- video: first gesture anywhere enables sound ------------- */
-  useEffect(() => {
-    if (!isVideo || !blocked) return;
-    const onGesture = (e: Event) => {
-      if (btnRef.current && e.target instanceof Node && btnRef.current.contains(e.target)) return;
-      const v = videoRef.current;
-      if (!v || !wantsPlayRef.current) return;
-      v.muted = false;
-      (inViewRef.current ? v.play() : Promise.resolve())
-        .then(() => {
-          setSoundOn(true);
-          setBlocked(false);
-        })
-        .catch(() => {
-          v.muted = true;
-        });
-    };
-    const opts = { capture: true, passive: true };
-    window.addEventListener("pointerdown", onGesture, opts);
-    window.addEventListener("keydown", onGesture, opts);
-    window.addEventListener("touchend", onGesture, opts);
-    return () => {
-      window.removeEventListener("pointerdown", onGesture, opts);
-      window.removeEventListener("keydown", onGesture, opts);
-      window.removeEventListener("touchend", onGesture, opts);
-    };
-  }, [isVideo, blocked]);
-
-  /* ---------- start / stop speech ------------------------------------- */
-  const startSpeech = useCallback(() => {
-    if (!("speechSynthesis" in window)) return;
-    const synth = window.speechSynthesis;
-    synth.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(INTRO);
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
-    const voices = synth.getVoices();
-    const preferred =
-      voices.find(
-        (v) =>
-          v.lang.startsWith("en") &&
-          (v.name.includes("Natural") ||
-            v.name.includes("Google") ||
-            v.name.includes("Samantha") ||
-            v.name.includes("Daniel"))
-      ) || voices.find((v) => v.lang.startsWith("en"));
-    if (preferred) utterance.voice = preferred;
-
-    // Report "sound on" only once the browser really started speaking.
-    utterance.onstart = () => {
-      wantsPlayRef.current = true;
-      setSoundOn(true);
-    };
-    const stop = () => {
-      wantsPlayRef.current = false;
-      setSoundOn(false);
-    };
-    utterance.onend = stop;
-    utterance.onerror = stop;
-
-    utteranceRef.current = utterance;
-    synth.speak(utterance);
   }, []);
 
-  /* ---------- play / mute button -------------------------------------- */
-  const toggleAudio = () => {
-    if (isVideo) {
-      const v = videoRef.current;
-      if (!v) return;
-      if (soundOn) {
-        v.muted = true;
-        wantsPlayRef.current = false;
-        setSoundOn(false);
-        if (reduceRef.current) v.pause();
+  // 2. Global interaction unblock:
+  // When isBlocked is true, any user interaction on the window (click, tap, keypress)
+  // except directly on the sound button unblocks audio and resumes unmuted video playback.
+  useEffect(() => {
+    if (!isBlocked) return;
+
+    const handleUserInteract = (e: Event) => {
+      if (btnRef.current && e.target instanceof Node && btnRef.current.contains(e.target)) {
         return;
       }
-      wantsPlayRef.current = true;
-      v.muted = false;
-      v.play()
-        .then(() => {
-          setSoundOn(true);
-          setBlocked(false);
-        })
-        .catch(() => {
-          v.muted = true;
-        });
-      return;
-    }
+      const video = videoRef.current;
+      if (video && wantsSoundRef.current) {
+        video.muted = false;
+        (inViewRef.current ? video.play() : Promise.resolve())
+          .then(() => {
+            setIsPlaying(true);
+            setIsBlocked(false);
+          })
+          .catch(() => {
+            video.muted = true;
+          });
+      }
+    };
 
-    if (soundOn) {
-      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-      utteranceRef.current = null;
-      wantsPlayRef.current = false;
-      setSoundOn(false);
-      return;
-    }
-    startSpeech();
-  };
+    const opts = { capture: true, passive: true };
+    window.addEventListener("pointerdown", handleUserInteract, opts);
+    window.addEventListener("keydown", handleUserInteract, opts);
+    window.addEventListener("touchend", handleUserInteract, opts);
 
-  /* ---------- viewport / tab lifecycle -------------------------------- */
+    return () => {
+      window.removeEventListener("pointerdown", handleUserInteract, opts);
+      window.removeEventListener("keydown", handleUserInteract, opts);
+      window.removeEventListener("touchend", handleUserInteract, opts);
+    };
+  }, [isBlocked]);
+
+  // 3. IntersectionObserver & Tab Visibility:
+  // Automatically pauses video when scrolled out of view (threshold < 0.35) or when tab is blurred.
+  // Resumes playback when returning into viewport or tab.
   useEffect(() => {
     const sec = sectionRef.current;
-    if (!sec || typeof window === "undefined" || !("IntersectionObserver" in window)) return;
-
-    const setInView = (inView: boolean) => {
-      inViewRef.current = inView;
-
-      if (isVideo) {
-        const v = videoRef.current;
-        if (!v) return;
-        if (!inView) {
-          v.pause();
-        } else if (!(reduceRef.current && v.muted)) {
-          v.play().catch(() => {});
-        }
-        return;
-      }
-
-      if (!("speechSynthesis" in window)) return;
-      if (!inView) {
-        window.speechSynthesis.pause();
-      } else if (wantsPlayRef.current) {
-        window.speechSynthesis.resume();
-      }
-    };
+    const video = videoRef.current;
+    if (!sec || !video || typeof window === "undefined" || !("IntersectionObserver" in window))
+      return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        setInView(entry.intersectionRatio >= 0.35);
+        inViewRef.current = entry.intersectionRatio >= 0.35;
+        if (inViewRef.current) {
+          if (video.paused && (!lowPowerRef.current || !video.muted)) {
+            video.play().catch(() => {});
+          }
+        } else {
+          video.pause();
+        }
       },
       { threshold: [0, 0.2, 0.35, 0.5, 1] }
     );
+
     observer.observe(sec);
 
     const handleVisibility = () => {
       if (document.hidden) {
-        if (isVideo) videoRef.current?.pause();
-        else if ("speechSynthesis" in window) window.speechSynthesis.pause();
-        return;
+        video.pause();
+      } else {
+        if (inViewRef.current && (!lowPowerRef.current || !video.muted)) {
+          video.play().catch(() => {});
+        }
       }
-      setInView(inViewRef.current);
     };
 
     document.addEventListener("visibilitychange", handleVisibility);
@@ -224,16 +126,34 @@ export default function Hero({ video = null }: { video?: HeroVideo | null }) {
       observer.disconnect();
       document.removeEventListener("visibilitychange", handleVisibility);
     };
-  }, [isVideo]);
+  }, []);
 
-  useEffect(
-    () => () => {
-      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-    },
-    []
-  );
+  // 4. Sound button toggle: switches between unmuted video with pause icon and muted with play icon
+  const handleSoundToggle = () => {
+    const video = videoRef.current;
+    if (!video) return;
 
-  const showPing = !soundOn && !reduceMotion && (!isVideo || blocked);
+    if (isPlaying) {
+      video.muted = true;
+      wantsSoundRef.current = false;
+      setIsPlaying(false);
+      if (lowPowerRef.current) {
+        video.pause();
+      }
+    } else {
+      wantsSoundRef.current = true;
+      video.muted = false;
+      video
+        .play()
+        .then(() => {
+          setIsPlaying(true);
+          setIsBlocked(false);
+        })
+        .catch(() => {
+          video.muted = true;
+        });
+    }
+  };
 
   return (
     <section ref={sectionRef} id="hero" className="hr" aria-labelledby="hero-title">
@@ -251,48 +171,38 @@ export default function Hero({ video = null }: { video?: HeroVideo | null }) {
           </p>
 
           <h1 id="hero-title" className="hr-fade" style={{ "--i": 1 } as React.CSSProperties}>
-            Software Engineer &amp;
-            <br />
-            AI <span className="it">Engineer.</span>
+            <span className="hr-line">Software Engineer &amp;</span>
+            <span className="hr-line">
+              AI <span className="it">Engineer.</span>
+            </span>
           </h1>
         </div>
 
-        {/* Center Column: Portrait (or intro video) in exact 768/960 stage with multiply blend */}
+        {/* Center Media: Video element with hero.webm + hero.mp4 + poster.webp & sound toggle button */}
         <div className="hr-media">
-          {isVideo ? (
-            <video
-              ref={videoRef}
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster={video?.poster ?? undefined}
-              aria-label={`Video: a short spoken self-introduction by ${PERSONAL_INFO.name}`}
-            >
-              {video?.webm ? <source src={video.webm} type="video/webm" /> : null}
-              {video?.mp4 ? <source src={video.mp4} type="video/mp4" /> : null}
-            </video>
-          ) : (
-            <Image
-              src="/my_image_stage.webp"
-              alt="Portrait of Satyam Kumar — Software Engineer & AI Engineer"
-              fill
-              priority
-              sizes="(max-width: 860px) 100vw, 832px"
-              className="w-full h-full object-contain object-bottom"
-            />
-          )}
+          <video
+            ref={videoRef}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={video?.poster || "/hero/poster.webp"}
+            aria-label="Video: a short spoken self-introduction by Satyam Kumar"
+          >
+            <source src={video?.webm || "/hero/hero.webm"} type="video/webm" />
+            <source src={video?.mp4 || "/hero/hero.mp4"} type="video/mp4" />
+          </video>
 
           <button
             ref={btnRef}
             type="button"
-            className={`hr-sound${showPing ? " is-blocked" : ""}`}
-            onClick={toggleAudio}
-            aria-pressed={soundOn}
-            aria-label={soundOn ? "Mute the intro audio" : "Play the intro audio with sound"}
-            title={soundOn ? "Mute the intro audio" : "Play the intro audio with sound"}
+            className={`hr-sound${isBlocked && !isPlaying ? " is-blocked" : ""}`}
+            onClick={handleSoundToggle}
+            aria-pressed={isPlaying}
+            aria-label={isPlaying ? "Mute the intro video" : "Play the intro video with sound"}
+            title={isPlaying ? "Mute the intro video" : "Play the intro video with sound"}
           >
-            {soundOn ? (
+            {isPlaying ? (
               <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
                 <rect x="3.5" y="2.5" width="3" height="11" rx="1" />
                 <rect x="9.5" y="2.5" width="3" height="11" rx="1" />
@@ -363,7 +273,7 @@ export default function Hero({ video = null }: { video?: HeroVideo | null }) {
             className="hr-scroll hr-fade"
             style={{ "--i": 4 } as React.CSSProperties}
           >
-            <span aria-hidden="true">
+            <span className="hr-scroll-icon" aria-hidden="true">
               <svg
                 width="13"
                 height="13"
@@ -378,7 +288,7 @@ export default function Hero({ video = null }: { video?: HeroVideo | null }) {
                 <path d="M12 4v16M6 14l6 6 6-6" />
               </svg>
             </span>
-            <span>Scroll</span>
+            <span className="hr-scroll-text">Scroll</span>
           </a>
         </div>
       </div>

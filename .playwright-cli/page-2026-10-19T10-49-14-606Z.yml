@@ -1,0 +1,907 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation "Primary":
+    - generic:
+      - link "Abhishek Raj — back to top" [ref=f2e3] [cursor=pointer]:
+        - /url: "#top"
+        - generic [aria-hidden] [ref=f2e4]: AR
+        - generic: Abhishek Raj
+      - generic [ref=f2e5]:
+        - link "About" [ref=f2e7] [cursor=pointer]:
+          - /url: "#about"
+        - link "Skills" [ref=f2e8] [cursor=pointer]:
+          - /url: "#skills"
+        - link "Work" [ref=f2e9] [cursor=pointer]:
+          - /url: "#work"
+        - link "Experience" [ref=f2e10] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Achievements" [ref=f2e11] [cursor=pointer]:
+          - /url: "#achievements"
+        - link "Contact" [ref=f2e12] [cursor=pointer]:
+          - /url: "#contact"
+  - main [ref=f2e13]:
+    - region [ref=f2e14]:
+      - paragraph [aria-hidden]: ABHISHEK
+      - generic [ref=f2e15]:
+        - generic [ref=f2e16]:
+          - paragraph [ref=f2e17]: Abhishek Raj · Pune
+          - heading "Senior Analyst & AI Engineer." [level=1] [ref=f2e19]: Senior Analyst &AI Engineer.
+        - generic [ref=f2e20]:
+          - 'generic "Video: a short spoken self-introduction by Abhishek Raj" [ref=f2e21]'
+          - button "Play the intro video with sound" [ref=f2e22] [cursor=pointer]
+        - generic [ref=f2e25]:
+          - paragraph [ref=f2e26]: 3+ years building AI-powered automation platforms, agentic systems and enterprise data platforms. Currently at ContinuServe.
+          - generic [ref=f2e27]:
+            - link "Explore work" [ref=f2e28] [cursor=pointer]:
+              - /url: "#work"
+            - link "Let’s talk" [ref=f2e31] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Résumé" [ref=f2e32] [cursor=pointer]:
+              - /url: /Abhishek_Raj_Resume.pdf
+          - link "Scroll" [ref=f2e35] [cursor=pointer]:
+            - /url: "#about"
+    - region [ref=f2e39]:
+      - generic [ref=f2e40]:
+        - generic [ref=f2e41]:
+          - generic [ref=f2e42]:
+            - paragraph [ref=f2e43]:
+              - generic [ref=f2e44]: "01"
+              - text: — About
+            - heading "Hi, I’m Abhishek." [level=2] [ref=f2e45]
+          - paragraph [ref=f2e48]: Senior Analyst - AI Augmented Analytics with 3+ years of experience building AI-powered automation platforms, agentic systems, and enterprise data platforms. Currently delivering Microsoft Fabric lakehouse pipelines, data quality frameworks, and Azure AI Foundry agents at ContinuServe. Previously designed and shipped production-grade AI applications using LLM orchestration, RAG pipelines, multi-agent frameworks, and the Model Context Protocol (MCP) on top of Anthropic Claude, OpenAI GPT, and Google Gemini. Hands-on with PySpark, Delta Lake, Snowflake, Apache Airflow, DBT, and Workato for data engineering, and with TypeScript, Python, Node.js, and React for full-stack delivery. Proven ability to take ambiguous business problems, architect end-to-end AI solutions, and deploy them for enterprise clients.
+          - paragraph [ref=f2e49]: "Spearheaded DynPro’s internal AI R&D: built MrBean AI and the Agentic SDLC Engine, adopted for org-wide R&D."
+          - generic [ref=f2e50]:
+            - link "Résumé" [ref=f2e51] [cursor=pointer]:
+              - /url: /Abhishek_Raj_Resume.pdf
+            - link "GitHub" [ref=f2e54] [cursor=pointer]:
+              - /url: https://github.com/Abhkrj2412
+            - link "LinkedIn" [ref=f2e57] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/abhishek-raj-39b7061a7/
+        - generic [ref=f2e60]:
+          - generic [ref=f2e61]:
+            - generic [ref=f2e63]:
+              - generic [ref=f2e64]: Abhishek Raj · Senior Analyst & AI Engineer ·
+              - generic [ref=f2e65]: Abhishek Raj · Senior Analyst & AI Engineer ·
+              - generic [ref=f2e66]: Abhishek Raj · Senior Analyst & AI Engineer ·
+              - generic [ref=f2e67]: Abhishek Raj · Senior Analyst & AI Engineer ·
+            - button "ID card for Abhishek Raj. Press to flip to the back." [ref=f2e72] [cursor=pointer]:
+              - generic [ref=f2e74]:
+                - generic [ref=f2e75]:
+                  - generic [ref=f2e76]: DEVELOPER ID
+                  - generic [ref=f2e77]: AR
+                - generic [ref=f2e78]:
+                  - img "Portrait of Abhishek Raj" [ref=f2e81]
+                  - paragraph [ref=f2e82]: Abhishek Raj
+                  - paragraph [ref=f2e83]: Senior Analyst & AI Engineer
+                  - generic [ref=f2e84]:
+                    - generic [ref=f2e85]:
+                      - term [ref=f2e86]: ID No.
+                      - definition [ref=f2e87]: Abhkrj2412
+                    - generic [ref=f2e88]:
+                      - term [ref=f2e89]: Dept.
+                      - definition [ref=f2e90]: AI Augmented Analytics
+                    - generic [ref=f2e91]:
+                      - term [ref=f2e92]: Valid till
+                      - definition [ref=f2e93]: "2022"
+          - paragraph [aria-hidden] [ref=f2e97]: Hover to flip · move to swing
+        - generic [ref=f2e98]:
+          - heading "Quick facts" [level=3] [ref=f2e99]
+          - generic [ref=f2e100]:
+            - generic [ref=f2e101]:
+              - term [ref=f2e102]: Based in
+              - definition [ref=f2e103]: Pune, Maharashtra, India
+            - generic [ref=f2e104]:
+              - term [ref=f2e105]: Role
+              - definition [ref=f2e106]: Senior Analyst · ContinuServe
+            - generic [ref=f2e107]:
+              - term [ref=f2e108]: Education
+              - definition [ref=f2e109]: B.E. CSE · AMC Engineering College
+            - generic [ref=f2e110]:
+              - term [ref=f2e111]: Experience
+              - definition [ref=f2e112]: 3+ years
+            - generic [ref=f2e113]:
+              - term [ref=f2e114]: Email
+              - definition [ref=f2e115]:
+                - link "abhikrj24@gmail.com" [ref=f2e116] [cursor=pointer]:
+                  - /url: mailto:abhikrj24@gmail.com
+          - blockquote [ref=f2e117]:
+            - paragraph [ref=f2e118]: “ Take an ambiguous business problem, architect the AI solution end to end, and ship it for the client.
+            - generic [ref=f2e119]: — Abhishek Raj, Senior Analyst at ContinuServe
+    - region [ref=f2e120]:
+      - generic [ref=f2e121]:
+        - generic [ref=f2e122]:
+          - generic [ref=f2e123]:
+            - paragraph [ref=f2e124]:
+              - generic [ref=f2e125]: "02"
+              - text: — Skills
+            - heading "The periodic table of my stack." [level=2] [ref=f2e126]:
+              - generic [ref=f2e127]: The periodic table
+              - generic [ref=f2e129]: of my stack.
+          - paragraph [ref=f2e131]: 65 elements from the résumé, grouped into 7 families. Hover, focus or tap any tile to inspect it.
+        - group "Filter skills by family" [ref=f2e132]:
+          - button "All 65" [pressed] [ref=f2e133] [cursor=pointer]:
+            - text: All
+            - generic [ref=f2e134]: "65"
+          - button "AI & LLM 13" [ref=f2e135] [cursor=pointer]:
+            - text: AI & LLM
+            - generic [ref=f2e136]: "13"
+          - button "Frameworks & SDKs 9" [ref=f2e137] [cursor=pointer]:
+            - text: Frameworks & SDKs
+            - generic [ref=f2e138]: "9"
+          - button "Languages 8" [ref=f2e139] [cursor=pointer]:
+            - text: Languages
+            - generic [ref=f2e140]: "8"
+          - button "Data & Cloud 11" [ref=f2e141] [cursor=pointer]:
+            - text: Data & Cloud
+            - generic [ref=f2e142]: "11"
+          - button "Integration 10" [ref=f2e143] [cursor=pointer]:
+            - text: Integration
+            - generic [ref=f2e144]: "10"
+          - button "DevOps 7" [ref=f2e145] [cursor=pointer]:
+            - text: DevOps
+            - generic [ref=f2e146]: "7"
+          - button "Tools 7" [ref=f2e147] [cursor=pointer]:
+            - text: Tools
+            - generic [ref=f2e148]: "7"
+        - generic [ref=f2e149]:
+          - list "Skills" [ref=f2e150]:
+            - listitem [ref=f2e151]:
+              - button "Anthropic Claude — AI & LLM" [ref=f2e152] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e153]: "01"
+                - generic [aria-hidden] [ref=f2e154]: Cl
+                - generic [aria-hidden] [ref=f2e155]: Anthropic Claude
+                - generic [aria-hidden] [ref=f2e156]: AI & LLM
+            - listitem [ref=f2e157]:
+              - button "Azure OpenAI — AI & LLM" [ref=f2e158] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e159]: "02"
+                - generic [aria-hidden] [ref=f2e160]: Ao
+                - generic [aria-hidden] [ref=f2e161]: Azure OpenAI
+                - generic [aria-hidden] [ref=f2e162]: AI & LLM
+            - listitem [ref=f2e163]:
+              - button "OpenAI GPT-4o / o1 — AI & LLM" [ref=f2e164] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e165]: "03"
+                - generic [aria-hidden] [ref=f2e166]: Gp
+                - generic [aria-hidden] [ref=f2e167]: OpenAI GPT-4o / o1
+                - generic [aria-hidden] [ref=f2e168]: AI & LLM
+            - listitem [ref=f2e169]:
+              - button "Google Gemini — AI & LLM" [ref=f2e170] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e171]: "04"
+                - generic [aria-hidden] [ref=f2e172]: Gm
+                - generic [aria-hidden] [ref=f2e173]: Google Gemini
+                - generic [aria-hidden] [ref=f2e174]: AI & LLM
+            - listitem [ref=f2e175]:
+              - button "Prompt Engineering — AI & LLM" [ref=f2e176] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e177]: "05"
+                - generic [aria-hidden] [ref=f2e178]: Pe
+                - generic [aria-hidden] [ref=f2e179]: Prompt Engineering
+                - generic [aria-hidden] [ref=f2e180]: AI & LLM
+            - listitem [ref=f2e181]:
+              - button "RAG — AI & LLM" [ref=f2e182] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e183]: "06"
+                - generic [aria-hidden] [ref=f2e184]: Rg
+                - generic [aria-hidden] [ref=f2e185]: RAG
+                - generic [aria-hidden] [ref=f2e186]: AI & LLM
+            - listitem [ref=f2e187]:
+              - button "Multi-Agent Orchestration — AI & LLM" [ref=f2e188] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e189]: "07"
+                - generic [aria-hidden] [ref=f2e190]: Ma
+                - generic [aria-hidden] [ref=f2e191]: Multi-Agent Orchestration
+                - generic [aria-hidden] [ref=f2e192]: AI & LLM
+            - listitem [ref=f2e193]:
+              - button "Model Context Protocol — AI & LLM" [ref=f2e194] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e195]: "08"
+                - generic [aria-hidden] [ref=f2e196]: Mc
+                - generic [aria-hidden] [ref=f2e197]: Model Context Protocol
+                - generic [aria-hidden] [ref=f2e198]: AI & LLM
+            - listitem [ref=f2e199]:
+              - button "Agentic Pipelines — AI & LLM" [ref=f2e200] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e201]: "09"
+                - generic [aria-hidden] [ref=f2e202]: Ap
+                - generic [aria-hidden] [ref=f2e203]: Agentic Pipelines
+                - generic [aria-hidden] [ref=f2e204]: AI & LLM
+            - listitem [ref=f2e205]:
+              - button "Tool-Use / Function Calling — AI & LLM" [ref=f2e206] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e207]: "10"
+                - generic [aria-hidden] [ref=f2e208]: Fc
+                - generic [aria-hidden] [ref=f2e209]: Tool-Use / Function Calling
+                - generic [aria-hidden] [ref=f2e210]: AI & LLM
+            - listitem [ref=f2e211]:
+              - button "Vision AI — AI & LLM" [ref=f2e212] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e213]: "11"
+                - generic [aria-hidden] [ref=f2e214]: Va
+                - generic [aria-hidden] [ref=f2e215]: Vision AI
+                - generic [aria-hidden] [ref=f2e216]: AI & LLM
+            - listitem [ref=f2e217]:
+              - button "Test Simulation — AI & LLM" [ref=f2e218] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e219]: "12"
+                - generic [aria-hidden] [ref=f2e220]: Ts
+                - generic [aria-hidden] [ref=f2e221]: Test Simulation
+                - generic [aria-hidden] [ref=f2e222]: AI & LLM
+            - listitem [ref=f2e223]:
+              - button "LLM Cost Optimization — AI & LLM" [ref=f2e224] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e225]: "13"
+                - generic [aria-hidden] [ref=f2e226]: Co
+                - generic [aria-hidden] [ref=f2e227]: LLM Cost Optimization
+                - generic [aria-hidden] [ref=f2e228]: AI & LLM
+            - listitem [ref=f2e229]:
+              - button "Azure AI Foundry — Frameworks & SDKs, recently used" [ref=f2e230] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e231]: "14"
+                - generic [aria-hidden] [ref=f2e233]: Af
+                - generic [aria-hidden] [ref=f2e234]: Azure AI Foundry
+                - generic [aria-hidden] [ref=f2e235]: Frameworks & SDKs
+            - listitem [ref=f2e236]:
+              - button "Azure Machine Learning — Frameworks & SDKs, recently used" [ref=f2e237] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e238]: "15"
+                - generic [aria-hidden] [ref=f2e240]: Ml
+                - generic [aria-hidden] [ref=f2e241]: Azure Machine Learning
+                - generic [aria-hidden] [ref=f2e242]: Frameworks & SDKs
+            - listitem [ref=f2e243]:
+              - button "Fabric Data Agent — Frameworks & SDKs" [ref=f2e244] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e245]: "16"
+                - generic [aria-hidden] [ref=f2e246]: Fa
+                - generic [aria-hidden] [ref=f2e247]: Fabric Data Agent
+                - generic [aria-hidden] [ref=f2e248]: Frameworks & SDKs
+            - listitem [ref=f2e249]:
+              - button "Claude Agent SDK — Frameworks & SDKs" [ref=f2e250] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e251]: "17"
+                - generic [aria-hidden] [ref=f2e252]: Cs
+                - generic [aria-hidden] [ref=f2e253]: Claude Agent SDK
+                - generic [aria-hidden] [ref=f2e254]: Frameworks & SDKs
+            - listitem [ref=f2e255]:
+              - button "Anthropic SDK — Frameworks & SDKs" [ref=f2e256] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e257]: "18"
+                - generic [aria-hidden] [ref=f2e258]: An
+                - generic [aria-hidden] [ref=f2e259]: Anthropic SDK
+                - generic [aria-hidden] [ref=f2e260]: Frameworks & SDKs
+            - listitem [ref=f2e261]:
+              - button "OpenAI SDK — Frameworks & SDKs" [ref=f2e262] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e263]: "19"
+                - generic [aria-hidden] [ref=f2e264]: Os
+                - generic [aria-hidden] [ref=f2e265]: OpenAI SDK
+                - generic [aria-hidden] [ref=f2e266]: Frameworks & SDKs
+            - listitem [ref=f2e267]:
+              - button "ElevenLabs — Frameworks & SDKs" [ref=f2e268] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e269]: "20"
+                - generic [aria-hidden] [ref=f2e270]: El
+                - generic [aria-hidden] [ref=f2e271]: ElevenLabs
+                - generic [aria-hidden] [ref=f2e272]: Frameworks & SDKs
+            - listitem [ref=f2e273]:
+              - button "Ink — Frameworks & SDKs" [ref=f2e274] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e275]: "21"
+                - generic [aria-hidden] [ref=f2e276]: Ik
+                - generic [aria-hidden] [ref=f2e277]: Ink
+                - generic [aria-hidden] [ref=f2e278]: Frameworks & SDKs
+            - listitem [ref=f2e279]:
+              - button "Vercel AI SDK — Frameworks & SDKs" [ref=f2e280] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e281]: "22"
+                - generic [aria-hidden] [ref=f2e282]: Vc
+                - generic [aria-hidden] [ref=f2e283]: Vercel AI SDK
+                - generic [aria-hidden] [ref=f2e284]: Frameworks & SDKs
+            - listitem [ref=f2e285]:
+              - button "Python — Languages" [ref=f2e286] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e287]: "23"
+                - generic [aria-hidden] [ref=f2e288]: Py
+                - generic [aria-hidden] [ref=f2e289]: Python
+                - generic [aria-hidden] [ref=f2e290]: Languages
+            - listitem [ref=f2e291]:
+              - button "PySpark — Languages" [ref=f2e292] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e293]: "24"
+                - generic [aria-hidden] [ref=f2e294]: Ps
+                - generic [aria-hidden] [ref=f2e295]: PySpark
+                - generic [aria-hidden] [ref=f2e296]: Languages
+            - listitem [ref=f2e297]:
+              - button "TypeScript — Languages" [ref=f2e298] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e299]: "25"
+                - generic [aria-hidden] [ref=f2e300]: Ts
+                - generic [aria-hidden] [ref=f2e301]: TypeScript
+                - generic [aria-hidden] [ref=f2e302]: Languages
+            - listitem [ref=f2e303]:
+              - button "Node.js — Languages" [ref=f2e304] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e305]: "26"
+                - generic [aria-hidden] [ref=f2e306]: "No"
+                - generic [aria-hidden] [ref=f2e307]: Node.js
+                - generic [aria-hidden] [ref=f2e308]: Languages
+            - listitem [ref=f2e309]:
+              - button "SQL — Languages" [ref=f2e310] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e311]: "27"
+                - generic [aria-hidden] [ref=f2e312]: Sq
+                - generic [aria-hidden] [ref=f2e313]: SQL
+                - generic [aria-hidden] [ref=f2e314]: Languages
+            - listitem [ref=f2e315]:
+              - button "Ruby — Languages" [ref=f2e316] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e317]: "28"
+                - generic [aria-hidden] [ref=f2e318]: Rb
+                - generic [aria-hidden] [ref=f2e319]: Ruby
+                - generic [aria-hidden] [ref=f2e320]: Languages
+            - listitem [ref=f2e321]:
+              - button "React — Languages" [ref=f2e322] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e323]: "29"
+                - generic [aria-hidden] [ref=f2e324]: Re
+                - generic [aria-hidden] [ref=f2e325]: React
+                - generic [aria-hidden] [ref=f2e326]: Languages
+            - listitem [ref=f2e327]:
+              - button "Next.js — Languages" [ref=f2e328] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e329]: "30"
+                - generic [aria-hidden] [ref=f2e330]: Nx
+                - generic [aria-hidden] [ref=f2e331]: Next.js
+                - generic [aria-hidden] [ref=f2e332]: Languages
+            - listitem [ref=f2e333]:
+              - button "Microsoft Fabric — Data & Cloud, recently used" [ref=f2e334] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e335]: "31"
+                - generic [aria-hidden] [ref=f2e337]: Fb
+                - generic [aria-hidden] [ref=f2e338]: Microsoft Fabric
+                - generic [aria-hidden] [ref=f2e339]: Data & Cloud
+            - listitem [ref=f2e340]:
+              - button "Azure Data Factory — Data & Cloud, recently used" [ref=f2e341] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e342]: "32"
+                - generic [aria-hidden] [ref=f2e344]: Df
+                - generic [aria-hidden] [ref=f2e345]: Azure Data Factory
+                - generic [aria-hidden] [ref=f2e346]: Data & Cloud
+            - listitem [ref=f2e347]:
+              - button "Delta Lake — Data & Cloud" [ref=f2e348] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e349]: "33"
+                - generic [aria-hidden] [ref=f2e350]: Dl
+                - generic [aria-hidden] [ref=f2e351]: Delta Lake
+                - generic [aria-hidden] [ref=f2e352]: Data & Cloud
+            - listitem [ref=f2e353]:
+              - button "Azure SQL Database — Data & Cloud" [ref=f2e354] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e355]: "34"
+                - generic [aria-hidden] [ref=f2e356]: As
+                - generic [aria-hidden] [ref=f2e357]: Azure SQL Database
+                - generic [aria-hidden] [ref=f2e358]: Data & Cloud
+            - listitem [ref=f2e359]:
+              - button "Azure Key Vault — Data & Cloud" [ref=f2e360] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e361]: "35"
+                - generic [aria-hidden] [ref=f2e362]: Kv
+                - generic [aria-hidden] [ref=f2e363]: Azure Key Vault
+                - generic [aria-hidden] [ref=f2e364]: Data & Cloud
+            - listitem [ref=f2e365]:
+              - button "Snowflake — Data & Cloud" [ref=f2e366] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e367]: "36"
+                - generic [aria-hidden] [ref=f2e368]: Sf
+                - generic [aria-hidden] [ref=f2e369]: Snowflake
+                - generic [aria-hidden] [ref=f2e370]: Data & Cloud
+            - listitem [ref=f2e371]:
+              - button "AWS — Data & Cloud" [ref=f2e372] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e373]: "37"
+                - generic [aria-hidden] [ref=f2e374]: Aw
+                - generic [aria-hidden] [ref=f2e375]: AWS
+                - generic [aria-hidden] [ref=f2e376]: Data & Cloud
+            - listitem [ref=f2e377]:
+              - button "Apache Iceberg — Data & Cloud" [ref=f2e378] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e379]: "38"
+                - generic [aria-hidden] [ref=f2e380]: Ic
+                - generic [aria-hidden] [ref=f2e381]: Apache Iceberg
+                - generic [aria-hidden] [ref=f2e382]: Data & Cloud
+            - listitem [ref=f2e383]:
+              - button "Redshift — Data & Cloud" [ref=f2e384] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e385]: "39"
+                - generic [aria-hidden] [ref=f2e386]: Rs
+                - generic [aria-hidden] [ref=f2e387]: Redshift
+                - generic [aria-hidden] [ref=f2e388]: Data & Cloud
+            - listitem [ref=f2e389]:
+              - button "MongoDB — Data & Cloud" [ref=f2e390] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e391]: "40"
+                - generic [aria-hidden] [ref=f2e392]: Mg
+                - generic [aria-hidden] [ref=f2e393]: MongoDB
+                - generic [aria-hidden] [ref=f2e394]: Data & Cloud
+            - listitem [ref=f2e395]:
+              - button "MySQL — Data & Cloud" [ref=f2e396] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e397]: "41"
+                - generic [aria-hidden] [ref=f2e398]: My
+                - generic [aria-hidden] [ref=f2e399]: MySQL
+                - generic [aria-hidden] [ref=f2e400]: Data & Cloud
+            - listitem [ref=f2e401]:
+              - button "Workato — Integration" [ref=f2e402] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e403]: "42"
+                - generic [aria-hidden] [ref=f2e404]: Wk
+                - generic [aria-hidden] [ref=f2e405]: Workato
+                - generic [aria-hidden] [ref=f2e406]: Integration
+            - listitem [ref=f2e407]:
+              - button "REST APIs — Integration" [ref=f2e408] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e409]: "43"
+                - generic [aria-hidden] [ref=f2e410]: Ra
+                - generic [aria-hidden] [ref=f2e411]: REST APIs
+                - generic [aria-hidden] [ref=f2e412]: Integration
+            - listitem [ref=f2e413]:
+              - button "Webhooks — Integration" [ref=f2e414] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e415]: "44"
+                - generic [aria-hidden] [ref=f2e416]: Wh
+                - generic [aria-hidden] [ref=f2e417]: Webhooks
+                - generic [aria-hidden] [ref=f2e418]: Integration
+            - listitem [ref=f2e419]:
+              - button "SFTP — Integration" [ref=f2e420] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e421]: "45"
+                - generic [aria-hidden] [ref=f2e422]: Ft
+                - generic [aria-hidden] [ref=f2e423]: SFTP
+                - generic [aria-hidden] [ref=f2e424]: Integration
+            - listitem [ref=f2e425]:
+              - button "SuccessFactors — Integration" [ref=f2e426] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e427]: "46"
+                - generic [aria-hidden] [ref=f2e428]: Sx
+                - generic [aria-hidden] [ref=f2e429]: SuccessFactors
+                - generic [aria-hidden] [ref=f2e430]: Integration
+            - listitem [ref=f2e431]:
+              - button "Salesforce — Integration" [ref=f2e432] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e433]: "47"
+                - generic [aria-hidden] [ref=f2e434]: Sl
+                - generic [aria-hidden] [ref=f2e435]: Salesforce
+                - generic [aria-hidden] [ref=f2e436]: Integration
+            - listitem [ref=f2e437]:
+              - button "PrismHR — Integration" [ref=f2e438] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e439]: "48"
+                - generic [aria-hidden] [ref=f2e440]: Ph
+                - generic [aria-hidden] [ref=f2e441]: PrismHR
+                - generic [aria-hidden] [ref=f2e442]: Integration
+            - listitem [ref=f2e443]:
+              - button "NetSuite — Integration" [ref=f2e444] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e445]: "49"
+                - generic [aria-hidden] [ref=f2e446]: Ns
+                - generic [aria-hidden] [ref=f2e447]: NetSuite
+                - generic [aria-hidden] [ref=f2e448]: Integration
+            - listitem [ref=f2e449]:
+              - button "HubSpot — Integration" [ref=f2e450] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e451]: "50"
+                - generic [aria-hidden] [ref=f2e452]: Hs
+                - generic [aria-hidden] [ref=f2e453]: HubSpot
+                - generic [aria-hidden] [ref=f2e454]: Integration
+            - listitem [ref=f2e455]:
+              - button "Replicon — Integration" [ref=f2e456] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e457]: "51"
+                - generic [aria-hidden] [ref=f2e458]: Rp
+                - generic [aria-hidden] [ref=f2e459]: Replicon
+                - generic [aria-hidden] [ref=f2e460]: Integration
+            - listitem [ref=f2e461]:
+              - button "Apache Airflow — DevOps" [ref=f2e462] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e463]: "52"
+                - generic [aria-hidden] [ref=f2e464]: Af
+                - generic [aria-hidden] [ref=f2e465]: Apache Airflow
+                - generic [aria-hidden] [ref=f2e466]: DevOps
+            - listitem [ref=f2e467]:
+              - button "Dagster — DevOps" [ref=f2e468] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e469]: "53"
+                - generic [aria-hidden] [ref=f2e470]: Dg
+                - generic [aria-hidden] [ref=f2e471]: Dagster
+                - generic [aria-hidden] [ref=f2e472]: DevOps
+            - listitem [ref=f2e473]:
+              - button "DBT — DevOps" [ref=f2e474] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e475]: "54"
+                - generic [aria-hidden] [ref=f2e476]: Db
+                - generic [aria-hidden] [ref=f2e477]: DBT
+                - generic [aria-hidden] [ref=f2e478]: DevOps
+            - listitem [ref=f2e479]:
+              - button "Matillion — DevOps" [ref=f2e480] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e481]: "55"
+                - generic [aria-hidden] [ref=f2e482]: Mt
+                - generic [aria-hidden] [ref=f2e483]: Matillion
+                - generic [aria-hidden] [ref=f2e484]: DevOps
+            - listitem [ref=f2e485]:
+              - button "Terraform — DevOps" [ref=f2e486] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e487]: "56"
+                - generic [aria-hidden] [ref=f2e488]: Tf
+                - generic [aria-hidden] [ref=f2e489]: Terraform
+                - generic [aria-hidden] [ref=f2e490]: DevOps
+            - listitem [ref=f2e491]:
+              - button "Docker — DevOps" [ref=f2e492] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e493]: "57"
+                - generic [aria-hidden] [ref=f2e494]: Dk
+                - generic [aria-hidden] [ref=f2e495]: Docker
+                - generic [aria-hidden] [ref=f2e496]: DevOps
+            - listitem [ref=f2e497]:
+              - button "GitHub Actions — DevOps" [ref=f2e498] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e499]: "58"
+                - generic [aria-hidden] [ref=f2e500]: Ga
+                - generic [aria-hidden] [ref=f2e501]: GitHub Actions
+                - generic [aria-hidden] [ref=f2e502]: DevOps
+            - listitem [ref=f2e503]:
+              - button "Git — Tools" [ref=f2e504] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e505]: "59"
+                - generic [aria-hidden] [ref=f2e506]: Gt
+                - generic [aria-hidden] [ref=f2e507]: Git
+                - generic [aria-hidden] [ref=f2e508]: Tools
+            - listitem [ref=f2e509]:
+              - button "Postman — Tools" [ref=f2e510] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e511]: "60"
+                - generic [aria-hidden] [ref=f2e512]: Pm
+                - generic [aria-hidden] [ref=f2e513]: Postman
+                - generic [aria-hidden] [ref=f2e514]: Tools
+            - listitem [ref=f2e515]:
+              - button "FastAPI — Tools" [ref=f2e516] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e517]: "61"
+                - generic [aria-hidden] [ref=f2e518]: Fa
+                - generic [aria-hidden] [ref=f2e519]: FastAPI
+                - generic [aria-hidden] [ref=f2e520]: Tools
+            - listitem [ref=f2e521]:
+              - button "Express — Tools" [ref=f2e522] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e523]: "62"
+                - generic [aria-hidden] [ref=f2e524]: Ex
+                - generic [aria-hidden] [ref=f2e525]: Express
+                - generic [aria-hidden] [ref=f2e526]: Tools
+            - listitem [ref=f2e527]:
+              - button "WebSocket — Tools" [ref=f2e528] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e529]: "63"
+                - generic [aria-hidden] [ref=f2e530]: Ws
+                - generic [aria-hidden] [ref=f2e531]: WebSocket
+                - generic [aria-hidden] [ref=f2e532]: Tools
+            - listitem [ref=f2e533]:
+              - button "Vitest — Tools" [ref=f2e534] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e535]: "64"
+                - generic [aria-hidden] [ref=f2e536]: Vt
+                - generic [aria-hidden] [ref=f2e537]: Vitest
+                - generic [aria-hidden] [ref=f2e538]: Tools
+            - listitem [ref=f2e539]:
+              - button "Pytest — Tools" [ref=f2e540] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e541]: "65"
+                - generic [aria-hidden] [ref=f2e542]: Pt
+                - generic [aria-hidden] [ref=f2e543]: Pytest
+                - generic [aria-hidden] [ref=f2e544]: Tools
+          - complementary "Skill inspector" [ref=f2e545]:
+            - generic [ref=f2e546]:
+              - generic [ref=f2e547]: No. 01
+              - generic [ref=f2e548]: Cl
+            - heading "Anthropic Claude" [level=3] [ref=f2e552]
+            - paragraph [ref=f2e553]: AI & LLM Engineering
+            - paragraph [ref=f2e554]: Sonnet / Opus / Haiku
+            - generic [ref=f2e555]:
+              - paragraph [ref=f2e556]: Used in
+              - list [ref=f2e557]:
+                - listitem [ref=f2e558]: ODM Assist
+                - listitem [ref=f2e559]: Ativad AI Demo
+        - paragraph [ref=f2e560]:
+          - generic [ref=f2e561]: Recently used
+          - generic [ref=f2e563]: "Logos: devicon (MIT) · simple-icons (CC0) · line icons for concepts"
+    - region [ref=f2e564]:
+      - generic [ref=f2e565]:
+        - generic [ref=f2e566]:
+          - generic [ref=f2e567]:
+            - paragraph [ref=f2e568]:
+              - generic [ref=f2e569]: "03"
+              - text: — Selected work
+            - heading "Things I’ve built." [level=2] [ref=f2e570]
+          - paragraph [ref=f2e573]: AI & agentic projects from the résumé — client builds and internal R&D. The panels on the right are illustrative, not screenshots.
+        - generic [ref=f2e574]:
+          - article [ref=f2e575]:
+            - button "01 ODM Assist Open project ODM Assist" [expanded]:
+              - generic: "01"
+              - generic: ODM Assist
+              - generic: Open project ODM Assist
+            - generic [ref=f2e576]:
+              - generic [ref=f2e577]:
+                - paragraph [ref=f2e578]:
+                  - generic [ref=f2e579]: "01"
+                  - text: "Client: DaVita"
+                - heading "ODM Assist" [level=3] [ref=f2e580]
+                - paragraph [ref=f2e581]: "AI-powered IBM ODM 8.12.0 project generator with a 7-step agentic pipeline: Visio/Excel/text input → structured extraction → test generation → Excel report → full ODM project → JUnit harness → LLM-based test simulation → self-verification."
+                - list [ref=f2e582]:
+                  - listitem [ref=f2e583]: Vision AI for PNG/JPG diagrams
+                  - listitem [ref=f2e584]: Deterministic XML parsing for .vsdx (60+ Visio master types)
+                  - listitem [ref=f2e585]: Swim-lane detection and Excel rule-table imports
+                  - listitem [ref=f2e586]: Interactive SME review loop — no developer handoff
+                  - listitem [ref=f2e587]: Generates BOM, XOM, BRL/DTA, ruleflow, metadata
+                  - listitem [ref=f2e588]: LLM-based test simulation + self-verification
+                - list "Tech stack" [ref=f2e589]:
+                  - listitem [ref=f2e590]: Claude
+                  - listitem [ref=f2e592]: GPT
+                  - listitem [ref=f2e600]: Gemini
+                  - listitem [ref=f2e602]: TypeScript
+                  - listitem [ref=f2e604]: Node.js
+                  - listitem [ref=f2e606]: RAG
+                  - listitem [ref=f2e612]: Vision AI
+              - generic [aria-hidden] [ref=f2e616]:
+                - generic [ref=f2e617]:
+                  - generic [ref=f2e618]: odm-assist · 7-step agentic pipeline
+                  - generic [ref=f2e623]:
+                    - list [ref=f2e624]:
+                      - listitem [ref=f2e625]:
+                        - generic [ref=f2e626]: in
+                        - text: Visio / Excel / text input
+                      - listitem [ref=f2e627]:
+                        - generic [ref=f2e628]: "1"
+                        - text: Structured extraction
+                      - listitem [ref=f2e629]:
+                        - generic [ref=f2e630]: "2"
+                        - text: Test generation
+                      - listitem [ref=f2e631]:
+                        - generic [ref=f2e632]: "3"
+                        - text: Excel report
+                      - listitem [ref=f2e633]:
+                        - generic [ref=f2e634]: "4"
+                        - text: Full ODM project
+                      - listitem [ref=f2e635]:
+                        - generic [ref=f2e636]: "5"
+                        - text: JUnit harness
+                      - listitem [ref=f2e637]:
+                        - generic [ref=f2e638]: "6"
+                        - text: LLM test simulation
+                      - listitem [ref=f2e639]:
+                        - generic [ref=f2e640]: "7"
+                        - text: Self-verification
+                    - img [ref=f2e642]:
+                      - generic [ref=f2e644]: .vsdx
+                      - generic [ref=f2e646]: rule?
+                      - generic [ref=f2e649]: BRL
+                      - generic [ref=f2e651]: DTA
+                      - generic [ref=f2e654]: ruleflow
+                - generic [ref=f2e655]: Illustrative UI
+          - article "Ativad AI Demo" [ref=f2e656]:
+            - button "02 Ativad AI Demo Open project Ativad AI Demo" [ref=f2e657] [cursor=pointer]:
+              - generic [ref=f2e658]: "02"
+              - generic [ref=f2e659]: Ativad AI Demo
+              - generic [ref=f2e663]: Open project Ativad AI Demo
+          - article "MrBean AI" [ref=f2e664]:
+            - button "03 MrBean AI Open project MrBean AI" [ref=f2e665] [cursor=pointer]:
+              - generic [ref=f2e666]: "03"
+              - generic [ref=f2e667]: MrBean AI
+              - generic [ref=f2e671]: Open project MrBean AI
+          - article "Agentic SDLC Engine" [ref=f2e672]:
+            - button "04 Agentic SDLC Engine Open project Agentic SDLC Engine" [ref=f2e673] [cursor=pointer]:
+              - generic [ref=f2e674]: "04"
+              - generic [ref=f2e675]: Agentic SDLC Engine
+              - generic [ref=f2e679]: Open project Agentic SDLC Engine
+    - region [ref=f2e680]:
+      - generic [ref=f2e681]:
+        - generic [ref=f2e682]:
+          - generic [ref=f2e683]:
+            - paragraph [ref=f2e684]:
+              - generic [ref=f2e685]: "04"
+              - text: — Certifications
+            - heading "Always learning." [level=2] [ref=f2e686]
+          - paragraph [ref=f2e689]: 7 professional certifications + 16 Anthropic courses (April 2026)
+        - list [ref=f2e690]:
+          - listitem [ref=f2e691]:
+            - generic [aria-hidden] [ref=f2e692]: "01"
+            - generic [ref=f2e693]:
+              - heading "Workato Technical Architect" [level=3] [ref=f2e694]
+              - paragraph [ref=f2e695]: Workato
+          - listitem [ref=f2e698]:
+            - generic [aria-hidden] [ref=f2e699]: "02"
+            - generic [ref=f2e700]:
+              - heading "Workato Technical Developer" [level=3] [ref=f2e701]
+              - paragraph [ref=f2e702]: Workato
+          - listitem [ref=f2e705]:
+            - generic [aria-hidden] [ref=f2e706]: "03"
+            - generic [ref=f2e707]:
+              - heading "Workato Automation Pro I, II, III" [level=3] [ref=f2e708]
+              - paragraph [ref=f2e709]: Workato
+          - listitem [ref=f2e712]:
+            - generic [aria-hidden] [ref=f2e713]: "04"
+            - heading "Enterprise Automation Certification" [level=3] [ref=f2e715]
+          - listitem [ref=f2e718]:
+            - generic [aria-hidden] [ref=f2e719]: "05"
+            - generic [ref=f2e720]:
+              - heading "Blue Prism Certified" [level=3] [ref=f2e721]
+              - paragraph [ref=f2e722]: Blue Prism
+          - listitem [ref=f2e725]:
+            - generic [aria-hidden] [ref=f2e726]: "06"
+            - generic [ref=f2e727]:
+              - heading "AWS Cloud Essentials" [level=3] [ref=f2e728]
+              - paragraph [ref=f2e729]: AWS
+          - listitem [ref=f2e732]:
+            - generic [aria-hidden] [ref=f2e733]: "07"
+            - generic [ref=f2e734]:
+              - heading "Reltio Platform Data Flow" [level=3] [ref=f2e735]
+              - paragraph [ref=f2e736]: Reltio
+          - listitem [ref=f2e739]:
+            - generic [aria-hidden] [ref=f2e740]: "08"
+            - generic [ref=f2e741]:
+              - heading "Anthropic AI Training — 16 courses" [level=3] [ref=f2e742]
+              - paragraph [ref=f2e743]: Anthropic · April 2026
+              - paragraph [ref=f2e744]: Building with Claude API · Introduction to MCP & Advanced Topics · Claude Code 101 & in Action · Agent Skills · Subagents · Claude with Amazon Bedrock & Vertex AI · AI Fluency Framework
+    - region [ref=f2e747]:
+      - generic [ref=f2e748]:
+        - generic [ref=f2e749]:
+          - generic [ref=f2e750]:
+            - paragraph [ref=f2e751]:
+              - generic [ref=f2e752]: "05"
+              - text: — Experience & education
+            - heading "One continuous path." [level=2] [ref=f2e753]
+          - paragraph [ref=f2e756]: Education and work in chronological order — from Computer Science in Bangalore to AI and data platforms in Pune.
+        - list [ref=f2e759]:
+          - listitem [ref=f2e760]:
+            - generic [ref=f2e762]:
+              - generic [ref=f2e763]: "2018"
+              - generic [ref=f2e764]: 2018 — 2022
+            - generic [ref=f2e765]:
+              - generic [ref=f2e766]: Education
+              - heading "Bachelor of Engineering in Computer Science and Engineering" [level=3] [ref=f2e767]
+              - paragraph [ref=f2e768]:
+                - text: AMC Engineering College
+                - generic [ref=f2e769]: · Bangalore, India
+          - listitem [ref=f2e770]:
+            - generic [ref=f2e772]:
+              - generic [ref=f2e773]: "2023"
+              - generic [ref=f2e774]: June 2023 — May 2026
+            - generic [ref=f2e775]:
+              - generic [ref=f2e776]: Experience
+              - heading "Consultant — AI Augmented Analytics" [level=3] [ref=f2e777]
+              - paragraph [ref=f2e778]:
+                - text: DynPro India Pvt Ltd
+                - generic [ref=f2e779]: · Pune, Maharashtra, India
+              - list [ref=f2e780]:
+                - listitem [ref=f2e781]: "Lead AI engineer on ODM Assist (DaVita): multi-model RAG pipeline that generates complete IBM ODM rule projects from Visio diagrams and plain English, eliminating the developer handoff."
+                - listitem [ref=f2e782]: "Delivered Ativad AI client POC: voice-driven clinical rules platform converting spoken requirements into executable BAL rules with tests."
+                - listitem [ref=f2e783]: "Spearheaded DynPro’s internal AI R&D: built MrBean AI and the Agentic SDLC Engine, adopted for org-wide R&D."
+                - listitem [ref=f2e784]: Designed Apache Airflow DAGs orchestrating IBMi (AS/400) journal-based CDC → AWS S3 → Apache Iceberg → Snowflake via DBT (MTS); reduced data processing time by 40% via parallel execution and optimized scheduling.
+                - listitem [ref=f2e785]: Built Workato recipes for IBMi CDC extraction and executed SuccessFactors API integrations, SFTP exchanges, and Redshift migrations with 10+ downstream applications for Lucid Motors HRIS.
+                - listitem [ref=f2e786]: Authored Terraform IaC for Dev/Prod provisioning (IAM, EC2, VPC, S3, Secrets Manager); integrated Microsoft Teams real-time alerting via Airflow.
+                - listitem [ref=f2e787]: Automated end-to-end eligibility detection and employee auto-enrollment for PSH Healthcare (Hawaii Pre-Paid Health Care Act compliance) with a React/Node.js pipeline UI.
+          - listitem [ref=f2e788]:
+            - generic [ref=f2e790]:
+              - generic [ref=f2e791]: "2026"
+              - generic [ref=f2e792]: May 2026 — Present
+            - generic [ref=f2e793]:
+              - generic [ref=f2e794]: Experience
+              - heading "Senior Analyst" [level=3] [ref=f2e795]
+              - paragraph [ref=f2e796]:
+                - text: ContinuServe
+                - generic [ref=f2e797]: · Pune, Maharashtra, India
+              - list [ref=f2e798]:
+                - listitem [ref=f2e799]: Built a Replicon Analytics API extractor as a Microsoft Fabric notebook covering the full async extract lifecycle, loading data in-memory straight to Delta tables in a Bronze Lakehouse (no intermediate CSVs), with Variable Library configuration and row-level audit timestamps.
+                - listitem [ref=f2e800]: "Own a universal Data Quality framework (nightly Python engine): added Azure Key Vault integration, config-driven query validation persisted to SQL audit logs, and daily snapshots with day-over-day comparison for anomaly detection."
+                - listitem [ref=f2e801]: Architected an agentic layer of two Azure AI Foundry agents (Rule Author and DQ Analyst) over the DQ engine, exposing a purpose-built DQ Tool API in place of direct SQL MCP access for tighter governance.
+                - listitem [ref=f2e802]: Building a Silver-layer guest identity resolution and invoice deduplication pipeline in Azure SQL Database using phonetic name matching (Caverphone 2.0) and a guest crosswalk pattern across a multi-center business.
+                - listitem [ref=f2e803]: Prepared the technical assessment of a Microsoft Fabric Revenue Pipeline (NetSuite, HubSpot, SharePoint sources across two workspaces) ahead of a formal BAU takeover.
+                - listitem [ref=f2e804]: Supporting a client Fabric Data Agent POC and demo alongside the team’s Azure AI Foundry and ML-based QC reporting solutions.
+          - listitem [ref=f2e805]:
+            - generic [ref=f2e807]: Next
+            - link "Next — Your team?" [ref=f2e810] [cursor=pointer]:
+              - /url: "#contact"
+              - generic [ref=f2e811]:
+                - generic [ref=f2e812]: Next —
+                - generic [ref=f2e813]: Your team?
+              - generic [aria-hidden] [ref=f2e814]: Let’s talk
+    - region [ref=f2e815]:
+      - generic [ref=f2e816]:
+        - generic [ref=f2e817]:
+          - generic [ref=f2e818]:
+            - paragraph [ref=f2e819]:
+              - generic [ref=f2e820]: "06"
+              - text: — Achievements
+            - heading "Numbers worth keeping." [level=2] [ref=f2e821]
+          - generic [ref=f2e825]:
+            - generic [ref=f2e826]: "02"
+            - emphasis [ref=f2e828]: / 09
+        - generic [ref=f2e831]:
+          - article "3+ Years — Building AI automation & data platforms" [ref=f2e832]:
+            - generic [ref=f2e833]: 01 / 09
+            - generic [ref=f2e841]:
+              - generic [ref=f2e842]:
+                - heading "Years" [level=3] [ref=f2e843]
+                - paragraph [ref=f2e844]: Building AI automation & data platforms
+                - paragraph [ref=f2e845]: DynPro India → ContinuServe
+              - generic [aria-hidden] [ref=f2e846]: 0+
+          - article "40% Faster processing — IBMi CDC → S3 → Iceberg → Snowflake" [ref=f2e847]:
+            - generic [ref=f2e848]: 02 / 09
+            - generic [ref=f2e852]:
+              - generic [ref=f2e853]:
+                - heading "Faster processing" [level=3] [ref=f2e854]
+                - paragraph [ref=f2e855]: IBMi CDC → S3 → Iceberg → Snowflake
+                - paragraph [ref=f2e856]: Airflow DAGs with parallel execution and optimized scheduling
+              - generic [aria-hidden] [ref=f2e857]: 0%
+          - article "48 Specialized AI agents — Agentic SDLC Engine, across 8 SDLC phases" [ref=f2e858]:
+            - generic [ref=f2e859]: 03 / 09
+            - generic [ref=f2e863]:
+              - generic [ref=f2e864]:
+                - heading "Specialized AI agents" [level=3] [ref=f2e865]
+                - paragraph [ref=f2e866]: Agentic SDLC Engine, across 8 SDLC phases
+                - paragraph [ref=f2e867]: Govern → Discover → Design → Build → Test → Deploy → Operate → Oversight
+              - generic [aria-hidden] [ref=f2e868]: "0"
+          - article "39 Agent tools — MrBean AI multi-provider framework" [ref=f2e869]:
+            - generic [ref=f2e870]: 04 / 09
+            - generic [ref=f2e874]:
+              - generic [ref=f2e875]:
+                - heading "Agent tools" [level=3] [ref=f2e876]
+                - paragraph [ref=f2e877]: MrBean AI multi-provider framework
+                - paragraph [ref=f2e878]: Plus 48 bundled SDLC agent templates with autonomy tiers
+              - generic [aria-hidden] [ref=f2e879]: "0"
+          - article "396 Tests — MrBean AI test suite (Vitest)" [ref=f2e880]:
+            - generic [ref=f2e881]: 05 / 09
+            - generic [ref=f2e885]:
+              - generic [ref=f2e886]:
+                - heading "Tests" [level=3] [ref=f2e887]
+                - paragraph [ref=f2e888]: MrBean AI test suite (Vitest)
+                - paragraph [ref=f2e889]: Docker Compose deployment
+              - generic [aria-hidden] [ref=f2e890]: "0"
+          - article "10+ Downstream apps — Lucid Motors HRIS integrations" [ref=f2e891]:
+            - generic [ref=f2e892]: 06 / 09
+            - generic [ref=f2e896]:
+              - generic [ref=f2e897]:
+                - heading "Downstream apps" [level=3] [ref=f2e898]
+                - paragraph [ref=f2e899]: Lucid Motors HRIS integrations
+                - paragraph [ref=f2e900]: SuccessFactors APIs, SFTP exchanges and Redshift migrations
+              - generic [aria-hidden] [ref=f2e901]: 0+
+          - article "16 Anthropic courses — Anthropic AI Training, April 2026" [ref=f2e902]:
+            - generic [ref=f2e903]: 07 / 09
+            - generic [ref=f2e907]:
+              - generic [ref=f2e908]:
+                - heading "Anthropic courses" [level=3] [ref=f2e909]
+                - paragraph [ref=f2e910]: Anthropic AI Training, April 2026
+                - paragraph [ref=f2e911]: Claude API, MCP, Claude Code, Agent Skills, Subagents and more
+              - generic [aria-hidden] [ref=f2e912]: "0"
+          - article "Spot Awards — DynPro" [ref=f2e913]:
+            - generic [ref=f2e914]: 08 / 09
+            - generic [ref=f2e920]:
+              - generic [ref=f2e921]:
+                - heading "Spot Awards" [level=3] [ref=f2e922]
+                - paragraph [ref=f2e923]: DynPro
+                - paragraph [ref=f2e924]: For managing concurrent projects and pioneering AI automation
+              - generic [aria-hidden] [ref=f2e925]: ★
+          - article "Client recognition — PSH Healthcare and DaVita" [ref=f2e926]:
+            - generic [ref=f2e927]: 09 / 09
+            - generic [ref=f2e932]:
+              - generic [ref=f2e933]:
+                - heading "Client recognition" [level=3] [ref=f2e934]
+                - paragraph [ref=f2e935]: PSH Healthcare and DaVita
+                - paragraph [ref=f2e936]: For ownership and ahead-of-schedule delivery
+              - generic [aria-hidden] [ref=f2e937]: ✦
+          - paragraph [ref=f2e938]: and counting →
+    - region [ref=f2e939]:
+      - generic [ref=f2e940]:
+        - paragraph [ref=f2e941]:
+          - generic [ref=f2e942]: "07"
+          - text: — Contact
+        - heading "Let’s build something together." [level=2] [ref=f2e943]:
+          - generic [aria-hidden] [ref=f2e944]:
+            - generic [ref=f2e946]:
+              - generic [ref=f2e947]: L
+              - generic [ref=f2e948]: e
+              - generic [ref=f2e949]: t
+              - generic [ref=f2e950]: ’
+              - generic [ref=f2e951]: s
+            - generic [ref=f2e953]:
+              - generic [ref=f2e954]: b
+              - generic [ref=f2e955]: u
+              - generic [ref=f2e956]: i
+              - generic [ref=f2e957]: l
+              - generic [ref=f2e958]: d
+          - generic [aria-hidden] [ref=f2e959]:
+            - generic [ref=f2e961]:
+              - generic [ref=f2e962]: s
+              - generic [ref=f2e963]: o
+              - generic [ref=f2e964]: m
+              - generic [ref=f2e965]: e
+              - generic [ref=f2e966]: t
+              - generic [ref=f2e967]: h
+              - generic [ref=f2e968]: i
+              - generic [ref=f2e969]: "n"
+              - generic [ref=f2e970]: g
+            - generic [ref=f2e972]:
+              - generic [ref=f2e973]: t
+              - generic [ref=f2e974]: o
+              - generic [ref=f2e975]: g
+              - generic [ref=f2e976]: e
+              - generic [ref=f2e977]: t
+              - generic [ref=f2e978]: h
+              - generic [ref=f2e979]: e
+              - generic [ref=f2e980]: r
+              - generic [ref=f2e981]: .
+        - generic [ref=f2e982]:
+          - generic [ref=f2e983]:
+            - generic [ref=f2e984]:
+              - link "abhikrj24@gmail.com" [ref=f2e985] [cursor=pointer]:
+                - /url: mailto:abhikrj24@gmail.com
+              - button "Copy" [ref=f2e986] [cursor=pointer]
+            - list [ref=f2e991]:
+              - listitem [ref=f2e992]:
+                - link "+91 7975809662" [ref=f2e993] [cursor=pointer]:
+                  - /url: tel:+917975809662
+              - listitem [ref=f2e996]:
+                - link "GitHub" [ref=f2e997] [cursor=pointer]:
+                  - /url: https://github.com/Abhkrj2412
+              - listitem [ref=f2e1002]:
+                - link "LinkedIn" [ref=f2e1003] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/abhishek-raj-39b7061a7/
+            - paragraph [ref=f2e1008]: Senior Analyst & AI Engineer · Pune, Maharashtra, India
+          - generic [ref=f2e1009]:
+            - generic [aria-hidden] [ref=f2e1010]:
+              - img [ref=f2e1011]:
+                - generic [ref=f2e1012]: say hello · say hello · say hello ·
+              - generic [ref=f2e1013]: ↗
+            - img "Black-and-white portrait of Abhishek Raj" [ref=f2e1014]:
+              - generic [aria-hidden] [ref=f2e1096]: Abhishek Raj
+        - generic [ref=f2e1097]:
+          - generic [ref=f2e1098]: © 2026 Abhishek Raj
+          - link "Back to top" [ref=f2e1099] [cursor=pointer]:
+            - /url: "#top"
+  - alert [ref=f2e1103]
