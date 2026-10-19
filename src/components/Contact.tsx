@@ -7,10 +7,16 @@ export default function Contact() {
   const [copied, setCopied] = useState(false);
   const mosaicRef = useRef<HTMLDivElement>(null);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(PERSONAL_INFO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2200);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(PERSONAL_INFO.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2200);
+    } catch {
+      /* Clipboard blocked (insecure context or denied permission) — leave the
+         label untouched rather than claiming a copy that never happened. */
+      setCopied(false);
+    }
   };
 
   const triggerHop = (e: React.PointerEvent<HTMLSpanElement>) => {
@@ -140,7 +146,8 @@ export default function Contact() {
         {/* Giant Animated Typography with Hover Hop Physics */}
         <h2
           id="cn-title"
-          className="text-[clamp(44px,8.2vw,130px)] font-bold tracking-[-0.055em] leading-[0.92] text-[#0d0d0d] my-6"
+          aria-label="Let’s build something together."
+          className="text-[clamp(44px,8.2vw,130px)] font-bold tracking-[-0.055em] leading-[0.92] text-[#0d0d0d] my-6 rv"
         >
           <span className="block">{renderHoppingText("Let’s build")}</span>
           <span className="block">
@@ -155,14 +162,14 @@ export default function Contact() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="text-[clamp(22px,3.6vw,50px)] font-bold tracking-tight text-[#0d0d0d] border-b-2 border-[#0d0d0d] hover:text-[#8a8781] hover:border-[#8a8781] transition-all"
+                className="text-[clamp(22px,3.6vw,50px)] font-bold tracking-tight text-[#0d0d0d] border-b-2 border-[#0d0d0d] hover:text-accent hover:border-accent transition-colors duration-300"
               >
                 {PERSONAL_INFO.email}
               </a>
 
               <button
                 type="button"
-                onClick={handleCopy}
+                onClick={() => void handleCopy()}
                 className={`h-9 px-4 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                   copied
                     ? "bg-[#0d0d0d] text-white"
@@ -179,6 +186,7 @@ export default function Contact() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  aria-hidden="true"
                 >
                   {copied ? (
                     <polyline points="20 6 9 17 4 12" />
@@ -189,8 +197,12 @@ export default function Contact() {
                     </>
                   )}
                 </svg>
-                <span>{copied ? "Copied to clipboard!" : "Copy"}</span>
+                <span>{copied ? "Copied" : "Copy"}</span>
               </button>
+
+              <span role="status" aria-live="polite" className="sr-only">
+                {copied ? "Email address copied to clipboard" : ""}
+              </span>
             </div>
 
             {/* Communication & Social Links */}
@@ -257,7 +269,7 @@ export default function Contact() {
               </li>
             </ul>
 
-            <p className="mt-8 text-sm text-[#8a8781]">
+            <p className="mt-8 text-sm text-[#6f6b64]">
               {PERSONAL_INFO.title} · {PERSONAL_INFO.currentCompany} · {PERSONAL_INFO.location}
             </p>
           </div>
@@ -265,7 +277,10 @@ export default function Contact() {
           {/* Right Column: Rotating Stamp & Interactive 3D Proximity Mosaic Avatar */}
           <div className="relative flex justify-center lg:justify-end">
             {/* Spinning Circular Badge Stamp */}
-            <div className="absolute -left-6 -top-10 z-20 w-28 h-28 rounded-full bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.12)] grid place-items-center select-none pointer-events-none">
+            <div
+              className="absolute -left-6 -top-10 z-20 w-28 h-28 rounded-full bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.12)] grid place-items-center select-none pointer-events-none"
+              aria-hidden="true"
+            >
               <svg
                 viewBox="0 0 120 120"
                 className="absolute inset-0 w-full h-full animate-[cn-spin_18s_linear_infinite]"
@@ -292,7 +307,7 @@ export default function Contact() {
             </div>
 
             {/* Interactive Mosaic Grid reacting to cursor proximity */}
-            <div ref={mosaicRef} className="mo" role="img" aria-label="Interactive monogram mosaic">
+            <div ref={mosaicRef} className="mo">
               <div className="mo-grid" aria-hidden="true">
                 {mosaicTiles}
               </div>
@@ -300,10 +315,10 @@ export default function Contact() {
               {/* Floating Center Identity Badge */}
               <div className="absolute inset-x-4 bottom-4 z-10 rounded-2xl bg-white/90 p-4 shadow-sm backdrop-blur-md flex items-center justify-between pointer-events-none">
                 <div>
-                  <h4 className="font-bold text-sm text-[#0d0d0d]">
+                  <p className="font-bold text-sm text-[#0d0d0d]">
                     {PERSONAL_INFO.name}
-                  </h4>
-                  <p className="text-[11px] text-[#8a8781]">
+                  </p>
+                  <p className="text-[11px] text-[#6f6b64]">
                     {PERSONAL_INFO.currentCompany} · Delhi
                   </p>
                 </div>
@@ -316,21 +331,27 @@ export default function Contact() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-28 py-8 border-t border-[rgba(13,13,13,0.1)] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#8a8781]">
+        <footer className="mt-28 py-8 border-t border-[rgba(13,13,13,0.1)] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#6f6b64]">
           <span>© 2026 {PERSONAL_INFO.name}. Built with Next.js, Lenis &amp; Tailwind CSS.</span>
 
-          <a
-            href="#hero"
-            className="inline-flex items-center gap-2 text-[#0d0d0d] font-semibold hover:text-[#8a8781] transition-colors"
-          >
-            <span>Back to top</span>
-            <span
-              className="grid place-items-center w-7 h-7 rounded-full bg-white shadow-[0_0_0_1px_rgba(13,13,13,0.1)]"
-              aria-hidden="true"
+          <div className="flex items-center gap-5">
+            <a href="/privacy" className="hover:text-[#0d0d0d] transition-colors">
+              Privacy
+            </a>
+
+            <a
+              href="#hero"
+              className="inline-flex items-center gap-2 text-[#0d0d0d] font-semibold hover:text-accent transition-colors"
             >
-              ↑
-            </span>
-          </a>
+              <span>Back to top</span>
+              <span
+                className="grid place-items-center w-7 h-7 rounded-full bg-white shadow-[0_0_0_1px_rgba(13,13,13,0.1)]"
+                aria-hidden="true"
+              >
+                ↑
+              </span>
+            </a>
+          </div>
         </footer>
       </div>
     </section>

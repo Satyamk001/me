@@ -20,6 +20,24 @@ export default function Achievements() {
     let maxScroll = 0;
     let rafId = 0;
 
+    /* Phones and reduced-motion users get a natively swipeable row
+       instead of the pinned horizontal scroll. */
+    const nativeQuery = window.matchMedia("(max-width: 1023px)");
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let native = false;
+
+    const syncMode = () => {
+      native = nativeQuery.matches || motionQuery.matches;
+      sec.classList.toggle("is-native", native);
+      if (native) {
+        track.style.transform = "";
+        sec.style.height = "";
+        prog?.style.removeProperty("--p");
+        cards.forEach((card) => card.classList.remove("is-near"));
+      }
+      return native;
+    };
+
     const animateNumber = (card: HTMLElement) => {
       animatedCards.add(card);
       const targetEl = card.querySelector<HTMLElement>("[data-to]");
@@ -43,6 +61,7 @@ export default function Achievements() {
     };
 
     const updateMeasurements = () => {
+      if (native) return;
       maxScroll = Math.max(0, track.scrollWidth - window.innerWidth + 80);
       sec.style.height = `calc(100svh + ${maxScroll}px)`;
       onScroll();
@@ -50,6 +69,7 @@ export default function Achievements() {
 
     const onScroll = () => {
       rafId = 0;
+      if (native) return;
       const rect = sec.getBoundingClientRect();
       const scrollRatio = maxScroll > 0 ? Math.min(1, Math.max(0, -rect.top / maxScroll)) : 0;
 
@@ -98,16 +118,25 @@ export default function Achievements() {
       }
     };
 
+    syncMode();
     updateMeasurements();
     const resizeObserver = new ResizeObserver(updateMeasurements);
     resizeObserver.observe(track);
     window.addEventListener("resize", updateMeasurements);
     window.addEventListener("scroll", requestTick, { passive: true });
 
+    const handleModeChange = () => {
+      if (!syncMode()) updateMeasurements();
+    };
+    nativeQuery.addEventListener("change", handleModeChange);
+    motionQuery.addEventListener("change", handleModeChange);
+
     return () => {
       resizeObserver.disconnect();
       window.removeEventListener("resize", updateMeasurements);
       window.removeEventListener("scroll", requestTick);
+      nativeQuery.removeEventListener("change", handleModeChange);
+      motionQuery.removeEventListener("change", handleModeChange);
       cancelAnimationFrame(rafId);
     };
   }, []);
@@ -149,14 +178,8 @@ export default function Achievements() {
                 aria-label={`${ach.num}${ach.suffix || ""} ${ach.label} — ${ach.cap}`}
               >
                 <div className="flex justify-between items-start">
-                  <span
-                    className="w-12 h-12 rounded-2xl bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)] grid place-items-center font-mono font-bold text-sm text-[#0d0d0d]"
-                    style={{ background: ach.tint }}
-                  >
-                    #
-                  </span>
-                  <span className="font-mono text-xs text-[#8a8781]">
-                    {String(idx + 1).padStart(2, "0")} / {totalCards}
+                  <span className="w-12 h-12 rounded-2xl bg-accent-soft shadow-[0_0_0_1px_rgba(164,71,31,0.16)] grid place-items-center font-mono font-bold text-sm text-accent">
+                    {String(idx + 1).padStart(2, "0")}
                   </span>
                 </div>
 
@@ -168,16 +191,16 @@ export default function Achievements() {
                     <p className="text-xs sm:text-[13px] text-[#3a3a3a] mt-1 leading-snug">
                       {ach.cap}
                     </p>
-                    <p className="text-[11px] text-[#8a8781] mt-1 leading-snug">
+                    <p className="text-[11px] text-[#6f6b64] mt-1 leading-snug">
                       {ach.detail}
                     </p>
                   </div>
 
                   <div className="text-right whitespace-nowrap">
-                    <div className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tighter text-[#0d0d0d] leading-none">
+                    <div className="font-sans font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tighter text-[#0d0d0d] leading-none tabular-nums">
                       <span data-to={ach.num}>{ach.num}</span>
                       {ach.suffix && (
-                        <small className="text-lg sm:text-2xl text-[#8a8781] ml-0.5 font-normal">
+                        <small className="text-lg sm:text-2xl text-[#6f6b64] ml-0.5 font-normal">
                           {ach.suffix}
                         </small>
                       )}
@@ -187,7 +210,7 @@ export default function Achievements() {
               </article>
             ))}
 
-            <p className="flex-none self-center flex items-center gap-3 px-12 font-serif italic text-3xl sm:text-5xl text-[#8a8781] whitespace-nowrap">
+            <p className="flex-none self-center flex items-center gap-3 px-12 font-serif italic text-3xl sm:text-5xl text-[#6f6b64] whitespace-nowrap">
               and counting →
             </p>
           </div>

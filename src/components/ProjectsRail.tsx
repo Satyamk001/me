@@ -12,7 +12,7 @@ export default function ProjectsRail() {
     <section id="work" className="sec" aria-labelledby="work-title">
       <div className="wrap">
         {/* Header */}
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-12 rv">
           <div>
             <p className="tag">
               <b>03</b> — Selected work
@@ -21,13 +21,13 @@ export default function ProjectsRail() {
               Things I’ve <span className="it">built.</span>
             </h2>
           </div>
-          <p className="lede max-w-[420px] text-[#8a8781]">
+          <p className="lede max-w-[420px] text-[#6f6b64]">
             Agentic AI systems, enterprise RAG pipelines, and distributed event-driven architectures from the résumé. Hover or click any project rail to expand its architecture and details.
           </p>
         </div>
 
         {/* Desktop Rail / Mobile Accordion */}
-        <div className="flex flex-col lg:flex-row gap-3 min-h-[580px] lg:h-[620px]">
+        <div className="flex flex-col lg:flex-row gap-3 min-h-[580px] lg:min-h-[620px]">
           {PROJECTS_LIST.map((proj) => {
             const isOpen = openProjectId === proj.id;
 
@@ -46,12 +46,13 @@ export default function ProjectsRail() {
                   type="button"
                   onClick={() => setOpenProjectId(proj.id)}
                   aria-expanded={isOpen}
+                  inert={isOpen}
                   className={`hidden lg:flex absolute inset-0 w-full h-full flex-col items-center justify-between py-8 cursor-pointer select-none transition-opacity duration-300 ${
                     isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
                   }`}
                   aria-label={`Expand project ${proj.title}`}
                 >
-                  <span className="font-mono text-xs text-[#8a8781]">{proj.num}</span>
+                  <span className="font-mono text-xs text-[#6f6b64]">{proj.num}</span>
                   <span className="[writing-mode:vertical-rl] rotate-180 font-bold text-lg tracking-tight text-[#0d0d0d] whitespace-nowrap">
                     {proj.title}
                   </span>
@@ -68,16 +69,16 @@ export default function ProjectsRail() {
                   className="lg:hidden flex items-center justify-between w-full p-6 text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-[#8a8781]">{proj.num}</span>
+                    <span className="font-mono text-xs text-[#6f6b64]">{proj.num}</span>
                     <span className="font-bold text-xl text-[#0d0d0d]">{proj.title}</span>
                   </div>
-                  <span className="text-xl font-mono text-[#8a8781]">{isOpen ? "−" : "+"}</span>
+                  <span className="text-xl font-mono text-[#6f6b64]">{isOpen ? "−" : "+"}</span>
                 </button>
 
                 {/* Expanded Project Content Body */}
                 <div
                   className={`p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-full transition-opacity duration-500 ${
-                    isOpen ? "flex opacity-100" : "hidden lg:hidden opacity-0"
+                    isOpen ? "flex opacity-100" : "hidden opacity-0"
                   }`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-10 items-stretch h-full">
@@ -85,7 +86,7 @@ export default function ProjectsRail() {
                     <div className="flex flex-col justify-between">
                       <div>
                         {/* Kicker & Title */}
-                        <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-wider text-[#8a8781]">
+                        <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-wider text-[#6f6b64]">
                           <b className="text-[#0d0d0d]">{proj.num}</b>
                           <span>{proj.kicker}</span>
                         </div>
@@ -100,8 +101,8 @@ export default function ProjectsRail() {
 
                         {/* Key Features List */}
                         <div className="mb-6">
-                          <p className="font-mono text-[11px] uppercase tracking-wider text-[#8a8781] mb-2">
-                            Key Architectural Highlights
+                          <p className="font-mono text-[11px] uppercase tracking-wider text-[#6f6b64] mb-2">
+                            Key architectural highlights
                           </p>
                           <ul className="list-none p-0 m-0 grid gap-2">
                             {proj.features.map((feat, i) => (
@@ -146,7 +147,7 @@ export default function ProjectsRail() {
                               >
                                 <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3" />
                               </svg>
-                              <span>View Source on GitHub</span>
+                              <span>More on GitHub</span>
                             </a>
                           </div>
                         )}
@@ -161,12 +162,12 @@ export default function ProjectsRail() {
                           <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4]" />
                           <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4]" />
                           <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4]" />
-                          <span className="ml-2 font-mono text-[10px] text-[#8a8781]">
+                          <span className="ml-2 font-mono text-[10px] text-[#6f6b64]">
                             arch://{proj.id}.graph
                           </span>
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#8a8781]">
-                          Active Architecture
+                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#6f6b64]">
+                          Active architecture
                         </span>
                       </div>
 
@@ -176,40 +177,40 @@ export default function ProjectsRail() {
                           <div className="flex flex-col gap-3 font-mono text-xs">
                             <div className="grid grid-cols-2 gap-2 text-[10px]">
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">AGENT 1</span>
+                                <span className="text-[#6f6b64] block">AGENT 1</span>
                                 <strong className="text-[#0d0d0d] text-xs">Supervisor</strong>
-                                <p className="text-[9.5px] text-[#8a8781] mt-1">
+                                <p className="text-[9.5px] text-[#6f6b64] mt-1">
                                   Task decomposition &amp; routing
                                 </p>
                               </div>
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">AGENT 2</span>
+                                <span className="text-[#6f6b64] block">AGENT 2</span>
                                 <strong className="text-[#0d0d0d] text-xs">Planner</strong>
-                                <p className="text-[9.5px] text-[#8a8781] mt-1">
+                                <p className="text-[9.5px] text-[#6f6b64] mt-1">
                                   Step breakdown &amp; dependencies
                                 </p>
                               </div>
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">AGENT 3</span>
+                                <span className="text-[#6f6b64] block">AGENT 3</span>
                                 <strong className="text-[#0d0d0d] text-xs">Coder (ReAct)</strong>
-                                <p className="text-[9.5px] text-[#8a8781] mt-1">
+                                <p className="text-[9.5px] text-[#6f6b64] mt-1">
                                   File read/write &amp; code gen
                                 </p>
                               </div>
-                              <div className="rounded-lg bg-emerald-50 border border-emerald-200 p-3 shadow-xs">
-                                <span className="text-emerald-700 block font-semibold">TEST LOOP</span>
-                                <strong className="text-emerald-950 text-xs">Reviewer / Tester</strong>
-                                <p className="text-[9.5px] text-emerald-800 mt-1">
+                              <div className="rounded-lg bg-accent-soft border border-[rgba(164,71,31,0.22)] p-3 shadow-xs">
+                                <span className="text-accent block font-semibold">TEST LOOP</span>
+                                <strong className="text-[#0d0d0d] text-xs">Reviewer / Tester</strong>
+                                <p className="text-[9.5px] text-[#6f6b64] mt-1">
                                   pytest execution [PASSED]
                                 </p>
                               </div>
                             </div>
                             <div className="rounded-md bg-[#0d0d0d] text-white p-3 text-[10.5px]">
-                              <span className="text-[#8a8781]">$ pytest tests/test_agent.py</span>
-                              <div className="text-emerald-400 mt-1">
+                              <span className="text-[#6f6b64]">$ pytest tests/test_agent.py</span>
+                              <div className="text-accent-lit mt-1">
                                 ✓ test_supervisor_dispatch PASSED [0.12s]
                               </div>
-                              <div className="text-emerald-400">
+                              <div className="text-accent-lit">
                                 ✓ test_send_api_fanout PASSED [0.24s]
                               </div>
                               <div className="text-white/60 text-[9.5px] mt-1">
@@ -222,7 +223,7 @@ export default function ProjectsRail() {
                         {proj.diagramType === "rag" && (
                           <div className="flex flex-col gap-2.5 font-mono text-xs">
                             <div className="rounded-lg bg-white p-3 shadow-xs">
-                              <div className="flex justify-between text-[10px] text-[#8a8781] mb-1">
+                              <div className="flex justify-between text-[10px] text-[#6f6b64] mb-1">
                                 <span>INGESTION PIPELINE</span>
                                 <span>PDFLoader → RecursiveChunker</span>
                               </div>
@@ -232,23 +233,23 @@ export default function ProjectsRail() {
                             </div>
                             <div className="grid grid-cols-2 gap-2 text-[10px]">
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">EMBEDDINGS</span>
+                                <span className="text-[#6f6b64] block">EMBEDDINGS</span>
                                 <strong className="text-[#0d0d0d]">Google Gemini</strong>
-                                <span className="block text-[9.5px] text-[#8a8781] mt-0.5">
+                                <span className="block text-[9.5px] text-[#6f6b64] mt-0.5">
                                   Pinecone top-k similarity
                                 </span>
                               </div>
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">RETRIEVAL</span>
+                                <span className="text-[#6f6b64] block">RETRIEVAL</span>
                                 <strong className="text-[#0d0d0d]">Hybrid Search</strong>
-                                <span className="block text-[9.5px] text-[#8a8781] mt-0.5">
+                                <span className="block text-[9.5px] text-[#6f6b64] mt-0.5">
                                   Contextual compression
                                 </span>
                               </div>
                             </div>
                             <div className="rounded-lg bg-[#0d0d0d] text-white p-3 text-[10.5px]">
-                              <span className="text-[#8a8781] block text-[9px]">GENERATION MODEL</span>
-                              <span className="text-amber-400 font-semibold">Groq Llama 3.3 70B</span>
+                              <span className="text-[#6f6b64] block text-[9px]">GENERATION MODEL</span>
+                              <span className="text-accent-lit font-semibold">Groq Llama 3.3 70B</span>
                               <p className="text-[10px] text-[#b5b2ac] mt-1">
                                 Grounded source attribution with highlighted citations
                               </p>
@@ -261,11 +262,11 @@ export default function ProjectsRail() {
                             <div className="rounded-lg bg-white p-3 shadow-xs">
                               <div className="flex justify-between items-center text-[10px] mb-2">
                                 <span className="font-semibold text-[#0d0d0d]">Socket.IO Cluster</span>
-                                <span className="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded text-[9px]">
+                                <span className="text-accent bg-accent-soft px-2 py-0.5 rounded text-[9px]">
                                   Redis Adapter Synced
                                 </span>
                               </div>
-                              <div className="grid grid-cols-3 gap-1.5 text-center text-[9px] text-[#8a8781]">
+                              <div className="grid grid-cols-3 gap-1.5 text-center text-[9px] text-[#6f6b64]">
                                 <div className="p-1.5 rounded bg-[#f4f2ee]">Instance #1</div>
                                 <div className="p-1.5 rounded bg-[#f4f2ee]">Instance #2</div>
                                 <div className="p-1.5 rounded bg-[#f4f2ee]">Instance #3</div>
@@ -273,16 +274,16 @@ export default function ProjectsRail() {
                             </div>
                             <div className="grid grid-cols-2 gap-2 text-[10px]">
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">BROKER</span>
+                                <span className="text-[#6f6b64] block">BROKER</span>
                                 <strong className="text-[#0d0d0d]">Apache Kafka</strong>
-                                <span className="block text-[9.5px] text-[#8a8781] mt-0.5">
+                                <span className="block text-[9.5px] text-[#6f6b64] mt-0.5">
                                   SASL/TLS authenticated
                                 </span>
                               </div>
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">PROTECTION</span>
+                                <span className="text-[#6f6b64] block">PROTECTION</span>
                                 <strong className="text-[#0d0d0d]">Rate Limiter</strong>
-                                <span className="block text-[9.5px] text-emerald-600 mt-0.5 font-semibold">
+                                <span className="block text-[9.5px] text-accent mt-0.5 font-semibold">
                                   30 DMs / 10s window
                                 </span>
                               </div>
@@ -293,26 +294,26 @@ export default function ProjectsRail() {
                         {proj.diagramType === "apimonitor" && (
                           <div className="flex flex-col gap-2.5 font-mono text-xs">
                             <div className="rounded-lg bg-white p-3 shadow-xs">
-                              <span className="text-[#8a8781] block text-[9.5px] mb-1">
+                              <span className="text-[#6f6b64] block text-[9.5px] mb-1">
                                 EVENT-DRIVEN QUEUES
                               </span>
                               <div className="flex items-center justify-between text-[10.5px]">
                                 <span>RabbitMQ Topic Exchange</span>
-                                <span className="text-emerald-600 font-bold">99.9% Durable</span>
+                                <span className="text-accent font-bold">99.9% Durable</span>
                               </div>
                             </div>
                             <div className="grid grid-cols-2 gap-2 text-[10px]">
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">RESILIENCE</span>
+                                <span className="text-[#6f6b64] block">RESILIENCE</span>
                                 <strong className="text-[#0d0d0d]">Circuit Breakers</strong>
-                                <span className="block text-[9.5px] text-[#8a8781] mt-0.5">
+                                <span className="block text-[9.5px] text-[#6f6b64] mt-0.5">
                                   Exponential backoff retries
                                 </span>
                               </div>
                               <div className="rounded-lg bg-white p-3 shadow-xs">
-                                <span className="text-[#8a8781] block">STORAGE</span>
+                                <span className="text-[#6f6b64] block">STORAGE</span>
                                 <strong className="text-[#0d0d0d]">MongoDB &amp; Docker</strong>
-                                <span className="block text-[9.5px] text-[#8a8781] mt-0.5">
+                                <span className="block text-[9.5px] text-[#6f6b64] mt-0.5">
                                   Time-series TTL indexes
                                 </span>
                               </div>
@@ -323,7 +324,7 @@ export default function ProjectsRail() {
 
                       {/* Diagram Tag */}
                       <div className="flex justify-end">
-                        <span className="font-mono text-[9.5px] uppercase tracking-wider text-[#8a8781] bg-white px-2.5 py-1 rounded-full shadow-xs">
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider text-[#6f6b64] bg-white px-2.5 py-1 rounded-full shadow-xs">
                           Illustrative Architecture
                         </span>
                       </div>

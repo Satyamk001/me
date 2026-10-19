@@ -1,10 +1,35 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { PERSONAL_INFO } from "../data/portfolioData";
 
+const TABS = [
+  { id: "agents", label: "LangGraph" },
+  { id: "rag", label: "Hybrid RAG" },
+  { id: "stream", label: "Kafka Stream" },
+] as const;
+
+type TabId = (typeof TABS)[number]["id"];
+
 export default function Hero() {
-  const [activeTab, setActiveTab] = useState<"agents" | "rag" | "stream">("agents");
+  const [activeTab, setActiveTab] = useState<TabId>("agents");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  /* Roving focus: arrows / Home / End move between engine tabs. */
+  const handleTabKey = (e: React.KeyboardEvent) => {
+    const i = TABS.findIndex((t) => t.id === activeTab);
+    let next = i;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") next = i + 1;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = i - 1;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = TABS.length - 1;
+    else return;
+
+    e.preventDefault();
+    next = (next + TABS.length) % TABS.length;
+    setActiveTab(TABS[next].id);
+    tabRefs.current[next]?.focus();
+  };
 
   return (
     <section
@@ -27,9 +52,9 @@ export default function Hero() {
           {/* Left Column */}
           <div className="flex flex-col pb-2 lg:pb-12">
             {/* Live Kicker with pulsing dot */}
-            <div className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-[#8a8781] mb-4">
+            <div className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-[#6f6b64] mb-4">
               <span
-                className="w-2.5 h-2.5 rounded-full bg-[#0d0d0d] shadow-[0_0_0_0_rgba(13,13,13,0.35)] animate-[hr-live_2.4s_ease-out_infinite]"
+                className="w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_0_0_rgba(164,71,31,0.45)] animate-[hr-live_2.4s_ease-out_infinite]"
                 aria-hidden="true"
               />
               <span>{PERSONAL_INFO.name} · Delhi, India</span>
@@ -44,7 +69,7 @@ export default function Hero() {
               AI <span className="it text-[1.04em]">Engineer.</span>
             </h1>
 
-            <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-[#8a8781]">
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-[#6f6b64]">
               <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)]">
                 LangGraph Multi-Agent
               </span>
@@ -61,57 +86,65 @@ export default function Hero() {
           <div className="flex justify-center my-4 lg:my-0">
             <div className="relative w-full max-w-[340px] sm:max-w-[380px] rounded-[24px] bg-white p-5 shadow-[0_0_0_1px_rgba(13,13,13,0.08),0_24px_50px_-20px_rgba(13,13,13,0.18)] flex flex-col gap-4">
               {/* Header Bar */}
-              <div className="flex items-center justify-between border-b border-[rgba(13,13,13,0.08)] pb-3 font-mono text-[11px] text-[#8a8781]">
+              <div className="flex items-center justify-between border-b border-[rgba(13,13,13,0.08)] pb-3 font-mono text-[11px] text-[#6f6b64]">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#e4e1db]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#e4e1db]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#e4e1db]" />
                   <span className="ml-1 text-[#0d0d0d] font-semibold">sys://core-engine</span>
                 </div>
-                <span className="flex items-center gap-1 text-[10px] text-emerald-600 font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="flex items-center gap-1.5 text-[10px] text-accent font-semibold">
+                  <span
+                    className="w-1.5 h-1.5 rounded-full bg-accent animate-[hr-live_2.4s_ease-out_infinite]"
+                    aria-hidden="true"
+                  />
                   ONLINE
                 </span>
               </div>
 
               {/* Engine Switcher Tabs */}
-              <div className="flex rounded-full bg-[#f4f2ee] p-1 text-[11px] font-mono text-[#8a8781]">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("agents")}
-                  className={`flex-1 py-1.5 rounded-full transition-all duration-300 ${
-                    activeTab === "agents" ? "bg-[#0d0d0d] text-white shadow-xs" : "hover:text-[#0d0d0d]"
-                  }`}
-                >
-                  LangGraph
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("rag")}
-                  className={`flex-1 py-1.5 rounded-full transition-all duration-300 ${
-                    activeTab === "rag" ? "bg-[#0d0d0d] text-white shadow-xs" : "hover:text-[#0d0d0d]"
-                  }`}
-                >
-                  Hybrid RAG
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("stream")}
-                  className={`flex-1 py-1.5 rounded-full transition-all duration-300 ${
-                    activeTab === "stream" ? "bg-[#0d0d0d] text-white shadow-xs" : "hover:text-[#0d0d0d]"
-                  }`}
-                >
-                  Kafka Stream
-                </button>
+              <div
+                className="flex rounded-full bg-[#f4f2ee] p-1 text-[11px] font-mono text-[#6f6b64]"
+                role="tablist"
+                aria-label="Systems architecture views"
+                onKeyDown={handleTabKey}
+              >
+                {TABS.map((tab, i) => (
+                  <button
+                    key={tab.id}
+                    ref={(el) => {
+                      tabRefs.current[i] = el;
+                    }}
+                    type="button"
+                    role="tab"
+                    id={`hero-tab-${tab.id}`}
+                    aria-selected={activeTab === tab.id}
+                    aria-controls="hero-panel"
+                    tabIndex={activeTab === tab.id ? 0 : -1}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex-1 py-1.5 rounded-full transition-all duration-300 ${
+                      activeTab === tab.id
+                        ? "bg-[#0d0d0d] text-white shadow-xs"
+                        : "hover:text-[#0d0d0d]"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
               </div>
 
               {/* Dynamic Visual Content */}
-              <div className="rounded-xl bg-[#0d0d0d] text-[#f4f2ee] p-4 font-mono text-[11px] leading-relaxed min-h-[175px] flex flex-col justify-between overflow-hidden shadow-inner">
+              <div
+                id="hero-panel"
+                role="tabpanel"
+                aria-labelledby={`hero-tab-${activeTab}`}
+                className="rounded-xl bg-[#0d0d0d] text-[#f4f2ee] p-4 font-mono text-[11px] leading-relaxed min-h-[175px] flex flex-col justify-between overflow-hidden shadow-inner"
+              >
                 {activeTab === "agents" && (
-                  <div className="flex flex-col gap-1.5 animate-fadeIn">
-                    <div className="text-[#8a8781] text-[10px] flex justify-between">
+                  <div className="flex flex-col tab-panel gap-1.5">
+                    <div className="text-[#6f6b64] text-[10px] flex justify-between">
                       <span>SUPERVISOR GRAPH</span>
-                      <span className="text-emerald-400">ACTIVE</span>
+                      <span className="text-accent-lit">ACTIVE</span>
                     </div>
                     <div className="text-white font-semibold">
                       › dispatching task: &ldquo;Refactor &amp; Verify&rdquo;
@@ -121,7 +154,7 @@ export default function Hero() {
                       <div>├─ Coder: tool_call (read_file, write_file)</div>
                       <div>└─ Tester: pytest execution [6/6 PASSED]</div>
                     </div>
-                    <div className="mt-2 text-[10px] text-emerald-400 bg-emerald-950/40 px-2 py-1 rounded-sm flex items-center justify-between">
+                    <div className="mt-2 text-[10px] text-accent-lit bg-white/6 px-2 py-1 rounded-sm flex items-center justify-between">
                       <span>Checkpoint saved</span>
                       <span>LangSmith traced</span>
                     </div>
@@ -129,10 +162,10 @@ export default function Hero() {
                 )}
 
                 {activeTab === "rag" && (
-                  <div className="flex flex-col gap-1.5 animate-fadeIn">
-                    <div className="text-[#8a8781] text-[10px] flex justify-between">
+                  <div className="flex flex-col tab-panel gap-1.5">
+                    <div className="text-[#6f6b64] text-[10px] flex justify-between">
                       <span>RETRIEVAL PIPELINE</span>
-                      <span className="text-amber-400">INDEXED</span>
+                      <span className="text-accent-lit">INDEXED</span>
                     </div>
                     <div className="text-white font-semibold">
                       › hybrid query: dense + BM25 sparse
@@ -142,7 +175,7 @@ export default function Hero() {
                       <div>├─ Vector Store: Pinecone (top_k: 5)</div>
                       <div>└─ Compression: contextual filter applied</div>
                     </div>
-                    <div className="mt-2 text-[10px] text-amber-300 bg-amber-950/40 px-2 py-1 rounded-sm flex items-center justify-between">
+                    <div className="mt-2 text-[10px] text-accent-lit bg-white/6 px-2 py-1 rounded-sm flex items-center justify-between">
                       <span>LLM: Groq Llama 3.3 70B</span>
                       <span>Latency: 280ms</span>
                     </div>
@@ -150,10 +183,10 @@ export default function Hero() {
                 )}
 
                 {activeTab === "stream" && (
-                  <div className="flex flex-col gap-1.5 animate-fadeIn">
-                    <div className="text-[#8a8781] text-[10px] flex justify-between">
+                  <div className="flex flex-col tab-panel gap-1.5">
+                    <div className="text-[#6f6b64] text-[10px] flex justify-between">
                       <span>EVENT STREAM (SASL/TLS)</span>
-                      <span className="text-cyan-400">CONNECTED</span>
+                      <span className="text-accent-lit">CONNECTED</span>
                     </div>
                     <div className="text-white font-semibold">
                       › Kafka topic: &ldquo;chat.direct-messages&rdquo;
@@ -163,7 +196,7 @@ export default function Hero() {
                       <div>├─ Rate Limit: 30 DMs / 10s sliding-window</div>
                       <div>└─ Fallback: graceful direct socket mode</div>
                     </div>
-                    <div className="mt-2 text-[10px] text-cyan-300 bg-cyan-950/40 px-2 py-1 rounded-sm flex items-center justify-between">
+                    <div className="mt-2 text-[10px] text-accent-lit bg-white/6 px-2 py-1 rounded-sm flex items-center justify-between">
                       <span>Durability: 99.9%</span>
                       <span>Presence: synced</span>
                     </div>
@@ -172,7 +205,7 @@ export default function Hero() {
               </div>
 
               {/* Bottom specs */}
-              <div className="flex items-center justify-between text-[11px] font-mono text-[#8a8781] px-1">
+              <div className="flex items-center justify-between text-[11px] font-mono text-[#6f6b64] px-1">
                 <span>MapmyIndia · Systems</span>
                 <span className="font-semibold text-[#0d0d0d]">600+ DSA Solved</span>
               </div>
@@ -215,9 +248,9 @@ export default function Hero() {
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
-                rel="noreferrer"
-                className="btn btn-ghost"
-                title="View GitHub Profile"
+                rel="noopener noreferrer"
+                className="btn-quiet"
+                title="GitHub profile (opens in a new tab)"
               >
                 GitHub
                 <svg
@@ -233,13 +266,14 @@ export default function Hero() {
                 >
                   <path d="M7 17L17 7M8 7h9v9" />
                 </svg>
+                <span className="sr-only">(opens in a new tab)</span>
               </a>
             </div>
 
             {/* Scroll Down Trigger */}
             <a
               href="#about"
-              className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-[#8a8781] hover:text-[#0d0d0d] transition-colors mt-2"
+              className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-[#6f6b64] hover:text-[#0d0d0d] transition-colors mt-2"
             >
               <span
                 className="grid place-items-center w-7 h-7 rounded-full shadow-[0_0_0_1px_rgba(13,13,13,0.12)] bg-white animate-[hr-bob_2.4s_var(--ease)_infinite]"

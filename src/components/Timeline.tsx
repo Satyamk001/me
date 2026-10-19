@@ -53,7 +53,7 @@ export default function Timeline() {
     <section id="experience" className="sec" aria-labelledby="xp-title">
       <div className="wrap">
         {/* Header */}
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-16">
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-16 rv">
           <div>
             <p className="tag">
               <b>04</b> — Experience &amp; education
@@ -62,7 +62,7 @@ export default function Timeline() {
               One continuous <span className="it">path.</span>
             </h2>
           </div>
-          <p className="lede max-w-[420px] text-[#8a8781]">
+          <p className="lede max-w-[420px] text-[#6f6b64]">
             Education and work in chronological order — from Computer Engineering &amp; DSA foundation at MSIT Delhi to event-driven architectures and Agentic AI at MapmyIndia.
           </p>
         </div>
@@ -87,18 +87,18 @@ export default function Timeline() {
                 <span className="xp-dot" aria-hidden="true" />
 
                 {/* Left Year & Period */}
-                <div className="font-mono text-[#8a8781]">
+                <div className="font-mono text-[#6f6b64]">
                   <span className="xp-year block font-sans font-bold text-3xl sm:text-5xl tracking-tighter leading-none">
                     {item.year}
                   </span>
-                  <span className="block mt-2 text-xs uppercase tracking-wider text-[#8a8781]">
+                  <span className="block mt-2 text-xs uppercase tracking-wider text-[#6f6b64]">
                     {item.period}
                   </span>
                 </div>
 
                 {/* Right Card Content */}
                 <div className="flex flex-col">
-                  <span className="inline-flex self-start items-center h-6 px-3 rounded-full text-[10.5px] font-mono uppercase tracking-wider text-[#8a8781] shadow-[0_0_0_1px_rgba(13,13,13,0.1)] bg-white mb-2">
+                  <span className="inline-flex self-start items-center h-6 px-3 rounded-full text-[10.5px] font-mono uppercase tracking-wider text-[#6f6b64] shadow-[0_0_0_1px_rgba(13,13,13,0.1)] bg-white mb-2">
                     {item.kind}
                   </span>
 
@@ -108,14 +108,14 @@ export default function Timeline() {
 
                   <p className="text-[15px] font-medium text-[#0d0d0d] mt-1">
                     {item.company} ·{" "}
-                    <span className="text-[#8a8781] font-normal">{item.location}</span>
+                    <span className="text-[#6f6b64] font-normal">{item.location}</span>
                   </p>
 
                   <ul className="list-none p-0 m-0 mt-4 grid gap-2.5 max-w-2xl">
                     {item.bullets.map((bullet, i) => (
                       <li
                         key={i}
-                        className="relative pl-5 text-[14px] leading-relaxed text-[#3a3a3a] before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-[1.5px] before:bg-[#8a8781]"
+                        className="relative pl-5 text-[14px] leading-relaxed text-[#3a3a3a] before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-2 before:h-[1.5px] before:bg-[#6f6b64]"
                       >
                         {bullet}
                       </li>
@@ -134,11 +134,11 @@ export default function Timeline() {
             >
               <span className="xp-dot" aria-hidden="true" />
 
-              <div className="font-mono text-[#8a8781]">
+              <div className="font-mono text-[#6f6b64]">
                 <span className="xp-year block font-sans font-bold text-3xl sm:text-5xl tracking-tighter leading-none">
                   Next
                 </span>
-                <span className="block mt-2 text-xs uppercase tracking-wider text-[#8a8781]">
+                <span className="block mt-2 text-xs uppercase tracking-wider text-[#6f6b64]">
                   Future
                 </span>
               </div>
@@ -146,10 +146,10 @@ export default function Timeline() {
               <div>
                 <a
                   href="#contact"
-                  className="group rounded-3xl border-2 border-dashed border-[rgba(13,13,13,0.25)] p-6 sm:p-8 flex flex-wrap items-center justify-between gap-4 bg-white/40 hover:bg-white hover:border-[#0d0d0d] transition-all duration-300 block text-left"
+                  className="group rounded-3xl border-2 border-dashed border-[rgba(13,13,13,0.25)] p-6 sm:p-8 flex flex-wrap items-center justify-between gap-4 bg-white/40 hover:bg-white hover:border-[#0d0d0d] transition-colors duration-300 text-left"
                 >
                   <div>
-                    <small className="block font-mono text-xs uppercase tracking-wider text-[#8a8781] mb-1">
+                    <small className="block font-mono text-xs uppercase tracking-wider text-[#6f6b64] mb-1">
                       Next destination —
                     </small>
                     <div className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0d0d0d]">

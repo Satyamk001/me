@@ -45,9 +45,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Satyam Kumar", url: SITE_URL }],
   creator: "Satyam Kumar",
   category: "technology",
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
@@ -56,7 +53,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "/",
     siteName: "Satyam Kumar",
     title: TITLE,
     description:

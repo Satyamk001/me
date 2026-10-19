@@ -15,7 +15,7 @@ export default function SkillsTable() {
     <section id="skills" className="sec" aria-labelledby="skills-title">
       <div className="wrap">
         {/* Top Header */}
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
+        <div className="flex flex-wrap items-end justify-between gap-6 mb-8 rv">
           <div>
             <p className="tag">
               <b>02</b> — Skills
@@ -26,7 +26,7 @@ export default function SkillsTable() {
               of my <span className="it">stack.</span>
             </h2>
           </div>
-          <p className="lede max-w-[420px] text-[#8a8781]">
+          <p className="lede max-w-[420px] text-[#6f6b64]">
             {SKILLS_LIST.length} elements from the résumé across {SKILL_FAMILIES.length - 1} domains. Hover or tap any tile to inspect its properties and project applications.
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function SkillsTable() {
                 type="button"
                 onClick={() => setSelectedFamily(family)}
                 aria-pressed={isSelected}
-                className={`h-9 px-4 rounded-full text-[13px] font-medium inline-flex items-center gap-2 transition-all duration-300 cursor-pointer ${
+                className={`h-10 px-4 rounded-full text-[13px] font-medium inline-flex items-center gap-2 transition-colors duration-300 cursor-pointer ${
                   isSelected
                     ? "bg-[#0d0d0d] text-white shadow-sm"
                     : "bg-white text-[#3a3a3a] shadow-[0_0_0_1px_rgba(13,13,13,0.12)] hover:shadow-[0_0_0_1px_#0d0d0d] hover:text-[#0d0d0d]"
@@ -83,23 +83,24 @@ export default function SkillsTable() {
                     type="button"
                     onClick={() => setActiveSkill(skill)}
                     onMouseEnter={() => setActiveSkill(skill)}
+                    onFocus={() => setActiveSkill(skill)}
                     aria-label={`${skill.name} — ${skill.family}`}
                     aria-pressed={isSelected}
                     className={`relative w-full aspect-[1/1.08] rounded-xl p-2.5 text-left flex flex-col justify-between transition-all duration-300 cursor-pointer select-none ${
                       isSelected
                         ? "bg-[#0d0d0d] text-white shadow-lg -translate-y-1 z-10"
                         : "bg-white text-[#0d0d0d] shadow-[0_0_0_1px_rgba(13,13,13,0.08)] hover:-translate-y-0.5 hover:shadow-md"
-                    } ${isDimmed ? "opacity-25 grayscale" : "opacity-100"}`}
+                    } ${isDimmed ? "opacity-25" : "opacity-100"}`}
                   >
                     {/* Top Row: Index and recent dot */}
-                    <div className="flex justify-between items-center w-full font-mono text-[9px] text-[#8a8781]">
+                    <div className="flex justify-between items-center w-full font-mono text-[9px] text-[#6f6b64]">
                       <span className={isSelected ? "text-white/60" : ""}>
                         {skill.num}
                       </span>
                       {skill.isRecent && (
                         <span
                           className={`w-1.5 h-1.5 rounded-full ${
-                            isSelected ? "bg-emerald-400" : "bg-[#0d0d0d]"
+                            isSelected ? "bg-accent-lit" : "bg-accent"
                           }`}
                           title="Recently used in production"
                         />
@@ -123,7 +124,7 @@ export default function SkillsTable() {
                     {/* Category Acronym */}
                     <div
                       className={`font-mono text-[8px] uppercase tracking-wider truncate ${
-                        isSelected ? "text-white/50" : "text-[#8a8781]"
+                        isSelected ? "text-white/50" : "text-[#6f6b64]"
                       }`}
                     >
                       {skill.family.split(" ")[0]}
@@ -136,13 +137,12 @@ export default function SkillsTable() {
 
           {/* Sticky Inspector Panel */}
           <aside
-            className="sticky top-24 rounded-3xl bg-white p-6 shadow-[0_0_0_1px_rgba(13,13,13,0.08),0_24px_60px_-20px_rgba(13,13,13,0.14)] flex flex-col justify-between min-h-[440px]"
-            aria-live="polite"
-            aria-label="Skill Inspector"
+            className="lg:sticky lg:top-24 rounded-3xl bg-white p-6 shadow-[0_0_0_1px_rgba(13,13,13,0.08),0_24px_60px_-20px_rgba(13,13,13,0.14)] flex flex-col justify-between min-h-[440px]"
+            aria-label="Skill inspector"
           >
             <div>
               {/* Header: Element Number & Symbol */}
-              <div className="flex justify-between font-mono text-xs uppercase tracking-wider text-[#8a8781]">
+              <div className="flex justify-between font-mono text-xs uppercase tracking-wider text-[#6f6b64]">
                 <span>Element No. {activeSkill.num}</span>
                 <span className="font-bold text-[#0d0d0d]">{activeSkill.sym}</span>
               </div>
@@ -150,15 +150,14 @@ export default function SkillsTable() {
               {/* Glowing Aura Emblem */}
               <div className="relative h-44 my-4 grid place-items-center">
                 <div
-                  className="absolute w-36 h-36 rounded-full blur-xl transition-all duration-500"
-                  style={{ background: activeSkill.tint }}
+                  className="absolute w-36 h-36 rounded-full blur-xl transition-all duration-500 bg-accent-soft"
                   aria-hidden="true"
                 />
                 <div className="relative z-10 grid place-items-center w-28 h-28 rounded-2xl bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)]">
                   <span className="font-mono text-4xl font-extrabold tracking-tighter text-[#0d0d0d]">
                     {activeSkill.sym}
                   </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#8a8781] mt-1">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#6f6b64] mt-1">
                     {activeSkill.num}
                   </span>
                 </div>
@@ -168,7 +167,7 @@ export default function SkillsTable() {
               <h3 className="text-2xl font-bold tracking-tight text-[#0d0d0d]">
                 {activeSkill.name}
               </h3>
-              <p className="text-xs font-mono uppercase tracking-wider text-[#8a8781] mt-1">
+              <p className="text-xs font-mono uppercase tracking-wider text-[#6f6b64] mt-1">
                 {activeSkill.family}
               </p>
 
@@ -180,8 +179,8 @@ export default function SkillsTable() {
 
             {/* Used In Projects */}
             <div className="pt-6 border-t border-[rgba(13,13,13,0.08)] mt-4">
-              <p className="font-mono text-[11px] uppercase tracking-wider text-[#8a8781] mb-2">
-                Applied In Projects
+              <p className="font-mono text-[11px] uppercase tracking-wider text-[#6f6b64] mb-2">
+                Applied in projects
               </p>
               <ul className="list-none p-0 m-0 flex flex-wrap gap-1.5">
                 {activeSkill.usedIn.map((item) => (
@@ -198,14 +197,11 @@ export default function SkillsTable() {
         </div>
 
         {/* Legend */}
-        <div className="flex flex-wrap items-center gap-6 text-xs text-[#8a8781] mt-8 pt-4 border-t border-[rgba(13,13,13,0.08)]">
-          <span className="inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#0d0d0d]" />
-            Active in current production workflows
-          </span>
-          <span className="inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full border border-[#0d0d0d]" />
-            Core proficiency from professional experience &amp; projects
+        <div className="flex flex-wrap items-center gap-2 text-xs text-[#6f6b64] mt-8 pt-4 border-t border-[rgba(13,13,13,0.08)]">
+          <span className="w-2 h-2 rounded-full bg-accent" aria-hidden="true" />
+          <span>
+            {SKILLS_LIST.filter((skill) => skill.isRecent).length} of{" "}
+            {SKILLS_LIST.length} elements are in active production use today.
           </span>
         </div>
       </div>

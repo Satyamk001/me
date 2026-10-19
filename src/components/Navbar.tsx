@@ -6,11 +6,14 @@ import { PERSONAL_INFO } from "../data/portfolioData";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const pillRef = useRef<HTMLDivElement>(null);
   const indRef = useRef<HTMLSpanElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const menuWasOpen = useRef(false);
 
   const navLinks = [
     { id: "about", label: "About", num: "01" },
@@ -69,6 +72,37 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* Mobile menu: lock the page behind it and close on Escape. */
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const bodyOverflow = document.body.style.overflow;
+    const htmlOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+
+    return () => {
+      document.body.style.overflow = bodyOverflow;
+      document.documentElement.style.overflow = htmlOverflow;
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [menuOpen]);
+
+  /* Move focus into the menu on open, and back to the toggle on close. */
+  useEffect(() => {
+    if (menuOpen) {
+      menuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    } else if (menuWasOpen.current) {
+      toggleRef.current?.focus();
+    }
+    menuWasOpen.current = menuOpen;
+  }, [menuOpen]);
+
   return (
     <>
       <a href="#main" className="skip">
@@ -76,9 +110,7 @@ export default function Navbar() {
       </a>
 
       <nav
-        className={`fixed inset-x-0 top-0 z-50 pointer-events-none transition-all duration-500 ${
-          scrolled ? "is-scrolled" : ""
-        }`}
+        className="fixed inset-x-0 top-0 z-50 pointer-events-none transition-all duration-500"
         aria-label="Primary"
       >
         {/* Top Scroll Progress Bar */}
@@ -145,7 +177,7 @@ export default function Navbar() {
                   className={`relative z-10 px-4 py-2 rounded-full text-[13.5px] font-medium transition-colors duration-400 select-none ${
                     isActive ? "text-white" : "text-[#3a3a3a] hover:text-[#0d0d0d]"
                   }`}
-                  aria-current={isActive ? "true" : undefined}
+                  aria-current={isActive ? "location" : undefined}
                 >
                   {link.label}
                 </a>
@@ -155,6 +187,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
+            ref={toggleRef}
             type="button"
             className="md:hidden pointer-events-auto flex items-center gap-2.5 h-11 px-5 rounded-full text-sm font-semibold bg-white/80 shadow-[0_0_0_1px_rgba(13,13,13,0.1)] backdrop-blur-md text-[#0d0d0d]"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -181,9 +214,11 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       <div
         id="mobile-overlay"
+        ref={menuRef}
         role="dialog"
         aria-modal="true"
         aria-label="Site menu"
+        inert={!menuOpen}
         className={`fixed inset-0 z-40 bg-[#f4f2ee] flex flex-col justify-between px-[var(--gutter)] pt-28 pb-10 overflow-y-auto transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           menuOpen
             ? "opacity-100 pointer-events-auto visible"
@@ -201,7 +236,7 @@ export default function Navbar() {
                 }`}
                 style={{ transitionDelay: `${0.1 + idx * 0.05}s` }}
               >
-                <small className="font-mono text-xs font-normal text-[#8a8781]">
+                <small className="font-mono text-xs font-normal text-[#6f6b64]">
                   {link.num}
                 </small>
                 {link.label}
@@ -210,7 +245,7 @@ export default function Navbar() {
           ))}
         </ol>
 
-        <div className="pt-10 border-t border-[rgba(13,13,13,0.1)] flex flex-wrap gap-4 text-sm text-[#8a8781]">
+        <div className="pt-10 border-t border-[rgba(13,13,13,0.1)] flex flex-wrap gap-4 text-sm text-[#6f6b64]">
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
             className="hover:text-[#0d0d0d] font-mono text-xs"

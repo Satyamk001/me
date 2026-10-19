@@ -93,7 +93,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_320px_1.1fr] gap-8 lg:gap-14 items-stretch">
           {/* Left Column: Narrative Bio */}
           <div className="flex flex-col justify-between">
-            <div>
+            <div className="rv">
               <p className="tag">
                 <b>01</b> — About
               </p>
@@ -105,7 +105,7 @@ export default function About() {
                 {PERSONAL_INFO.fullBio}
               </p>
 
-              <div className="mt-5 pl-4 border-l-2 border-[#0d0d0d] text-[14.5px] leading-relaxed text-[#8a8781]">
+              <div className="mt-5 pl-4 border-l-2 border-[#0d0d0d] text-[14.5px] leading-relaxed text-[#6f6b64]">
                 Specialized in production GenAI engineering: supervisor-worker multi-agent graphs,
                 hybrid dense/sparse vector retrieval, contextual document compression, and
                 high-throughput event architectures with Kafka and RabbitMQ.
@@ -186,6 +186,7 @@ export default function About() {
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
                     setIsFlipped(!isFlipped);
                   }
                 }}
@@ -259,30 +260,30 @@ export default function About() {
 
                       <ul className="list-none p-0 mt-3 grid gap-2.5 text-[12px] text-[#3a3a3a] leading-relaxed">
                         <li className="grid grid-cols-[18px_1fr] items-start">
-                          <span className="font-mono text-[10px] text-[#8a8781]">01</span>
+                          <span className="font-mono text-[10px] text-[#6f6b64]">01</span>
                           <span>Software Engineer at MapmyIndia building distributed real-time pipelines</span>
                         </li>
                         <li className="grid grid-cols-[18px_1fr] items-start">
-                          <span className="font-mono text-[10px] text-[#8a8781]">02</span>
+                          <span className="font-mono text-[10px] text-[#6f6b64]">02</span>
                           <span>B.Tech in ECE from MSIT Delhi (2021–2025, CGPA: 7.9)</span>
                         </li>
                         <li className="grid grid-cols-[18px_1fr] items-start">
-                          <span className="font-mono text-[10px] text-[#8a8781]">03</span>
+                          <span className="font-mono text-[10px] text-[#6f6b64]">03</span>
                           <span>Creator of DevAgent (LangGraph supervisor multi-agent assistant)</span>
                         </li>
                         <li className="grid grid-cols-[18px_1fr] items-start">
-                          <span className="font-mono text-[10px] text-[#8a8781]">04</span>
+                          <span className="font-mono text-[10px] text-[#6f6b64]">04</span>
                           <span>Shipped enterprise RAG chatbot with Groq Llama 3.3 &amp; hybrid search</span>
                         </li>
                         <li className="grid grid-cols-[18px_1fr] items-start">
-                          <span className="font-mono text-[10px] text-[#8a8781]">05</span>
+                          <span className="font-mono text-[10px] text-[#6f6b64]">05</span>
                           <span>Solved 600+ DSA problems across LeetCode &amp; GeeksforGeeks</span>
                         </li>
                       </ul>
 
                       <div className="mt-auto pt-4 border-t border-[rgba(13,13,13,0.08)]">
                         <p className="font-serif italic text-2xl text-[#0d0d0d]">Satyam Kumar</p>
-                        <small className="block mt-1 font-mono text-[10.5px] text-[#8a8781]">
+                        <small className="block mt-1 font-mono text-[10.5px] text-[#6f6b64]">
                           If found, say hello · {PERSONAL_INFO.email}
                         </small>
                       </div>
@@ -292,7 +293,7 @@ export default function About() {
               </div>
 
               {/* Flip & swing hint */}
-              <p className="mt-3 font-mono text-[11px] text-[#8a8781] uppercase tracking-wider text-center">
+              <p className="mt-3 font-mono text-[11px] text-[#6f6b64] uppercase tracking-wider text-center">
                 {isFinePointer ? "Hover to flip · move mouse to swing" : "Tap card to flip ↺"}
               </p>
             </div>
@@ -301,20 +302,20 @@ export default function About() {
           {/* Right Column: Quick Facts & Pull Quote */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="font-mono text-xs uppercase tracking-wider text-[#8a8781] mb-4">
+              <h3 className="font-mono text-xs uppercase tracking-wider text-[#6f6b64] mb-4">
                 Quick facts
               </h3>
 
               <dl className="grid text-[13.5px]">
                 <div className="grid grid-cols-[110px_1fr] gap-4 py-3 border-y border-[rgba(13,13,13,0.08)]">
-                  <dt className="font-mono text-xs uppercase tracking-wide text-[#8a8781]">
+                  <dt className="font-mono text-xs uppercase tracking-wide text-[#6f6b64]">
                     Based in
                   </dt>
                   <dd className="font-medium text-[#0d0d0d]">{PERSONAL_INFO.location}</dd>
                 </div>
 
                 <div className="grid grid-cols-[110px_1fr] gap-4 py-3 border-b border-[rgba(13,13,13,0.08)]">
-                  <dt className="font-mono text-xs uppercase tracking-wide text-[#8a8781]">
+                  <dt className="font-mono text-xs uppercase tracking-wide text-[#6f6b64]">
                     Role
                   </dt>
                   <dd className="font-medium text-[#0d0d0d]">
@@ -323,21 +324,21 @@ export default function About() {
                 </div>
 
                 <div className="grid grid-cols-[110px_1fr] gap-4 py-3 border-b border-[rgba(13,13,13,0.08)]">
-                  <dt className="font-mono text-xs uppercase tracking-wide text-[#8a8781]">
+                  <dt className="font-mono text-xs uppercase tracking-wide text-[#6f6b64]">
                     Education
                   </dt>
                   <dd className="font-medium text-[#0d0d0d]">B.Tech ECE · MSIT Delhi</dd>
                 </div>
 
                 <div className="grid grid-cols-[110px_1fr] gap-4 py-3 border-b border-[rgba(13,13,13,0.08)]">
-                  <dt className="font-mono text-xs uppercase tracking-wide text-[#8a8781]">
+                  <dt className="font-mono text-xs uppercase tracking-wide text-[#6f6b64]">
                     DSA
                   </dt>
                   <dd className="font-medium text-[#0d0d0d]">600+ Problems Solved</dd>
                 </div>
 
                 <div className="grid grid-cols-[110px_1fr] gap-4 py-3 border-b border-[rgba(13,13,13,0.08)]">
-                  <dt className="font-mono text-xs uppercase tracking-wide text-[#8a8781]">
+                  <dt className="font-mono text-xs uppercase tracking-wide text-[#6f6b64]">
                     Email
                   </dt>
                   <dd className="font-medium text-[#0d0d0d] truncate">
@@ -357,7 +358,7 @@ export default function About() {
               <p className="font-serif italic text-[clamp(20px,2vw,26px)] leading-snug text-[#0d0d0d] tracking-tight">
                 &ldquo;Architecting resilient distributed backends and autonomous multi-agent intelligence.&rdquo;
               </p>
-              <footer className="mt-3 font-mono text-xs text-[#8a8781]">
+              <footer className="mt-3 font-mono text-xs text-[#6f6b64]">
                 — {PERSONAL_INFO.name}, {PERSONAL_INFO.title}
               </footer>
             </blockquote>

@@ -5,7 +5,6 @@ export interface SkillElement {
   family: string;
   note: string;
   usedIn: string[];
-  tint: string;
   isRecent?: boolean;
 }
 
@@ -35,14 +34,11 @@ export interface ExperienceItem {
 
 export interface Achievement {
   id: string;
-  idx: string;
   label: string;
   cap: string;
   detail: string;
   num: string;
   suffix?: string;
-  glyph?: string;
-  tint?: string;
 }
 
 export const PERSONAL_INFO = {
@@ -84,7 +80,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Supervisor, Specialists, Map-Reduce & Send API",
     usedIn: ["DevAgent"],
-    tint: "rgba(16, 185, 129, 0.25)",
     isRecent: true,
   },
   {
@@ -94,7 +89,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Chains, Ingestion & Document Loaders",
     usedIn: ["Company Docs Assistant"],
-    tint: "rgba(59, 130, 246, 0.25)",
     isRecent: true,
   },
   {
@@ -104,7 +98,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Hybrid search, multi-query & contextual compression",
     usedIn: ["Company Docs Assistant"],
-    tint: "rgba(245, 158, 11, 0.25)",
     isRecent: true,
   },
   {
@@ -114,7 +107,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Supervisor-worker, parallel fan-out & state reduction",
     usedIn: ["DevAgent"],
-    tint: "rgba(139, 92, 246, 0.25)",
     isRecent: true,
   },
   {
@@ -124,7 +116,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "File ops, pytest runner, bash execution & linting",
     usedIn: ["DevAgent"],
-    tint: "rgba(236, 72, 153, 0.25)",
     isRecent: true,
   },
   {
@@ -134,7 +125,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Managed vector index & top-k similarity search",
     usedIn: ["Company Docs Assistant"],
-    tint: "rgba(20, 184, 166, 0.25)",
   },
   {
     num: "07",
@@ -143,7 +133,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Embedding storage & nearest neighbor retrieval",
     usedIn: ["DevAgent", "Company Docs Assistant"],
-    tint: "rgba(239, 68, 68, 0.25)",
   },
   {
     num: "08",
@@ -152,7 +141,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "LLM tracing, observability & run debugging",
     usedIn: ["DevAgent"],
-    tint: "rgba(168, 85, 247, 0.25)",
     isRecent: true,
   },
   {
@@ -162,7 +150,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Agentic AI & GenAI",
     note: "Ground truth scoring & automated test sets",
     usedIn: ["DevAgent", "Company Docs Assistant"],
-    tint: "rgba(14, 165, 233, 0.25)",
   },
 
   // Languages
@@ -173,7 +160,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Languages",
     note: "Strict typing, generics & backend contracts",
     usedIn: ["MapmyIndia", "KuKu Fun", "DevAgent"],
-    tint: "rgba(49, 120, 198, 0.25)",
     isRecent: true,
   },
   {
@@ -183,7 +169,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Languages",
     note: "ESNext, asynchronous event loops & V8 internals",
     usedIn: ["MapmyIndia", "Comely Enterprises", "KuKu Fun"],
-    tint: "rgba(247, 223, 30, 0.25)",
   },
   {
     num: "12",
@@ -192,7 +177,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Languages",
     note: "AsyncIO, LangGraph, FastAPI & pytest",
     usedIn: ["DevAgent"],
-    tint: "rgba(55, 118, 171, 0.25)",
     isRecent: true,
   },
   {
@@ -202,7 +186,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Languages",
     note: "Data structures, algorithms & memory awareness",
     usedIn: ["600+ DSA Solutions"],
-    tint: "rgba(0, 89, 156, 0.25)",
   },
   {
     num: "14",
@@ -211,7 +194,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Languages",
     note: "Complex joins, indexing & query plan optimization",
     usedIn: ["MapmyIndia", "Comely Enterprises", "KuKu Fun"],
-    tint: "rgba(227, 100, 39, 0.25)",
   },
 
   // Backend Systems
@@ -222,7 +204,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "Event loop, streams & microservice workers",
     usedIn: ["MapmyIndia", "KuKu Fun", "API Monitoring Platform"],
-    tint: "rgba(104, 160, 99, 0.25)",
     isRecent: true,
   },
   {
@@ -232,7 +213,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "High-throughput RESTful routing & middleware",
     usedIn: ["MapmyIndia", "Comely Enterprises"],
-    tint: "rgba(0, 0, 0, 0.25)",
   },
   {
     num: "17",
@@ -241,7 +221,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "Enterprise modular architecture & DI",
     usedIn: ["MapmyIndia"],
-    tint: "rgba(224, 35, 78, 0.25)",
   },
   {
     num: "18",
@@ -250,7 +229,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "High-speed async Python REST services",
     usedIn: ["DevAgent"],
-    tint: "rgba(5, 153, 139, 0.25)",
   },
   {
     num: "19",
@@ -259,7 +237,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "Publisher-subscriber & async message workers",
     usedIn: ["API Monitoring Platform", "KuKu Fun"],
-    tint: "rgba(249, 115, 22, 0.25)",
   },
   {
     num: "20",
@@ -268,7 +245,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "Service discovery, decoupled domains & gateway",
     usedIn: ["MapmyIndia", "API Monitoring Platform"],
-    tint: "rgba(99, 102, 241, 0.25)",
   },
   {
     num: "21",
@@ -277,7 +253,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Backend Systems",
     note: "Idempotent endpoints, rate limits & OpenAPI",
     usedIn: ["MapmyIndia", "Comely Enterprises"],
-    tint: "rgba(34, 197, 94, 0.25)",
   },
 
   // Frontend
@@ -288,7 +263,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Frontend",
     note: "Component hierarchy, RxJS streams & services",
     usedIn: ["Comely Enterprises", "API Monitoring Platform"],
-    tint: "rgba(221, 0, 49, 0.25)",
   },
   {
     num: "23",
@@ -297,7 +271,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Frontend",
     note: "Hooks, concurrent rendering & state management",
     usedIn: ["KuKu Fun", "Portfolio"],
-    tint: "rgba(97, 218, 251, 0.25)",
   },
   {
     num: "24",
@@ -306,7 +279,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Frontend",
     note: "App router, SSR, server components & edge routes",
     usedIn: ["KuKu Fun", "Portfolio"],
-    tint: "rgba(0, 0, 0, 0.25)",
     isRecent: true,
   },
 
@@ -318,7 +290,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "SASL/TLS, distributed partitions & consumer groups",
     usedIn: ["KuKu Fun"],
-    tint: "rgba(35, 31, 32, 0.25)",
     isRecent: true,
   },
   {
@@ -328,7 +299,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "Exchanges, Dead Letter Queues & Circuit Breakers",
     usedIn: ["API Monitoring Platform"],
-    tint: "rgba(255, 102, 0, 0.25)",
   },
   {
     num: "27",
@@ -337,7 +307,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "Sliding-window rate limiter, task queue & pub/sub",
     usedIn: ["MapmyIndia", "KuKu Fun", "Comely Enterprises"],
-    tint: "rgba(220, 56, 45, 0.25)",
     isRecent: true,
   },
   {
@@ -347,7 +316,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "Relational modeling, transactions & indexes",
     usedIn: ["KuKu Fun"],
-    tint: "rgba(51, 103, 145, 0.25)",
   },
   {
     num: "29",
@@ -356,7 +324,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "Normalized schemas, replication & pooling",
     usedIn: ["Comely Enterprises"],
-    tint: "rgba(0, 117, 143, 0.25)",
   },
   {
     num: "30",
@@ -365,7 +332,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "Document aggregation pipelines & TTL indexes",
     usedIn: ["API Monitoring Platform"],
-    tint: "rgba(71, 162, 72, 0.25)",
   },
   {
     num: "31",
@@ -374,7 +340,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "Multi-stage builds, container networks & compose",
     usedIn: ["API Monitoring Platform", "DevAgent"],
-    tint: "rgba(36, 150, 237, 0.25)",
   },
   {
     num: "32",
@@ -383,7 +348,6 @@ export const SKILLS_LIST: SkillElement[] = [
     family: "Databases & Cloud",
     note: "WebSockets with Redis adapter for horizontal scale",
     usedIn: ["KuKu Fun"],
-    tint: "rgba(1, 1, 1, 0.25)",
   },
 ];
 
@@ -533,61 +497,49 @@ export const EXPERIENCE_LIST: ExperienceItem[] = [
 export const ACHIEVEMENTS_LIST: Achievement[] = [
   {
     id: "ach-1",
-    idx: "01 / 06",
     label: "DSA Problems Solved",
     cap: "Algorithmic Foundation",
     detail: "LeetCode & GFG: Graphs, Dynamic Programming, Trees & Systems",
     num: "600",
     suffix: "+",
-    tint: "rgba(13, 13, 13, 0.1)",
   },
   {
     id: "ach-2",
-    idx: "02 / 06",
     label: "Page Load Speedup",
     cap: "MapmyIndia Pipelines",
     detail: "Optimized frontend & backend pipelines with 40% faster load times",
     num: "40",
     suffix: "%",
-    tint: "rgba(59, 130, 246, 0.2)",
   },
   {
     id: "ach-3",
-    idx: "03 / 06",
     label: "Message Durability",
     cap: "RabbitMQ Event Architecture",
     detail: "Circuit breakers, retry mechanisms and Dead Letter Queues",
     num: "99.9",
     suffix: "%",
-    tint: "rgba(249, 115, 22, 0.2)",
   },
   {
     id: "ach-4",
-    idx: "04 / 06",
     label: "Latency Reduction",
     cap: "Comely Enterprises APIs",
     detail: "Optimized RESTful services, Redis caching and query indexing",
     num: "30",
     suffix: "%",
-    tint: "rgba(16, 185, 129, 0.2)",
   },
   {
     id: "ach-5",
-    idx: "05 / 06",
     label: "Autonomous Agents",
     cap: "DevAgent Architecture",
     detail: "Supervisor, Planner, Coder & Reviewer coordinated via LangGraph",
     num: "4",
-    tint: "rgba(139, 92, 246, 0.2)",
   },
   {
     id: "ach-6",
-    idx: "06 / 06",
     label: "Sliding-Window Protection",
     cap: "KuKu Fun Messaging Rate Limit",
     detail: "30 DMs per 10-second window Redis limiter with Kafka streaming",
     num: "30",
     suffix: "/10s",
-    tint: "rgba(236, 72, 153, 0.2)",
   },
 ];
