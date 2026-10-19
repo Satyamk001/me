@@ -1,0 +1,34 @@
+SATYAM KUMAR
+9582906377 | satyamkmr37@gmail.com | linkedin.in/satyamk001 |  GitHub: satyamk001
+SUMMARY
+Software Engineer (Backend / Full-Stack) with ~1 year of experience building event-driven, real-time systems in Node.js and TypeScript, now focused on Agentic AI and GenAI engineering. Built RAG pipelines with hybrid search and contextual compression, and multi-agent systems using LangGraph (supervisor, specialists, map-reduce, human-in-the-loop). Strong DSA foundation (600+ problems solved).
+TECHNICAL SKILLS
+Languages: JavaScript, TypeScript, Python, C++, SQL
+Agentic AI / GenAI: LangGraph, LangChain, RAG (hybrid search, multi-query, contextual compression, parent-document retrieval), Multi-Agent Systems, Tool Calling (ReAct), Pinecone, ChromaDB, LangSmith, LLM Evals
+Backend: Node.js, Express.js, NestJS, FastAPI, REST APIs, Event-Driven Architecture, Microservices
+Frontend: Angular, React.js, Next.js
+Databases & Tools: MySQL, PostgreSQL, MongoDB, Redis, Apache Kafka, RabbitMQ, Docker, Git, CI/CD, Socket.IO, WebRTC, Razorpay
+EXPERIENCE
+MapmyIndia — Associate Software Developer	July 2025 – Present
+•Applied security best practices including input validation, error handling, and modular architecture to improve code quality and maintainability.
+•Optimized frontend and backend pipelines, achieving 40% faster page loads and reducing server error rates.
+•Implemented Redis for temporary data storage and task queuing, offloading workload from the main database.
+Comely Enterprises Pvt. Ltd. — Full Stack Developer Intern	Jan 2025 – May 2025
+•Built and maintained scalable cross-platform applications using Angular, AngularJS, React Native, Express.js, Redis, and MySQL; improved development efficiency by 25% through modular, reusable code.
+•Designed and deployed secure RESTful APIs with Node.js and Express.js, reducing response times by 30% and ensuring high reliability under concurrent load.
+PROJECTS
+DevAgent — Multi-Agent Coding Assistant	LangGraph · Python · Tool Calling · pytest
+•Built a supervisor-based multi-agent system where a Supervisor triages tasks and delegates to Planner, Coder, and Reviewer/Tester agents, with failure handoffs back to the Coder until tests pass.
+•Gave agents real tools (file read/write, pytest execution, linting) via the ReAct tool-calling pattern, and fanned out multi-file work in parallel using the LangGraph Send API with map-reduce over shared state.
+•Added checkpointing, human-in-the-loop approval, and LangSmith tracing for observability and safe, resumable runs.
+Company Docs Assistant — Production RAG Chatbot	Node.js · LangChain · Pinecone · Gemini Embeddings · Groq (Llama 3.3 70B)
+•Built a RAG chatbot over internal PDFs with an ingestion pipeline (PDFLoader, recursive chunking) and a custom adapter for Gemini embeddings indexed in Pinecone for top-k similarity retrieval.
+•Upgraded retrieval quality with hybrid search, multi-query retrieval, and contextual compression; grounded answers from a Groq-hosted Llama 3.3 70B model with source-based responses.
+KuKu Fun — Real-Time Chat Application	Next.js · Node.js · Socket.IO · PostgreSQL · Redis · Kafka
+•Scaled real-time chat with Socket.IO and a Redis adapter for distributed presence and cross-instance room routing across multiple server instances.
+•Integrated Apache Kafka (SASL/TLS) for async processing of DMs and notifications with graceful degradation to direct delivery; added Redis caching (5-min TTL) and a sliding-window rate limiter (30 DMs/10s).
+API Monitoring & Analytics Platform — SaaS Architecture	Angular · Node.js · RabbitMQ · MongoDB · Docker
+•Architected an event-driven monitoring system with a RabbitMQ producer-consumer pattern, plus Circuit Breakers, Retry Strategies, and Dead Letter Queues for 99.9% message durability; containerized with Docker Compose.
+EDUCATION
+Maharaja Surajmal Institute of Technology, Delhi — B.Tech in Electronics & Communication Engineering	Dec 2021 – May 2025
+CGPA: 7.9
