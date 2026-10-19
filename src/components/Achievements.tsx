@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { ACHIEVEMENTS_LIST } from "../data/portfolioData";
+import TechIcon from "./TechIcon";
 
 export default function Achievements() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -181,6 +182,19 @@ export default function Achievements() {
                   <span className="w-12 h-12 rounded-2xl bg-accent-soft shadow-[0_0_0_1px_rgba(164,71,31,0.16)] grid place-items-center font-mono font-bold text-sm text-accent">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
+                  {ach.techStack && (
+                    <div className="flex items-center gap-1.5 p-1 rounded-xl bg-black/[0.03]">
+                      {ach.techStack.map((tech) => (
+                        <div
+                          key={tech}
+                          className="w-6 h-6 rounded-lg bg-white shadow-xs grid place-items-center"
+                          title={tech}
+                        >
+                          <TechIcon name={tech} size={14} className="w-3.5 h-3.5" />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex items-end justify-between gap-4 mt-6">

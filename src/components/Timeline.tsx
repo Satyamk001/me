@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { EXPERIENCE_LIST } from "../data/portfolioData";
+import TechIcon from "./TechIcon";
 
 export default function Timeline() {
   const pathRef = useRef<HTMLDivElement>(null);
@@ -81,7 +82,7 @@ export default function Timeline() {
                 ref={(el) => {
                   itemsRef.current[idx] = el;
                 }}
-                className="xp-stop relative grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 items-start"
+                className="xp-stop relative grid grid-cols-1 md:grid-cols-[170px_1fr] gap-4 md:gap-12 items-start"
               >
                 {/* Glowing Active Dot */}
                 <span className="xp-dot" aria-hidden="true" />
@@ -91,7 +92,7 @@ export default function Timeline() {
                   <span className="xp-year block font-sans font-bold text-3xl sm:text-5xl tracking-tighter leading-none">
                     {item.year}
                   </span>
-                  <span className="block mt-2 text-xs uppercase tracking-wider text-[#6f6b64]">
+                  <span className="block mt-2 text-xs uppercase tracking-wider text-[#6f6b64] whitespace-nowrap">
                     {item.period}
                   </span>
                 </div>
@@ -121,6 +122,20 @@ export default function Timeline() {
                       </li>
                     ))}
                   </ul>
+
+                  {item.techStack && item.techStack.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-[rgba(13,13,13,0.06)]">
+                      {item.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="chip text-[11px] px-2.5 py-0.5 bg-white shadow-[0_0_0_1px_rgba(13,13,13,0.08)] inline-flex items-center gap-1.5"
+                        >
+                          <TechIcon name={tech} size={12} className="w-3 h-3" />
+                          <span>{tech}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </li>
             ))}

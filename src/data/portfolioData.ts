@@ -30,6 +30,7 @@ export interface ExperienceItem {
   location: string;
   kind: "Experience" | "Education";
   bullets: string[];
+  techStack?: string[];
 }
 
 export interface Achievement {
@@ -39,6 +40,7 @@ export interface Achievement {
   detail: string;
   num: string;
   suffix?: string;
+  techStack?: string[];
 }
 
 export const PERSONAL_INFO = {
@@ -463,6 +465,7 @@ export const EXPERIENCE_LIST: ExperienceItem[] = [
       "Graduated with 7.9 CGPA, focusing on signal processing, embedded systems, and core computer science fundamentals.",
       "Solved 600+ problems across LeetCode and GeeksforGeeks, cultivating deep algorithmic problem-solving capabilities in C++ and Python.",
     ],
+    techStack: ["C++", "Python", "SQL"],
   },
   {
     id: "exp-comely",
@@ -477,6 +480,7 @@ export const EXPERIENCE_LIST: ExperienceItem[] = [
       "Improved development team delivery efficiency by 25% through modular, reusable component patterns.",
       "Designed and deployed secure RESTful APIs with Node.js and Express.js, reducing response times by 30% and ensuring high reliability under concurrent load.",
     ],
+    techStack: ["Angular", "React Native", "Express.js", "Redis", "MySQL", "Node.js"],
   },
   {
     id: "exp-mapmyindia",
@@ -491,6 +495,7 @@ export const EXPERIENCE_LIST: ExperienceItem[] = [
       "Optimized frontend and backend pipelines, achieving 40% faster page loads and dramatically reducing server error rates.",
       "Implemented Redis for temporary data caching and asynchronous task queuing, offloading query load from core relational databases.",
     ],
+    techStack: ["Node.js", "Redis", "PostgreSQL", "TypeScript", "Apache Kafka"],
   },
 ];
 
@@ -502,6 +507,7 @@ export const ACHIEVEMENTS_LIST: Achievement[] = [
     detail: "LeetCode & GFG: Graphs, Dynamic Programming, Trees & Systems",
     num: "600",
     suffix: "+",
+    techStack: ["C++", "Python"],
   },
   {
     id: "ach-2",
@@ -510,6 +516,7 @@ export const ACHIEVEMENTS_LIST: Achievement[] = [
     detail: "Optimized frontend & backend pipelines with 40% faster load times",
     num: "40",
     suffix: "%",
+    techStack: ["Node.js", "Redis"],
   },
   {
     id: "ach-3",
@@ -518,6 +525,7 @@ export const ACHIEVEMENTS_LIST: Achievement[] = [
     detail: "Circuit breakers, retry mechanisms and Dead Letter Queues",
     num: "99.9",
     suffix: "%",
+    techStack: ["RabbitMQ", "Docker"],
   },
   {
     id: "ach-4",
@@ -526,6 +534,7 @@ export const ACHIEVEMENTS_LIST: Achievement[] = [
     detail: "Optimized RESTful services, Redis caching and query indexing",
     num: "30",
     suffix: "%",
+    techStack: ["Express.js", "MySQL"],
   },
   {
     id: "ach-5",
@@ -533,6 +542,7 @@ export const ACHIEVEMENTS_LIST: Achievement[] = [
     cap: "DevAgent Architecture",
     detail: "Supervisor, Planner, Coder & Reviewer coordinated via LangGraph",
     num: "4",
+    techStack: ["LangGraph", "Python"],
   },
   {
     id: "ach-6",
@@ -541,5 +551,6 @@ export const ACHIEVEMENTS_LIST: Achievement[] = [
     detail: "30 DMs per 10-second window Redis limiter with Kafka streaming",
     num: "30",
     suffix: "/10s",
+    techStack: ["Redis", "Apache Kafka", "Socket.IO"],
   },
 ];

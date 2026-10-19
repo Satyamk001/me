@@ -6,6 +6,7 @@ import {
   SKILL_FAMILIES,
   SkillElement,
 } from "../data/portfolioData";
+import TechIcon from "./TechIcon";
 
 export default function SkillsTable() {
   const [selectedFamily, setSelectedFamily] = useState<string>("All");
@@ -107,13 +108,29 @@ export default function SkillsTable() {
                       )}
                     </div>
 
-                    {/* Chemical Symbol */}
-                    <div
-                      className={`font-bold text-[clamp(19px,2vw,26px)] tracking-tight leading-none ${
-                        isSelected ? "text-white" : "text-[#0d0d0d]"
-                      }`}
-                    >
-                      {skill.sym}
+                    {/* Chemical Symbol & Tech Icon */}
+                    <div className="flex items-center justify-between w-full my-auto">
+                      <div
+                        className={`font-bold text-[clamp(17px,1.8vw,23px)] tracking-tight leading-none ${
+                          isSelected ? "text-white" : "text-[#0d0d0d]"
+                        }`}
+                      >
+                        {skill.sym}
+                      </div>
+                      <div
+                        className={`w-5 h-5 rounded-md grid place-items-center transition-colors ${
+                          isSelected ? "bg-white/15" : "bg-black/[0.04]"
+                        }`}
+                        title={`${skill.name} icon`}
+                      >
+                        <TechIcon
+                          name={skill.name}
+                          size={14}
+                          className={`w-3.5 h-3.5 ${
+                            isSelected ? "brightness-0 invert" : ""
+                          }`}
+                        />
+                      </div>
                     </div>
 
                     {/* Element Name */}
@@ -147,19 +164,23 @@ export default function SkillsTable() {
                 <span className="font-bold text-[#0d0d0d]">{activeSkill.sym}</span>
               </div>
 
-              {/* Glowing Aura Emblem */}
+              {/* Glowing Aura Emblem with Tech Icon */}
               <div className="relative h-44 my-4 grid place-items-center">
                 <div
                   className="absolute w-36 h-36 rounded-full blur-xl transition-all duration-500 bg-accent-soft"
                   aria-hidden="true"
                 />
-                <div className="relative z-10 grid place-items-center w-28 h-28 rounded-2xl bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)]">
-                  <span className="font-mono text-4xl font-extrabold tracking-tighter text-[#0d0d0d]">
-                    {activeSkill.sym}
-                  </span>
-                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#6f6b64] mt-1">
-                    {activeSkill.num}
-                  </span>
+                <div className="relative z-10 flex flex-col items-center justify-center w-28 h-28 rounded-2xl bg-[#f4f2ee] shadow-[0_0_0_1px_rgba(13,13,13,0.08)] p-3">
+                  <TechIcon
+                    name={activeSkill.name}
+                    size={40}
+                    className="w-10 h-10 mb-2 drop-shadow-sm"
+                  />
+                  <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[#6f6b64]">
+                    <span className="font-bold text-[#0d0d0d]">{activeSkill.sym}</span>
+                    <span>·</span>
+                    <span>No. {activeSkill.num}</span>
+                  </div>
                 </div>
               </div>
 

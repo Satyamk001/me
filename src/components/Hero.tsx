@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { PERSONAL_INFO } from "../data/portfolioData";
+import TechIcon from "./TechIcon";
 
 const TABS = [
   { id: "agents", label: "LangGraph" },
@@ -37,9 +38,9 @@ export default function Hero() {
       className="relative min-h-[100svh] flex flex-col justify-end pt-24 pb-12 overflow-hidden"
       aria-labelledby="hero-title"
     >
-      {/* Giant Background Outlined Ghost Name */}
+      {/* Giant Background Outlined Ghost Name (desktop only: it competes with the title on phones) */}
       <div
-        className="absolute left-1/2 top-[clamp(90px,18vh,190px)] -translate-x-1/2 select-none pointer-events-none whitespace-nowrap font-extrabold tracking-[-0.06em] leading-[0.8] text-[clamp(80px,21vw,360px)] text-transparent z-0 animate-[hr-ghost_1.6s_var(--ease)_both]"
+        className="hidden sm:block absolute left-1/2 top-[clamp(90px,18vh,190px)] -translate-x-1/2 select-none pointer-events-none whitespace-nowrap font-extrabold tracking-[-0.06em] leading-[0.8] text-[clamp(80px,21vw,360px)] text-transparent z-0 animate-[hr-ghost_1.6s_var(--ease)_both]"
         style={{ WebkitTextStroke: "1.2px rgba(13, 13, 13, 0.14)" }}
         aria-hidden="true"
       >
@@ -48,9 +49,9 @@ export default function Hero() {
 
       <div className="wrap relative z-10 w-full">
         {/* Stage Grid: Left Bio / Title, Center High-Tech Visual, Right Intro & CTAs */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_auto_1.1fr] items-end gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_auto_1fr] items-end gap-8 lg:gap-10">
           {/* Left Column */}
-          <div className="flex flex-col pb-2 lg:pb-12">
+          <div className="hero-col flex flex-col pb-2 lg:pb-12">
             {/* Live Kicker with pulsing dot */}
             <div className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-[#6f6b64] mb-4">
               <span
@@ -60,24 +61,24 @@ export default function Hero() {
               <span>{PERSONAL_INFO.name} · Delhi, India</span>
             </div>
 
-            <h1
-              id="hero-title"
-              className="text-[clamp(44px,5.8vw,92px)] font-bold tracking-[-0.05em] leading-[0.94] text-[#0d0d0d] m-0"
-            >
-              Software Engineer &amp;
+            <h1 id="hero-title" className="hero-title m-0">
+              Software Engineer&nbsp;&amp;
               <br />
-              AI <span className="it text-[1.04em]">Engineer.</span>
+              AI <span className="it">Engineer.</span>
             </h1>
 
             <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono text-[#6f6b64]">
-              <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)]">
-                LangGraph Multi-Agent
+              <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)] inline-flex items-center gap-1.5">
+                <TechIcon name="LangGraph" size={13} className="w-3.5 h-3.5" />
+                <span>LangGraph Multi-Agent</span>
               </span>
-              <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)]">
-                Enterprise RAG
+              <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)] inline-flex items-center gap-1.5">
+                <TechIcon name="RAG Pipelines" size={13} className="w-3.5 h-3.5" />
+                <span>Enterprise RAG</span>
               </span>
-              <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)]">
-                Event-Driven Systems
+              <span className="px-2.5 py-1 rounded-md bg-white/70 shadow-[0_0_0_1px_rgba(13,13,13,0.08)] inline-flex items-center gap-1.5">
+                <TechIcon name="Apache Kafka" size={13} className="w-3.5 h-3.5" />
+                <span>Event-Driven Systems</span>
               </span>
             </div>
           </div>
@@ -122,13 +123,26 @@ export default function Hero() {
                     aria-controls="hero-panel"
                     tabIndex={activeTab === tab.id ? 0 : -1}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex-1 py-1.5 rounded-full transition-all duration-300 ${
+                    className={`flex-1 py-1.5 rounded-full transition-all duration-300 inline-flex items-center justify-center gap-1.5 ${
                       activeTab === tab.id
                         ? "bg-[#0d0d0d] text-white shadow-xs"
                         : "hover:text-[#0d0d0d]"
                     }`}
                   >
-                    {tab.label}
+                    <TechIcon
+                      name={
+                        tab.id === "agents"
+                          ? "LangGraph"
+                          : tab.id === "rag"
+                          ? "Pinecone"
+                          : "Apache Kafka"
+                      }
+                      size={12}
+                      className={`w-3 h-3 ${
+                        activeTab === tab.id ? "brightness-0 invert" : ""
+                      }`}
+                    />
+                    <span>{tab.label}</span>
                   </button>
                 ))}
               </div>

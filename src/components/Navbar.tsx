@@ -82,7 +82,33 @@ export default function Navbar() {
     document.documentElement.style.overflow = "hidden";
 
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMenuOpen(false);
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== "Tab") return;
+
+      /* Keep Tab inside the dialog: the close toggle plus everything in the
+         overlay, cycling in visual order. */
+      const inside = Array.from(
+        menuRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ) ?? []
+      ).filter((el) => el.getClientRects().length > 0);
+      const stops = [toggleRef.current, ...inside].filter(Boolean) as HTMLElement[];
+      if (stops.length === 0) return;
+
+      const first = stops[0];
+      const last = stops[stops.length - 1];
+      const active = document.activeElement as HTMLElement | null;
+
+      if (e.shiftKey && (active === first || !stops.includes(active as HTMLElement))) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     document.addEventListener("keydown", handleKey);
 
@@ -93,14 +119,20 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  /* Move focus into the menu on open, and back to the toggle on close. */
+  /* Move focus into the menu on open, and back to the toggle on close.
+     Deferred to the next frame: the overlay's `visibility` is still `hidden`
+     on the commit that opens it, and hidden elements cannot take focus. */
   useEffect(() => {
+    let raf = 0;
     if (menuOpen) {
-      menuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+      raf = requestAnimationFrame(() => {
+        menuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+      });
     } else if (menuWasOpen.current) {
       toggleRef.current?.focus();
     }
     menuWasOpen.current = menuOpen;
+    return () => cancelAnimationFrame(raf);
   }, [menuOpen]);
 
   return (
@@ -219,10 +251,8 @@ export default function Navbar() {
         aria-modal="true"
         aria-label="Site menu"
         inert={!menuOpen}
-        className={`fixed inset-0 z-40 bg-[#f4f2ee] flex flex-col justify-between px-[var(--gutter)] pt-28 pb-10 overflow-y-auto transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          menuOpen
-            ? "opacity-100 pointer-events-auto visible"
-            : "opacity-0 pointer-events-none invisible"
+        className={`fixed inset-0 z-40 bg-[#f4f2ee] flex flex-col justify-between px-[var(--gutter)] pt-28 pb-10 overflow-y-auto transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          menuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <ol className="list-none m-0 p-0 grid gap-2">

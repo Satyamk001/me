@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { PROJECTS_LIST } from "../data/portfolioData";
 import { useFinePointer } from "../hooks/useFinePointer";
+import TechIcon from "./TechIcon";
 
 export default function ProjectsRail() {
   const [openProjectId, setOpenProjectId] = useState<string>(PROJECTS_LIST[0].id);
@@ -56,6 +57,11 @@ export default function ProjectsRail() {
                   <span className="[writing-mode:vertical-rl] rotate-180 font-bold text-lg tracking-tight text-[#0d0d0d] whitespace-nowrap">
                     {proj.title}
                   </span>
+                  <div className="flex flex-col gap-2 items-center opacity-60">
+                    {proj.techStack.slice(0, 3).map((t) => (
+                      <TechIcon key={t} name={t} size={15} className="w-[15px] h-[15px]" />
+                    ))}
+                  </div>
                   <span className="grid place-items-center w-9 h-9 rounded-full shadow-[inset_0_0_0_1px_rgba(13,13,13,0.15)] text-[#0d0d0d] hover:bg-[#0d0d0d] hover:text-white transition-all">
                     +
                   </span>
@@ -123,9 +129,10 @@ export default function ProjectsRail() {
                           {proj.techStack.map((tech) => (
                             <span
                               key={tech}
-                              className="chip text-[11px] px-2.5 py-1 bg-[#f4f2ee]"
+                              className="chip text-[11px] px-2.5 py-1 bg-[#f4f2ee] inline-flex items-center gap-1.5"
                             >
-                              {tech}
+                              <TechIcon name={tech} size={13} className="w-3.5 h-3.5" />
+                              <span>{tech}</span>
                             </span>
                           ))}
                         </div>

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { PERSONAL_INFO } from "../data/portfolioData";
 import { useFinePointer } from "../hooks/useFinePointer";
+import TechIcon from "./TechIcon";
 
 export default function About() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -109,6 +110,28 @@ export default function About() {
                 Specialized in production GenAI engineering: supervisor-worker multi-agent graphs,
                 hybrid dense/sparse vector retrieval, contextual document compression, and
                 high-throughput event architectures with Kafka and RabbitMQ.
+              </div>
+
+              {/* Core Technologies Spotlight */}
+              <div className="flex flex-wrap gap-1.5 mt-5">
+                {[
+                  "LangGraph",
+                  "LangChain",
+                  "Node.js",
+                  "TypeScript",
+                  "Python",
+                  "Apache Kafka",
+                  "Redis",
+                  "Docker",
+                ].map((tech) => (
+                  <span
+                    key={tech}
+                    className="chip text-[11px] px-2.5 py-1 bg-white shadow-[0_0_0_1px_rgba(13,13,13,0.08)] inline-flex items-center gap-1.5"
+                  >
+                    <TechIcon name={tech} size={13} className="w-3.5 h-3.5" />
+                    <span>{tech}</span>
+                  </span>
+                ))}
               </div>
             </div>
 

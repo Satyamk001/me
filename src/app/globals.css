@@ -306,6 +306,31 @@
     top: 20px;
   }
 
+  /* ---------- Hero title lockup ----------
+   * Scales with its own column (not the viewport) so the line breaks hold
+   * on every screen: "Software Engineer &" / "AI Engineer." */
+  .hero-col {
+    container-type: inline-size;
+  }
+
+  .hero-title {
+    font-size: clamp(44px, 5.8vw, 92px);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.94;
+    color: var(--ink);
+  }
+
+  @supports (container-type: inline-size) {
+    .hero-col {
+      container-type: inline-size;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 18.5cqw, 88px);
+    }
+  }
+
   /* ---------- Scroll-driven reveal ----------
    * Pure CSS, so a browser without support simply shows the content. */
   .rv,
