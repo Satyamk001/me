@@ -96,19 +96,25 @@ export default function Contact() {
     };
   }, []);
 
-  // Generate 8x10 mosaic tiles
+  // Generate 8x10 mosaic tiles with sliced background image coordinates
   const mosaicTiles = [];
   for (let r = 0; r < 10; r++) {
     for (let c = 0; c < 8; c++) {
       const idx = r * 8 + c;
       const delay = Math.round((r + (7 - c)) * 45);
       const rot = ((idx * 17) % 11 - 5) * 3;
+      // 1:1 square image mapped across 8x10 square tiles (10 tiles wide x 10 tiles high)
+      // Horizontally centered across the 10-tile image width (1 tile cropped on left, 1 on right)
+      const bx = ((c + 1) / 9) * 100;
+      const by = (r / 9) * 100;
       mosaicTiles.push(
         <span
           key={idx}
           className="mo-t"
           style={
             {
+              "--bx": `${bx.toFixed(4)}%`,
+              "--by": `${by.toFixed(4)}%`,
               "--d": `${delay}ms`,
               "--rot": `${rot}deg`,
             } as React.CSSProperties
@@ -307,7 +313,13 @@ export default function Contact() {
             </div>
 
             {/* Interactive Mosaic Grid reacting to cursor proximity */}
-            <div ref={mosaicRef} className="mo">
+            <div
+              ref={mosaicRef}
+              className="mo max-w-[360px]"
+              role="img"
+              aria-label={`Interactive portrait mosaic of ${PERSONAL_INFO.name}`}
+              style={{ "--src": "url(/my_image.jpeg)" } as React.CSSProperties}
+            >
               <div className="mo-grid" aria-hidden="true">
                 {mosaicTiles}
               </div>
