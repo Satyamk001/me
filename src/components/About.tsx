@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { PERSONAL_INFO } from "../data/portfolioData";
 import { useFinePointer } from "../hooks/useFinePointer";
 
@@ -202,15 +203,15 @@ export default function About() {
                     <div className="ab-front-body">
                       {/* Avatar Photo Frame with Metallic Bezel */}
                       <div className="ab-photo">
-                        <div className="ab-photo-in">
-                          <div className="w-full h-full bg-gradient-to-b from-[#f4f2ee] to-[#e4e1db] flex flex-col items-center justify-center p-2">
-                            <span className="font-mono text-3xl font-extrabold tracking-tighter text-[#0d0d0d]">
-                              SK
-                            </span>
-                            <span className="font-mono text-[9px] tracking-wider uppercase text-[#8a8781] mt-1">
-                              DEV · AGENTIC
-                            </span>
-                          </div>
+                        <div className="ab-photo-in relative bg-[#0d0d0d] overflow-hidden">
+                          <Image
+                            src={PERSONAL_INFO.avatar}
+                            alt={`${PERSONAL_INFO.name} — Developer ID Photo`}
+                            fill
+                            sizes="128px"
+                            priority
+                            className="object-cover object-center"
+                          />
                         </div>
                       </div>
 

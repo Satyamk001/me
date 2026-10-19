@@ -48,6 +48,7 @@ export interface Achievement {
 export const PERSONAL_INFO = {
   name: "Satyam Kumar",
   title: "Software Engineer & AI Engineer",
+  avatar: "/my_image.jpeg",
   location: "Delhi, India",
   headline: "Software Engineer · MapmyIndia",
   shortBio:
