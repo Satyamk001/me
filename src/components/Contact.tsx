@@ -168,7 +168,7 @@ export default function Contact() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="text-[clamp(22px,3.6vw,50px)] font-bold tracking-tight text-[#0d0d0d] border-b-2 border-[#0d0d0d] hover:text-accent hover:border-accent transition-colors duration-300"
+                className="cn-mail text-[clamp(22px,3.6vw,50px)] font-bold tracking-tight text-[#0d0d0d] hover:text-accent focus-visible:text-accent transition-colors duration-300"
               >
                 {PERSONAL_INFO.email}
               </a>

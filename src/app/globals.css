@@ -1106,6 +1106,24 @@
     display: none;
   }
 
+  /* Single-column layouts (phones + tablets): the lanyard must not pull up
+     into the LinkedIn / GitHub / Résumé action row above it. Drop the
+     desktop negative offset, add breathing room, and hang the card from a
+     shorter strap whose length scales with the viewport. */
+  @media (max-width: 1023px) {
+    .ab-mid {
+      padding-top: 8px;
+    }
+
+    .ab-hang {
+      margin-top: 0;
+    }
+
+    .ab-strap {
+      height: clamp(64px, 9vw, 84px);
+    }
+  }
+
   /* ---------- Interactive mosaic ---------- */
   .mo {
     position: relative;
@@ -1176,6 +1194,51 @@
 
   .cn-l.hop {
     animation: cn-hop 0.6s var(--ease);
+  }
+
+  /* ---------- Email underline ----------
+   * Grows from the left edge on hover/focus, then retracts from the right
+   * edge back to the left when the pointer leaves (the exact reverse).
+   * Touch devices keep the underline visible — they have no hover state. */
+  .cn-mail {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+  }
+
+  .cn-mail::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition: transform 0.42s var(--ease);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .cn-mail::after {
+      transform: scaleX(0);
+    }
+
+    .cn-mail:hover::after {
+      transform: scaleX(1);
+    }
+
+    .cn-mail:focus-visible::after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Reduced motion keeps the underline as a static rule instead of
+     hiding it behind a transition the visitor has opted out of. */
+  @media (prefers-reduced-motion: reduce) {
+    .cn-mail::after {
+      transform: scaleX(1);
+    }
   }
 
   /* ------------------------------------------------------------------ *
