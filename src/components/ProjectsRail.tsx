@@ -136,8 +136,9 @@ export default function ProjectsRail() {
                           <a
                             href={proj.githubUrl}
                             target="_blank"
-                            rel="noreferrer"
-                            className="btn btn-ghost btn-sm"
+                            rel="noopener noreferrer"
+                            className="btn btn-ghost btn-sm group"
+                            aria-label={`View ${proj.title} source code on GitHub (opens in new tab)`}
                           >
                             <svg
                               width="14"
@@ -148,7 +149,21 @@ export default function ProjectsRail() {
                             >
                               <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3" />
                             </svg>
-                            <span>More on GitHub</span>
+                            <span>Explore Repository</span>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                              aria-hidden="true"
+                            >
+                              <path d="M7 17l9.2-9.2M17 17V8H8" />
+                            </svg>
                           </a>
                         </div>
                       )}
@@ -157,19 +172,19 @@ export default function ProjectsRail() {
 
                   {/* Right Column: Illustrative Architecture UI */}
                   <div className="wk-ui" aria-hidden="true">
-                    <div className="p-4 sm:p-5 flex flex-col justify-between h-full">
+                    <div className="p-4 sm:p-5 pb-8 sm:pb-8 flex flex-col justify-between h-full">
                       {/* Window Bar */}
-                      <div className="flex items-center justify-between pb-3 border-b border-[rgba(13,13,13,0.08)]">
-                        <div className="flex items-center gap-1.5">
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4]" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4]" />
-                          <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4]" />
-                          <span className="ml-2 font-mono text-[10px] text-[#6f6b64]">
+                      <div className="flex items-center justify-between gap-2 pb-3 border-b border-[rgba(13,13,13,0.08)]">
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4] shrink-0" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4] shrink-0" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-[#cfcbc4] shrink-0" />
+                          <span className="ml-1.5 font-mono text-[9.5px] text-[#6f6b64] truncate">
                             arch://{proj.id}.graph
                           </span>
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#6f6b64]">
-                          Active Architecture
+                        <span className="font-mono text-[8.5px] uppercase tracking-wider text-[#6f6b64] shrink-0">
+                          Architecture
                         </span>
                       </div>
 
@@ -290,6 +305,15 @@ export default function ProjectsRail() {
                                 </span>
                               </div>
                             </div>
+                            <div className="rounded-md bg-[#0d0d0d] text-white p-2.5 text-[10px]">
+                              <span className="text-[#6f6b64] block text-[8.5px]">$ kafka-consumer --topic chat.dms</span>
+                              <div className="text-accent-lit mt-0.5">
+                                ✓ [socket] peer joined · redis adapter 0.8ms
+                              </div>
+                              <div className="text-white/60 text-[9px] mt-0.5">
+                                Kafka SASL/TLS · Redis pub/sub cluster sync
+                              </div>
+                            </div>
                           </div>
                         )}
 
@@ -320,15 +344,17 @@ export default function ProjectsRail() {
                                 </span>
                               </div>
                             </div>
+                            <div className="rounded-md bg-[#0d0d0d] text-white p-2.5 text-[10px]">
+                              <span className="text-[#6f6b64] block text-[8.5px]">$ docker-compose logs -f consumer</span>
+                              <div className="text-accent-lit mt-0.5">
+                                ✓ [rabbitmq] 1,420 events/sec · CircuitBreaker CLOSED
+                              </div>
+                              <div className="text-white/60 text-[9px] mt-0.5">
+                                MongoDB replica set · 30d TTL auto-pruning active
+                              </div>
+                            </div>
                           </div>
                         )}
-                      </div>
-
-                      {/* Bottom Tag */}
-                      <div className="flex justify-end pt-2">
-                        <span className="font-mono text-[9px] uppercase tracking-wider text-[#6f6b64] bg-white px-2 py-0.5 rounded-full shadow-xs">
-                          Live Architecture
-                        </span>
                       </div>
                     </div>
 

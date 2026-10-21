@@ -4,6 +4,14 @@ import React, { useRef, useEffect } from "react";
 import { ACHIEVEMENTS_LIST } from "../data/portfolioData";
 import TechIcon from "./TechIcon";
 
+/**
+ * "05 — Key metrics".
+ *
+ * The panel pins to the viewport and the card rail travels horizontally as
+ * the page scrolls past it — the same behaviour on desktop and mobile, with
+ * the card nearest the centre of the screen lifting and the counters in it
+ * running up. Only `prefers-reduced-motion` falls back to a swipeable row.
+ */
 export default function Achievements() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -16,68 +24,75 @@ export default function Achievements() {
     const prog = progRef.current;
     if (!sec || !track) return;
 
+    const pin = sec.querySelector<HTMLElement>(".ac-pin");
     const cards = Array.from(track.querySelectorAll<HTMLElement>(".ac-card"));
-    const animatedCards = new Set<HTMLElement>();
-    let maxScroll = 0;
-    let rafId = 0;
+    const numbers = Array.from(track.querySelectorAll<HTMLElement>("[data-to]"));
+    const counted = new Set<HTMLElement>();
 
-    /* Phones and reduced-motion users get a natively swipeable row
-       instead of the pinned horizontal scroll. */
-    const nativeQuery = window.matchMedia("(max-width: 1023px)");
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let maxScroll = 0;
+    let lastWidth = -1;
+    let rafId = 0;
     let native = false;
 
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const countUp = (card: HTMLElement) => {
+      counted.add(card);
+      const el = card.querySelector<HTMLElement>("[data-to]");
+      if (!el) return;
+
+      const target = Number(el.dataset.to);
+      if (!Number.isFinite(target)) return;
+
+      const raw = String(el.dataset.to ?? "");
+      const decimals = (raw.split(".")[1] || "").length;
+      const startedAt = performance.now();
+
+      const step = (now: number) => {
+        const progress = Math.min(1, (now - startedAt) / 1400);
+        // Quartic ease out
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const value = target * eased;
+        el.textContent = decimals ? value.toFixed(decimals) : String(Math.round(value));
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+
+    const resetCounters = () => {
+      counted.clear();
+      numbers.forEach((el) => {
+        el.textContent = "0";
+      });
+    };
+
+    /* Phones and desktop share the pinned rail; reduced motion gets a
+       natively swipeable row instead. */
     const syncMode = () => {
-      native = nativeQuery.matches || motionQuery.matches;
+      native = motionQuery.matches;
       sec.classList.toggle("is-native", native);
+
       if (native) {
         track.style.transform = "";
         sec.style.height = "";
         prog?.style.removeProperty("--p");
         cards.forEach((card) => card.classList.remove("is-near"));
+        numbers.forEach((el) => {
+          el.textContent = String(el.dataset.to);
+        });
       }
       return native;
-    };
-
-    const animateNumber = (card: HTMLElement) => {
-      animatedCards.add(card);
-      const targetEl = card.querySelector<HTMLElement>("[data-to]");
-      if (!targetEl) return;
-      const targetVal = parseFloat(targetEl.dataset.to || "0");
-      const isFloat = targetEl.dataset.to?.includes(".");
-      const startTime = performance.now();
-      const duration = 1400;
-
-      const step = (now: number) => {
-        const progress = Math.min(1, (now - startTime) / duration);
-        // Quartic ease out
-        const eased = 1 - Math.pow(1 - progress, 4);
-        const currentVal = eased * targetVal;
-        targetEl.textContent = isFloat ? currentVal.toFixed(1) : Math.round(currentVal).toString();
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-      };
-      requestAnimationFrame(step);
-    };
-
-    const updateMeasurements = () => {
-      if (native) return;
-      maxScroll = Math.max(0, track.scrollWidth - window.innerWidth + 80);
-      sec.style.height = `calc(100svh + ${maxScroll}px)`;
-      onScroll();
     };
 
     const onScroll = () => {
       rafId = 0;
       if (native) return;
+
       const rect = sec.getBoundingClientRect();
       const scrollRatio = maxScroll > 0 ? Math.min(1, Math.max(0, -rect.top / maxScroll)) : 0;
 
       track.style.transform = `translate3d(${(-scrollRatio * maxScroll).toFixed(1)}px, 0, 0)`;
-      if (prog) {
-        prog.style.setProperty("--p", scrollRatio.toFixed(4));
-      }
+      prog?.style.setProperty("--p", scrollRatio.toFixed(4));
 
       const viewportCenter = window.innerWidth / 2;
       let nearestIdx = 0;
@@ -93,24 +108,41 @@ export default function Achievements() {
           nearestIdx = i;
         }
 
-        // Trigger number animation when card enters viewport
+        // Trigger the number animation when the card enters the viewport
         if (
           cardRect.left < 0.92 * window.innerWidth &&
           rect.top < 0.6 * window.innerHeight &&
-          !animatedCards.has(card)
+          !counted.has(card)
         ) {
-          animateNumber(card);
+          countUp(card);
         }
       }
 
-      const isPinned = rect.top <= 2 && rect.bottom >= window.innerHeight - 2;
+      // Lift the centred card while the section owns the viewport, and as it
+      // scrolls into place, so the rail reads as one continuous move.
+      const pinned = rect.top <= 1 && rect.bottom >= window.innerHeight - 1;
+      const lifted = pinned || rect.top < 0.5 * window.innerHeight;
       cards.forEach((card, idx) => {
-        card.classList.toggle("is-near", isPinned && idx === nearestIdx);
+        card.classList.toggle("is-near", lifted && idx === nearestIdx);
       });
 
       if (counterRef.current) {
         counterRef.current.textContent = String(nearestIdx + 1).padStart(2, "0");
       }
+    };
+
+    const measure = (force = false) => {
+      if (native) return;
+      // Travel distance is width-driven, so an address-bar resize on mobile
+      // does not need to re-measure (and re-measuring would thrash the pin).
+      if (!force && window.innerWidth === lastWidth) {
+        onScroll();
+        return;
+      }
+      lastWidth = window.innerWidth;
+      maxScroll = Math.max(0, track.scrollWidth - window.innerWidth);
+      sec.style.height = `calc(${pin?.offsetHeight || window.innerHeight}px + ${maxScroll}px)`;
+      onScroll();
     };
 
     const requestTick = () => {
@@ -119,24 +151,28 @@ export default function Achievements() {
       }
     };
 
+    const onResize = () => measure();
+
     syncMode();
-    updateMeasurements();
-    const resizeObserver = new ResizeObserver(updateMeasurements);
+    if (!native) resetCounters();
+    measure(true);
+
+    const resizeObserver = new ResizeObserver(() => measure(true));
     resizeObserver.observe(track);
-    window.addEventListener("resize", updateMeasurements);
+    window.addEventListener("resize", onResize);
     window.addEventListener("scroll", requestTick, { passive: true });
 
     const handleModeChange = () => {
-      if (!syncMode()) updateMeasurements();
+      if (syncMode()) return;
+      resetCounters();
+      measure(true);
     };
-    nativeQuery.addEventListener("change", handleModeChange);
     motionQuery.addEventListener("change", handleModeChange);
 
     return () => {
       resizeObserver.disconnect();
-      window.removeEventListener("resize", updateMeasurements);
+      window.removeEventListener("resize", onResize);
       window.removeEventListener("scroll", requestTick);
-      nativeQuery.removeEventListener("change", handleModeChange);
       motionQuery.removeEventListener("change", handleModeChange);
       cancelAnimationFrame(rafId);
     };

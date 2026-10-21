@@ -300,6 +300,16 @@ export default function Navbar() {
           >
             LinkedIn ↗
           </a>
+          <span>·</span>
+          <a
+            href="/Satyam_Kumar_Resume.pdf"
+            download="Satyam_Kumar_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#0d0d0d]"
+          >
+            Résumé (PDF) ↗
+          </a>
         </div>
       </div>
     </>

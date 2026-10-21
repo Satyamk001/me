@@ -246,10 +246,12 @@ export default function Hero({ video }: HeroProps) {
             </a>
 
             <a
-              href="/Satyam_Kumar_Resume.txt"
-              download="Satyam_Kumar_Resume.txt"
+              href="/Satyam_Kumar_Resume.pdf"
+              download="Satyam_Kumar_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-ghost"
-              title="Download Satyam Kumar's Résumé"
+              title="Download Satyam Kumar's Résumé (PDF)"
             >
               <span>Résumé</span>
               <svg

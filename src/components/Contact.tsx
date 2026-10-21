@@ -273,6 +273,33 @@ export default function Contact() {
                   <span className="text-[11px]">↗</span>
                 </a>
               </li>
+
+              <li>
+                <a
+                  href="/Satyam_Kumar_Resume.pdf"
+                  download="Satyam_Kumar_Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost btn-sm"
+                  title="Download Satyam Kumar's Résumé (PDF)"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+                  </svg>
+                  <span>Résumé</span>
+                  <span className="text-[11px] font-mono text-[#6f6b64]">PDF</span>
+                </a>
+              </li>
             </ul>
 
             <p className="mt-8 text-sm text-[#6f6b64]">

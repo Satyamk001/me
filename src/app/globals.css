@@ -1060,7 +1060,18 @@
     box-shadow: var(--hair), var(--shadow-deep);
   }
 
-  /* Small screens / reduced motion: unpin and swipe natively instead. */
+  @media (max-width: 640px) {
+    /* Phones keep the pinned rail — the card just narrows enough that the
+       next one peeks in and the horizontal move reads. */
+    .ac-card {
+      width: min(340px, calc(100vw - var(--gutter) * 2 - 20px));
+      height: 290px;
+      height: clamp(248px, 34svh, 310px);
+      padding: 18px;
+    }
+  }
+
+  /* Reduced motion: unpin and swipe natively instead. */
   .ac.is-native {
     height: auto !important;
   }
@@ -1551,7 +1562,7 @@
   }
 
   .wk-rail {
-    --rw: min(var(--max), 100vw - var(--gutter) * 2);
+    --rw: calc(min(var(--max), 100vw) - var(--gutter) * 2);
     --g: 10px;
     display: flex;
     gap: var(--g);
@@ -1738,6 +1749,13 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), background-color 0.25s var(--ease);
+  }
+
+  .wk-tech .chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -2px rgba(13, 13, 13, 0.12);
+    background: #fff;
   }
 
   .wk-gh {
@@ -1763,34 +1781,28 @@
 
   .wk-ui-label {
     position: absolute;
-    right: 12px;
+    right: 14px;
     bottom: 12px;
     z-index: 2;
     font-family: var(--nf-mono), monospace;
-    font-size: 10px;
+    font-size: 9.5px;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--mute);
-    background: rgba(255, 255, 255, 0.85);
-    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3px 8px;
     border-radius: 999px;
     box-shadow: var(--hair);
+    pointer-events: none;
   }
 
   .wk-head {
     display: none;
   }
 
-  @media (max-width: 1100px) {
-    .wk-body {
-      grid-template-columns: minmax(0, 1fr);
-    }
-    .wk-ui {
-      display: none;
-    }
-  }
-
-  @media (max-width: 900px) {
+  @media (max-width: 1024px) {
     .wk-rail {
       flex-direction: column;
       height: auto;
@@ -1833,7 +1845,7 @@
       inset: auto;
       width: auto;
       display: none;
-      padding: 0 20px 22px;
+      padding: 0 20px 24px;
       grid-template-columns: minmax(0, 1fr);
       height: auto;
     }
@@ -1842,9 +1854,10 @@
     }
     .wk-ui {
       display: block;
-      height: 300px;
+      height: auto;
+      min-height: 320px;
       clip-path: none;
-      margin-top: 16px;
+      margin-top: 20px;
     }
     .wk-feat {
       grid-template-columns: 1fr;
